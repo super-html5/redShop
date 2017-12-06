@@ -1,7 +1,7 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/shoppingcar/index",
+    "pages/shoppingCar/index",
     "pages/user/index"
   ],
   "window": {
@@ -11,26 +11,26 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "selectedColor": "#F5B223",
+    "selectedColor": "#FD8955",
     "color": "#9A9A9A",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "img/home.png",
-        "selectedIconPath": "images/home_s.png"
+        "selectedIconPath": "img/home_s.png"
       },
       {
-        "pagePath": "pages/shoppingcar/index",
+        "pagePath": "pages/shoppingCar/index",
         "text": "购物车",
-        "iconPath": "img/shoppingcar.png",
-        "selectedIconPath": "images/shoppingcar_s.png"
+        "iconPath": "img/shoppingCar.png",
+        "selectedIconPath": "img/shoppingCar_s.png"
       },
       {
         "pagePath": "pages/user/index",
-        "text": "我",
+        "text": "我的",
         "iconPath": "img/user.png",
-        "selectedIconPath": "images/user_s.png"
+        "selectedIconPath": "img/user_s.png"
       }
     ]
   },
