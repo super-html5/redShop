@@ -1,1 +1,61 @@
 /* pages/user/index.wxss */
+.userinfoImg {
+  background:  #FF6319;
+  color: #fff;
+  height: 240rpx;
+}
+
+.userinfo-avatar {
+  width: 160rpx;
+  height: 160rpx;
+  margin: 40rpx 80rpx 40rpx 40rpx;
+  border-radius: 50%;
+  display: block;
+  float: left;
+  border: 1px solid #dedede;
+}
+.userinfoImg .userinfo-nickname {
+  float: left;
+  margin-top: 10rpx;
+  line-height: 240rpx;
+}
+.userinfoImg .userinfo-nickname:nth-of-type(1) {
+  font-weight: bold;
+}
+.usermotto {
+  margin-top: 200px;
+}
+.userinfo{
+  width: 100%;
+  text-align: left;
+}
+.userinfo image{
+  width: 44rpx;
+  height: 44rpx;
+  vertical-align: middle;
+  margin-bottom: 10rpx;
+  margin-right: 20rpx;
+}
+.userinfo>view{
+ padding: 30rpx 40rpx 20rpx 30rpx;
+ border-top: 1px solid #dedede;
+}
+.userinfo>view:last-child{
+ border-bottom: 1px solid #dedede;
+}
+.authentication{
+  float: right;
+  margin-right: 10rpx;
+  color: #aaa;
+}
+.triangle-facing-right {
+  display: inline-block;
+  float: right;
+  border-right: 1.5px solid;
+  border-bottom: 1.5px solid;
+  width: 20rpx;
+  height: 20rpx;
+  color: #bbb;
+  transform: rotate(-45deg);
+  margin-top: .36rem;
+}
