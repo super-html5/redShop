@@ -1,1 +1,31 @@
 /* pages/user/order/order.wxss */
+
+.content {
+  padding-left: 50rpx;
+}
+
+.text_ringht {
+  text-align: right;
+}
+
+.float_left {
+  float: left;
+}
+
+.float_right {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+.button_view {
+  text-align: right;
+  border-radius: 0;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
+.button_view button{
+  margin: 6px 10px 0 0;
+}
