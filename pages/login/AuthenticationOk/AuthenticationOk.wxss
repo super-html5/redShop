@@ -1,0 +1,19 @@
+/* pages/login/AuthenticationOk/AuthenticationOk.wxss */
+.page_padding {
+  padding: 0 30rpx;
+}
+.page_header{
+   text-align: center;
+   margin-top: 140rpx;
+}
+.page_header>image{
+  width: 260rpx;
+  height: 260rpx;
+}
+.orange_color{
+  background: #FF6319;
+  color: #fff;
+}
+.margin_top200{
+  margin-top: 260rpx;
+}

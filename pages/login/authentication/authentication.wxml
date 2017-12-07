@@ -1,0 +1,25 @@
+<!--pages/login/authentication/authentication.wxml-->
+<view class="page page_padding">
+
+  <view class="margin_top40">
+    <view>姓名</view>
+    <view>
+      <input class="tel_input" placeholder="请输入姓名" />
+    </view>
+  </view>
+
+  <view class="margin_top40">
+    <view>身份证号</view>
+    <view>
+      <input class="tel_input" placeholder="请输入身份证号" />
+    </view>
+  </view>
+
+  <view class="readed">
+    <view>我们将根据实名信息,为您购买《用车保险》。 </view>
+  </view>
+
+  <view class="margin_top100">
+    <button class="weui-btn orange_color" bindtap=""> 立即认证</button>
+  </view>
+</view>

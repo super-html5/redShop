@@ -1,2 +1,40 @@
 <!--pages/login/index.wxml-->
-<text>pages/login/index.wxml</text>
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-article">
+      <view class="weui-article__section">
+        <view>
+          <image class="logoImg" src="../../img/logo.png"></image>
+        </view>
+        <view class="weui-article__section">
+          <view class="float_left dot"></view>
+          <view class="weui-article__h3">
+            什么是丹道·小二？</view>
+          <view class="weui-article__p">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </view>
+          <view class="float_left dot"></view>
+          <view class="weui-article__h3">丹道·小二如何收益？</view>
+          <view class="weui-article__p">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+            qui officia deserunt mollit anim id est laborum.
+          </view>
+          <view class="float_left dot"></view>
+          <view class="weui-article__h3">为什么选择丹道酒？</view>
+          <view class="weui-article__p">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+            qui officia deserunt mollit anim id est laborum.
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="page_padding page__bd page__bd_spacing">
+    <view class="weui-footer">
+      <image class="footer_img float_left" src="../../img/line.png"></image>
+      <view class="float_left float_text">健康生活践行者</view>
+      <image class="footer_img float_left" src="../../img/line.png"></image>
+    </view>
+    <button class="weui-btn orange_color" bindtap="">我要加入</button>
+  </view>
+</view>

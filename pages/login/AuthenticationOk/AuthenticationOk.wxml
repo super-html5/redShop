@@ -1,0 +1,9 @@
+<!--pages/login/AuthenticationOk/AuthenticationOk.wxml-->
+<view class="page page_padding">
+  <view class="page_header">
+    <image src="../../../img/success.png"></image>
+  </view>
+ <view class="margin_top200">
+    <button class="weui-btn orange_color" bindtap="toLinkHome"> 立即进货</button>
+  </view>
+</view>

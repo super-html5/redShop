@@ -1,0 +1,73 @@
+/* pages/login/register/register.wxss */
+
+.page_header {
+  text-align: center;
+  padding: 30rpx 0 40rpx 0;
+}
+
+.page_header>image {
+  width:191rpx;
+  height: 119rpx;
+}
+
+.page_padding {
+  padding: 0 30rpx;
+}
+.margin_top40{
+  margin-top: 40rpx;
+}
+.page_padding input {
+  display: block;
+  margin-top: 10rpx;
+  height: 80rpx;
+  border: 1px solid #ff6319;
+  border-radius: 10rpx;
+  text-indent: 20rpx;
+}
+
+.tel_input {
+  width: 100%;
+}
+
+.vcode_input {
+  width: 55%;
+  float: left;
+}
+
+.vcode-btn {
+  width: 40%;
+  float: right;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #ff6319;
+  color: #fff;
+  text-align: center;
+  margin-top: 12rpx;
+  border-radius: 10rpx;
+}
+.readed{
+  clear: both;
+  margin-top: 120rpx;
+}
+.readed>image{
+  width: 56rpx;
+  height: 40rpx;
+  display: block;
+  float: left;
+}
+.readed view{
+ font-size: 32rpx;
+ height: 40rpx;
+ line-height: 40rpx;
+}
+.orange_color{
+  background: #FF6319;
+  color: #fff;
+}
+navigator{
+  color: #FF6319;
+  display: inline-block;
+}
+.margin_top100{
+  margin-top: 160rpx;
+}
