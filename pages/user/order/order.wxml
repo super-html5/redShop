@@ -110,7 +110,7 @@
             <image class="weui-media-box__thumb" src="{{icon60}}" />
           </view>
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg text_ringht content">
-            <view class="weui-media-box__title">等待买家收货</view>
+            <view class="weui-media-box__title">交易成功</view>
             <view class="weui-media-box__title">
               <text class="float_left">商品名称</text>
               <text>￥50.00</text> </view>
