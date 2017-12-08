@@ -12,11 +12,11 @@
     "pages/login/authentication/authentication",
     "pages/login/index",
     "pages/login/register/register",
-    "pages/login/index",
 
 
 
     "pages/index/index",
+    "pages/index/details",
     "pages/shoppingCar/index"
 
 
