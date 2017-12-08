@@ -10,3 +10,15 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+
+.body_bg{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: #e0e0e0;
+  z-index: -2;
+}

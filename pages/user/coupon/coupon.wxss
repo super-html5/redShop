@@ -1,1 +1,14 @@
 /* pages/user/coupon/coupon.wxss */
+
+.paddig_lR {
+  padding: 40rpx 30rpx 0 30rpx;
+}
+.couponBox{
+  padding: 30rpx;
+  height: 100rpx;
+  border-bottom: 1px solid #FF6319;
+  margin-bottom: 20rpx;
+}
+.couponTim{
+  font-size: 28rpx;
+}
