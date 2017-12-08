@@ -5,6 +5,7 @@
     "pages/user/order/order",
     "pages/user/index",
 
+
     "pages/user/coupon/coupon",
     "pages/user/share/share",
     "pages/login/AuthenticationOk/AuthenticationOk",
