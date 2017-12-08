@@ -16,7 +16,7 @@
 
 
     "pages/index/index",
-    "pages/index/details",
+    "pages/index/details/details",
     "pages/shoppingCar/index"
 
 
