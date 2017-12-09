@@ -14,7 +14,7 @@
   line-height: 2.3em;
 }
 
-.navBar_line_height{
+.navBar_line_height {
   line-height: 2.42em;
 }
 
@@ -27,4 +27,31 @@
   top: 15rpx;
   width: 60rpx;
   height: 60rpx;
+}
+
+.shop__list__container {
+  padding-top: 5rpx;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.shop__list {
+  float: left;
+  width: 50%;
+  margin-bottom: 20rpx;
+}
+
+.shop__list >image {
+  width: 95%;
+  height: 260rpx;
+}
+
+.shop__text {
+  text-align: left;
+  margin-left: 40rpx;
+}
+
+.shop__text__price{
+  font-size: 34rpx;
 }

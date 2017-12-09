@@ -26,32 +26,37 @@
         <view id='2' class="placeholder {{activeIndex == 2 ? 'active' : ''}}" bindtap='tabClick'>
           <text>销量</text>
           <!-- <image src="{{activeIndex != 2 ? defUrl : defUrl_big}}" class='def' /> -->
-          <image 
-          wx:if="{{activeIndex == 2 && isSecondClick}}" 
-          src="{{defUrl_big}}" class='def' />
-          <image 
-          wx:elif="{{activeIndex == 2 && !isSecondClick}}" 
-          src="{{defUrl_small}}" class='def' />
+          <image wx:if="{{activeIndex == 2 && isSecondClick}}" src="{{defUrl_big}}" class='def' />
+          <image wx:elif="{{activeIndex == 2 && !isSecondClick}}" src="{{defUrl_small}}" class='def' />
           <image wx:else src="{{defUrl}}" class='def' />
         </view>
       </view>
       <view class="weui-flex__item">
         <view id='3' class="placeholder {{activeIndex == 3 ? 'active' : ''}}" bindtap='tabClick'>
           <text>价格</text>
-           <image 
-          wx:if="{{activeIndex == 3 && isThirdClick}}" 
-          src="{{defUrl_big}}" class='def' />
-          <image 
-          wx:elif="{{activeIndex == 3 && !isThirdClick}}" 
-          src="{{defUrl_small}}" class='def' />
+          <image wx:if="{{activeIndex == 3 && isThirdClick}}" src="{{defUrl_big}}" class='def' />
+          <image wx:elif="{{activeIndex == 3 && !isThirdClick}}" src="{{defUrl_small}}" class='def' />
           <image wx:else src="{{defUrl}}" class='def' />
         </view>
       </view>
     </view>
     <!-- navbar end-->
 
-    <view>
+    <!-- shop -->
+    <view class='shop__list__container'>
+      <view class='shop__list' wx:for="{{[1,2,3,4,5,6,7]}}" wx:key='*this'>
+        <image src='../../img/listDef.png' />
+        <view class='shop__text'>
+          <view>商品名称</view>
+          <view class='active shop__text__price'>
+            <text>26</text>
+            <text style='margin-left:15rpx;'>元/瓶</text>
+          </view>
+        </view>
+      </view>
     </view>
+   <!-- shop end -->
+
   </view>
 </view>
 
