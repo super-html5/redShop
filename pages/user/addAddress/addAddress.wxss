@@ -1,1 +1,18 @@
 /* pages/user/addAddress/addAddress.wxss */
+.weui-cells::before{
+   border-top: none;
+}
+.one_weui-cells::before{
+   border-top: 1rpx solid #d9d9d9;
+}
+._weui-label{
+  color: #666;
+  margin-right: 20rpx;
+}
+.none_weui-cells::before{
+   border-top: none;
+}
+.orange_color{
+  background: #FF6319;
+  color: #fff;
+}

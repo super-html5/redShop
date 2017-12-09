@@ -2,15 +2,23 @@
 @import 'libs/css/weui.wxss';
 
 .container {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  min-height: 100%;
+  align-items: center;
   justify-content: space-between;
-  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
-}
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
 
-.page-body {
+.body_bg{
+  position: fixed;
+  height: 100%;
   width: 100%;
-  flex-grow: 1;
-  overflow-x: hidden;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: #e0e0e0;
+  z-index: -2;
 }

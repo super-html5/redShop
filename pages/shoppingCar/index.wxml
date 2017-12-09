@@ -1,2 +1,71 @@
 <!--pages/shoppingcar/index.wxml-->
-<text>pages/shoppingcar/index.wxml</text>
+<view class="body_bg"></view>
+<!-- 购物车为空 -->
+
+<!-- <view class="page page_padding">
+  <view class="page_header">
+    <image src="../../img/shoppingCarK.png"></image>
+    <view>购物车还是空的</view>
+    <view>去挑选几件中意的商品吧</view>
+  </view>
+</view> -->
+
+
+<!-- 购物车结算 -->
+<view class="page padding_b">
+
+  <view class="page__hd title">
+    <view class="float_left">
+      <radio color="#FF6319" checked="true" />  全选/取消
+      </view>
+    <view class="page__desc float_right">编辑</view>
+  </view>
+
+  <view class="page__bd">
+    <view class="weui-panel weui-panel_access">
+
+      <view class="weui-panel__bd">
+        <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <radio color="#FF6319" checked="true" />
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="{{icon60}}" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg text_right">
+            <view class="weui-media-box__title">
+              <text class="float_left">商品名称</text>
+              <text>￥50.00</text> </view>
+            <view class="weui-media-box__title">
+              <text class="float_left">500ml/瓶</text>
+              <text>*1</text>
+            </view>
+          </view>
+        </navigator>
+
+
+        <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <radio color="#FF6319" />
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="{{icon60}}" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg text_right">
+            <view class="weui-media-box__title">
+              <text class="float_left">商品名称</text>
+              <text>￥50.00</text> </view>
+            <view class="weui-media-box__title">
+              <text class="float_left">500ml/瓶</text>
+              <text>*1</text>
+            </view>
+          </view>
+        </navigator>
+
+        <view class="bottom_way">
+          <view class="float_left text_right fl_left">合计：
+            <text>￥50.00</text>
+          </view>
+          <view class="float_left fl_right">结算</view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>

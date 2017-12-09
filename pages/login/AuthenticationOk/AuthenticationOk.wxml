@@ -1,4 +1,5 @@
 <!--pages/login/AuthenticationOk/AuthenticationOk.wxml-->
+<view class="body_bg"></view>
 <view class="page page_padding">
   <view class="page_header">
     <image src="../../../img/success.png"></image>
