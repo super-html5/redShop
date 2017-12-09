@@ -15,6 +15,7 @@
     <!-- swiper end -->
 
 
+    <!--shop info -->
     <view class='details__shop__content'>
       <view>
         「
@@ -26,8 +27,10 @@
         <text> ( <text>5</text>瓶起 )</text>
       </view>
     </view>
+    <!--shop info end -->
 
 
+    <!-- shop send -->
     <view class="weui-flex">
       <view class="weui-flex__item">
         <view class="placeholder">
@@ -47,7 +50,7 @@
         </view>
       </view>
     </view>
-
+    <!-- shop send end -->
 
 
 
