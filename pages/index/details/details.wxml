@@ -1,2 +1,74 @@
-<!--pages/index/details/details.wxml-->
-<text>pages/index/details/details.wxml</text>
+<!--index.wxml-->
+<view class='container'>
+  <view class='page-body'>
+
+    <!-- swiper -->
+    <view class="swiper">
+      <swiper indicator-dots="{{swiperData.indicatorDots}}" autoplay="{{swiperData.autoplay}}" interval="{{swiperData.interval}}" duration="{{swiperData.duration}}">
+        <block wx:for="{{imgUrls}}" wx:key="*this">
+          <swiper-item>
+            <image src="{{item}}" class="slide-image" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <!-- swiper end -->
+
+
+    <view class='details__shop__content'>
+      <view>
+        「
+        <text>商品名称</text>」
+      </view>
+      <view class='details__shop__price__content'>
+        <text class='details__shop__price'>¥<text>26</text></text>
+        <text class='details__shop__wholesale__price'>批发价 : <text>26</text>元</text>
+        <text> ( <text>5</text>瓶起 )</text>
+      </view>
+    </view>
+
+
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <view class="placeholder">
+          <text>月销 </text>
+          <text>999</text>
+        </view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">
+          <text>快递 </text>
+          <text>免运费</text>
+        </view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">
+          <text>丹道酒业出品</text>
+        </view>
+      </view>
+    </view>
+
+
+
+
+    <!-- navbar  -->
+    <view class="page__bd">
+      <view class="weui-tab">
+        <view class="weui-navbar">
+          <view id="1" class="weui-navbar__item  weui-navbar__border__right {{activeIndex == 1 ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">图文详情</view>
+          </view>
+          <view id="2" class="weui-navbar__item {{activeIndex == 2 ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">产品参数</view>
+          </view>
+        </view>
+        <view class="weui-tab__panel">
+          <view class="weui-tab__content" hidden="{{activeIndex != 1}}">选项一的内容</view>
+          <view class="weui-tab__content" hidden="{{activeIndex != 2}}">选项二的内容</view>
+        </view>
+      </view>
+    </view>
+    <!-- navbar end-->
+
+  </view>
+</view>
