@@ -1,12 +1,60 @@
 <!--index.wxml-->
-<swiper indicator-dots="{{indicatorDots}}"
-  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-  <block wx:for="{{imgUrls}}" wx:for-item="item" wx:key="navItems">
-    <swiper-item>
-      <image src="{{item}}" class="slide-image"/>
-    </swiper-item>
-  </block>
-</swiper>
+<view class='container'>
+  <view class='page-body'>
+
+    <!-- swiper -->
+    <view class="swiper">
+      <swiper indicator-dots="{{swiperData.indicatorDots}}" autoplay="{{swiperData.autoplay}}" interval="{{swiperData.interval}}" duration="{{swiperData.duration}}">
+        <block wx:for="{{imgUrls}}" wx:key="*this">
+          <swiper-item>
+            <image src="{{item}}" class="slide-image" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <!-- swiper end -->
+
+
+    <!-- navbar  -->
+    <view class="index_navBar weui-flex">
+      <view class="weui-flex__item">
+        <view id='1' class="placeholder navBar_line_height {{activeIndex == 1 ? 'active' : ''}}" bindtap='tabClick'>
+          <text>综合</text>
+        </view>
+      </view>
+      <view class="weui-flex__item">
+        <view id='2' class="placeholder {{activeIndex == 2 ? 'active' : ''}}" bindtap='tabClick'>
+          <text>销量</text>
+          <!-- <image src="{{activeIndex != 2 ? defUrl : defUrl_big}}" class='def' /> -->
+          <image 
+          wx:if="{{activeIndex == 2 && isSecondClick}}" 
+          src="{{defUrl_big}}" class='def' />
+          <image 
+          wx:elif="{{activeIndex == 2 && !isSecondClick}}" 
+          src="{{defUrl_small}}" class='def' />
+          <image wx:else src="{{defUrl}}" class='def' />
+        </view>
+      </view>
+      <view class="weui-flex__item">
+        <view id='3' class="placeholder {{activeIndex == 3 ? 'active' : ''}}" bindtap='tabClick'>
+          <text>价格</text>
+           <image 
+          wx:if="{{activeIndex == 3 && isThirdClick}}" 
+          src="{{defUrl_big}}" class='def' />
+          <image 
+          wx:elif="{{activeIndex == 3 && !isThirdClick}}" 
+          src="{{defUrl_small}}" class='def' />
+          <image wx:else src="{{defUrl}}" class='def' />
+        </view>
+      </view>
+    </view>
+    <!-- navbar end-->
+
+    <view>
+    </view>
+  </view>
+</view>
+
 
 
 <!-- <button bindtap='linkDetails'>sdsd</button> -->
