@@ -8,14 +8,14 @@
 }
 
 .placeholder {
-  margin: 5px;
   padding: 0 10px;
   text-align: center;
-  line-height: 2.3em;
+  line-height: 2em;
+  font-size: 35rpx;
 }
 
 .navBar_line_height {
-  line-height: 2.42em;
+  padding-top: 15rpx;
 }
 
 .active {
@@ -24,7 +24,7 @@
 
 .def {
   position: relative;
-  top: 15rpx;
+  top: 18rpx;
   width: 60rpx;
   height: 60rpx;
 }

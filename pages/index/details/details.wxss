@@ -2,6 +2,7 @@
   width: 100%;
   height: 100%;
 }
+
 .placeholder {
   margin: 5px;
   padding: 0 10px;
@@ -10,9 +11,11 @@
   font-size: 30rpx;
   color: #ccc;
 }
-.weui-flex{
-  border-bottom: 10rpx solid #ccc
+
+.weui-flex {
+  border-bottom: 10rpx solid #ccc;
 }
+
 swiper {
   height: 600rpx;
 }
@@ -60,4 +63,63 @@ swiper {
 
 .weui-navbar__border__right {
   border-right: 1rpx solid #ccc;
+}
+
+.weui-navbar__item {
+  padding: 6px 0;
+}
+
+.details__bottom__bar {
+  width: 100%;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  background-color: rgb(246, 76, 22);
+}
+
+.details__bottom__bar > view {
+  text-align: center;
+  height: 100rpx;
+  display: inline-block;
+  max-width: 8em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+.details__bottom__bar__image {
+  width: 60rpx;
+  height: 60rpx;
+  padding: 20rpx 10rpx 10rpx 10rpx;
+}
+
+.details__bottom__bar__share__shop {
+  width: 15%;
+  border-right: 1rpx solid #ccc;
+  border-top: 1rpx solid #ccc;
+  text-align: center;
+  background-color: white;
+}
+
+.details__bottom__bar__addShop {
+  width: 34%;
+  color: white;
+  background-color: rgb(247, 119, 28);
+}
+
+.details__bottom__bar__addShop > text {
+  line-height: 2.5em;
+  padding: 20rpx;
+}
+
+.details__bottom__bar__buy {
+  width: 34%;
+  color: white;
+  background-color: rgb(246, 76, 22);
+}
+
+.details__bottom__bar__buy > text {
+  line-height: 2.5em;
+  padding: 20rpx 20rpx 20rpx 30rpx;
 }

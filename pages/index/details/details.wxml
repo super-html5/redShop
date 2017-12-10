@@ -73,5 +73,22 @@
     </view>
     <!-- navbar end-->
 
+
+    <!-- bottomBar -->
+    <view class='details__bottom__bar'>
+      <view class='details__bottom__bar__share__shop'>
+        <image class='details__bottom__bar__image' src='../../../img/share.png' />
+      </view>
+      <view class='details__bottom__bar__share__shop'>
+        <image class='details__bottom__bar__image' src='../../../img/shop.png' />
+      </view>
+      <view class='details__bottom__bar__addShop'>
+        <text>加入购物车</text>
+      </view>
+      <view class='details__bottom__bar__buy'>
+        <text>立即购买</text>
+      </view>
+    </view>
+    <!-- bottomBar end -->
   </view>
 </view>
