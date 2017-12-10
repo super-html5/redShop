@@ -3,6 +3,10 @@
   height: 100%;
 }
 
+.mg__bottom {
+  margin-bottom: 100rpx;
+}
+
 .placeholder {
   margin: 5px;
   padding: 0 10px;
@@ -81,11 +85,11 @@ swiper {
   text-align: center;
   height: 100rpx;
   display: inline-block;
-  max-width: 8em;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   word-wrap: normal;
+  z-index: 0;
 }
 
 .details__bottom__bar__image {
@@ -122,4 +126,87 @@ swiper {
 .details__bottom__bar__buy > text {
   line-height: 2.5em;
   padding: 20rpx 20rpx 20rpx 30rpx;
+}
+
+.details__bottom__buyCard {
+  width: 100%;
+  height: 420rpx;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  z-index: 600;
+}
+
+.details__bottom__buyCard > view {
+  width: 100%;
+}
+
+.details__bottom__buyCard__shop {
+  height: 200rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+
+.details__bottom__buyCard__shop >image {
+  position: relative;
+  width: 200rpx;
+  height: 150rpx;
+  top: 20rpx;
+  left: 35rpx;
+}
+
+.details__bottom__buyCard__shop >text {
+  position: relative;
+  left: 100rpx;
+  color: rgb(246, 76, 22);
+}
+
+.details__bottom__buyCard__num {
+  height: 100rpx;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+.details__bottom__buyCard__text {
+  line-height: 3em;
+  padding-left: 20rpx;
+}
+
+.details__bottom__buyCard__jz {
+  float: right;
+}
+
+.details__bottom__buyCard__jz > text {
+  line-height: 3em;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.details__bottom__buyCard__btn {
+  height: 100rpx;
+  background-color: rgb(246, 76, 22);
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  text-align: center;
+}
+
+.details__bottom__buyCard__btn >text {
+  color: white;
+  line-height: 2.4em;
+}
+
+.body_bg{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #000;
+  opacity: 0.7;
+  z-index: 100;
 }

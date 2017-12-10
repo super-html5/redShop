@@ -55,7 +55,7 @@
 
 
     <!-- navbar  -->
-    <view class="page__bd">
+    <view class="page__bd mg__bottom">
       <view class="weui-tab">
         <view class="weui-navbar">
           <view id="1" class="weui-navbar__item  weui-navbar__border__right {{activeIndex == 1 ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
@@ -85,10 +85,34 @@
       <view class='details__bottom__bar__addShop'>
         <text>加入购物车</text>
       </view>
-      <view class='details__bottom__bar__buy'>
+      <view class='details__bottom__bar__buy' bindtap='justBuy'>
         <text>立即购买</text>
       </view>
     </view>
     <!-- bottomBar end -->
+
+
+
+    <!-- buy card -->
+    <view class='details__bottom__buyCard' hidden="{{isBuyCard == false}}">
+      <view class='details__bottom__buyCard__shop'>
+        <image src='../../../img/listDef.png' />
+        <text>¥ 26.00</text>
+      </view>
+      <view class='details__bottom__buyCard__num'>
+        <text class='details__bottom__buyCard__text'>购买数量</text>
+        <view class='details__bottom__buyCard__jz'>
+          <text style='color:rgb(246, 76, 22)'>-</text>
+          <text style='color:rgb(135, 135, 135)'>1</text>
+          <text style='color:rgb(246, 76, 22); padding-right:50rpx;'>+</text>
+        </view>
+      </view>
+      <view class='details__bottom__buyCard__btn'>
+        <text>确定</text>
+      </view>
+    </view>
+    <!-- buy end -->
+
+    <view class='body_bg' hidden="{{isBuyCard == false}}" bindtap='isHidden'></view>
   </view>
 </view>

@@ -8,6 +8,7 @@ Page({
   data: {
     tabs: ["图文详情", "产品参数"],
     activeIndex: 1,
+    isBuyCard: false
   },
 
   /**
@@ -56,5 +57,21 @@ Page({
     this.setData({
       activeIndex: e.currentTarget.id
     });
+  },
+  /**
+   * 立即购买
+   */
+  justBuy: function () {
+    this.setData({
+      isBuyCard: true
+    })
+  },
+  /**
+   * 遮照层消失
+   */
+  isHidden: function () {
+    this.setData({
+      isBuyCard: false
+    })
   }
 })
