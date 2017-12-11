@@ -1,2 +1,69 @@
-<!--pages/index/confirm/confirm.wxml-->
-<text>pages/index/confirm/confirm.wxml</text>
+<view class='container'>
+  <view class='page-body'>
+    <!-- express -->
+    <view class='confirm__express__info'>
+      <text>快递送货</text>
+      <image class='confirm__express__success' src='../../../img/success.png' />
+    </view>
+    <!-- express end -->
+
+
+    <!-- address -->
+    <view class='confirm__address__info'>
+      <text style='display:block'>收货人 : 朱燕妮 <text class='confirm__address__tel'>15319781855</text></text>
+      <text>收货地址 : 陕西省西安市碑林区陕西省西安市碑林区</text>
+    </view>
+    <!-- address end -->
+
+    <!-- choose -->
+    <view class='confirm__express__info'>
+      <text>上门自提</text>
+      <image class='confirm__express__success' src='../../../img/unsuccess.png' />
+    </view>
+    <!-- choose end -->
+
+    <!-- shop info -->
+    <view class='confirm__shop__info'>
+      <view class='confirm__shop__image'>
+        <image src='../../../img/listDef.png' />
+      </view>
+      <view class='confirm__shop__name'>
+        <text>商品名称商品名称商品名称500ml/瓶</text>
+      </view>
+      <view class='confirm__shop__num'>
+        <view>¥ 1180.00</view>
+        <view style='color:rgb(135, 135, 135)'>x1</view>
+      </view>
+    </view>
+    <!-- shop info end -->
+
+    <!-- num -->
+    <view class='details__bottom__buyCard__num'>
+      <text class='details__bottom__buyCard__text'>购买数量</text>
+      <view class='details__bottom__buyCard__jz'>
+        <text data-status='subtraction' style='color:rgb(246, 76, 22)' bindtap='jzNum'>-</text>
+        <text style='color:rgb(135, 135, 135)'>{{shoppingNumber}}</text>
+        <text data-status='addition' style='color:rgb(246, 76, 22); padding-right:50rpx;' bindtap='jzNum'>+</text>
+      </view>
+    </view>
+    <!-- num end -->
+
+    <!-- coupon -->
+    <view class='confirm__coupon'>
+      <text class='confirm__coupon__text'>使用优惠券</text>
+      <text class='confirm__coupon__num'>-10.00</text>
+    </view>
+    <!-- coupon end -->
+
+
+    <view class='confirm__bottom'>
+      <view class='confirm__bottom__left'>
+        <text>共X件 , 合计 : <text style='color:rgb(246, 76, 22)'>100.00</text></text>
+      </view>
+      <view class='confirm__bottom__right'>
+        <text>提交订单</text>
+      </view>
+    </view>
+    <view class='body_bg'></view>
+  </view>
+</view>
