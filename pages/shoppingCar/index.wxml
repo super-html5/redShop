@@ -31,7 +31,7 @@
             <image class="weui-media-box__thumb" src="../../img/listDef.png" />
           </view>
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg text_right">
-            <navigator url="../details/details?id={{item.id}}" hover-class="weui-cell_active">
+            <navigator url="/pages/index/details/details?id={{item.id}}" hover-class="weui-cell_active">
               <view class="weui-media-box__title">
                 <text class="float_left">{{item.title}}{{item.title}}{{item.title}}</text>
                 <text class="float_right">￥{{item.price}}</text>
@@ -57,7 +57,7 @@
           <view class="text_right fl_left">合计￥：
             <text class="sumPrice">{{totalPrice}}</text>
           </view>
-          <view wx:if="{{editOrComplete==='编辑'}}" class="fl_right" bindtap=''>结算</view>
+          <view wx:if="{{editOrComplete==='编辑'}}" class="fl_right" bindtap='toLinkDetails'>结算</view>
           <view wx:if="{{editOrComplete==='完成'}}" class="fl_right delbgColor" bindtap='toDelCount'>删除</view>
         </view>
       </view>

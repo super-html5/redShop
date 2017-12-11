@@ -127,6 +127,11 @@ Page({
       this.getTotalPrice();           // 重新计算总价格
     }
   },
+  toLinkDetails:function(){
+    wx:wx.navigateTo({
+      url: '/pages/index/confirm/confirm'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
