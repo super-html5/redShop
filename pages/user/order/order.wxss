@@ -9,7 +9,14 @@
 }
 
 .float_left {
+  text-align: left;
   float: left;
+  display: block;
+  width:400rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
 }
 
 .float_right {
@@ -31,17 +38,3 @@
   margin: 6px 10px 0 0;
 }
 
-.weui-media-box__left {
-  min-width: 450rpx;
-  text-align: left;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  word-wrap: normal;
-  display: inline-block;
-}
-
-.weui-media-box__right {
-  min-width: 100rpx;
-  float: right;
-}
