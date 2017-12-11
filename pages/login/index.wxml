@@ -7,6 +7,7 @@
         <view>
           <image class="logoImg" src="../../img/logo.png"></image>
         </view>
+
         <view class="weui-article__section">
           <view class="float_left dot"></view>
           <view class="weui-article__h3">
