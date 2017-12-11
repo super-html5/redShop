@@ -1,36 +1,42 @@
 /* pages/shoppingcar/index.wxss */
+
 .page_padding {
   padding: 0 30rpx;
 }
-.page_header{
-   text-align: center;
-   margin-top: 240rpx;
-   color: #999;
+
+.page_header {
+  text-align: center;
+  margin-top: 240rpx;
+  color: #999;
 }
-.page_header>image{
+
+.page_header>image {
   width: 200rpx;
   height: 200rpx;
 }
 
-
-.padding_b{
+.padding_b {
   padding-bottom: 100rpx;
 }
-.title{
+
+.title {
   height: 80rpx;
   padding: 0 30rpx;
   line-height: 80rpx;
 }
-.text_right{
+.text_right {
   text-align: right;
 }
-.float_left{
+
+.float_left {
   float: left;
 }
-.float_right{
+
+.float_right {
   float: right;
 }
-.bottom_way{
+
+.bottom_way {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -39,17 +45,32 @@
   line-height: 100rpx;
   z-index: 99;
 }
-.fl_left{
+
+.fl_left {
   width: 70%;
   background: #fff;
 }
-.sumPrice{
-  color: #FF6319;
+
+.sumPrice {
+  color: #ff6319;
   margin-right: 10rpx;
 }
-.fl_right{
+
+.fl_right {
   width: 30%;
   text-align: center;
   color: #fff;
-  background: #FF6319;
+  background: #ff6319;
+}
+
+.details__bottom__buyCard__jz {
+  text-align: left;
+  margin-top: 20rpx;
+}
+
+.details__bottom__buyCard__jz > text {
+  padding-right: 60rpx;
+}
+.delbgColor{
+  background: #f00;
 }
