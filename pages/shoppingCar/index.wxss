@@ -33,7 +33,7 @@
   display: block;
   float: left;
   text-align: left;
-  width: 330rpx;
+  width: 300rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -42,6 +42,7 @@
 
 .float_right {
   float: right;
+  min-width: 100rpx;
 }
 
 .bottom_way {
@@ -84,4 +85,10 @@
 
 .delbgColor {
   background: #f00;
+}
+.weui-media-box__hd_in-appmsg{
+  width: 80px;
+}
+.weui-media-box__title{
+  font-size: 30rpx;
 }

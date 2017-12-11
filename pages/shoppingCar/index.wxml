@@ -26,9 +26,9 @@
       <view class="weui-panel__bd">
 
         <view wx:for="{{carts}}" class="weui-media-box weui-media-box_appmsg margin_b">
-          <radio color="#FF6319" checked="{{item.selected}}" bindtap="selectList" data-index="{{index}}"  />
+          <radio color="#FF6319" checked="{{item.selected}}" bindtap="selectList" data-index="{{index}}" />
           <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-            <image class="weui-media-box__thumb" src="{{item.image}}" />
+            <image class="weui-media-box__thumb" src="../../img/listDef.png" />
           </view>
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg text_right">
             <navigator url="../details/details?id={{item.id}}" hover-class="weui-cell_active">
