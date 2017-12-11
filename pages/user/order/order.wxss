@@ -26,6 +26,22 @@
   border-top: 1px solid #e0e0e0;
   border-bottom: 1px solid #e0e0e0;
 }
-.button_view button{
+
+.button_view button {
   margin: 6px 10px 0 0;
+}
+
+.weui-media-box__left {
+  min-width: 450rpx;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  display: inline-block;
+}
+
+.weui-media-box__right {
+  min-width: 100rpx;
+  float: right;
 }

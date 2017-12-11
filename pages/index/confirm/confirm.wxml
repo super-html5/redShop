@@ -18,7 +18,7 @@
     <!-- choose -->
     <view class='confirm__express__info'>
       <text>上门自提</text>
-      <image class='confirm__express__success' src='../../../img/unsuccess.png' />
+      <image class='confirm__express__success' src='{{isSendUrl}}' bindtap='isSend'/>
     </view>
     <!-- choose end -->
 
