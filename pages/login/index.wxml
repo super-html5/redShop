@@ -12,19 +12,17 @@
           <view class="weui-article__h3">
             什么是丹道·小二？</view>
           <view class="weui-article__p">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+           丹道·小二是数以万计的快车、专车、出租车司机的继承,他们有很强的互联网思维，他们通过智慧的共享后备车厢,成为丹道酒业的流动小仓库,在空闲的时间跑单的时候,在线接单,在线卖酒的一群人。
           </view>
           <view class="float_left dot"></view>
           <view class="weui-article__h3">丹道·小二如何收益？</view>
           <view class="weui-article__p">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-            qui officia deserunt mollit anim id est laborum.
+           丹道·小二卖酒利润说明：丹道致诚12年，零售价39元，小二价26元，单瓶利润13元,一箱利润324元，相当于无添加任何成本的前提下，跑5次机场的收益。
           </view>
           <view class="float_left dot"></view>
           <view class="weui-article__h3">为什么选择丹道酒？</view>
           <view class="weui-article__p">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-            qui officia deserunt mollit anim id est laborum.
+           丹道酒业从成立之初就秉持为消费者提供“既适合中国人饮酒的口感，又更营养健康的酒”的健康理念,制定了HNP法则,丹道酒业旗下所有产品均不含任何添加剂,零甲醛、零金属，入口更顺,饮后无负担。
           </view>
         </view>
       </view>
@@ -36,6 +34,6 @@
       <view class="float_left float_text">健康生活践行者</view>
       <image class="footer_img float_left" src="../../img/line.png"></image>
     </view>
-    <button class="weui-btn orange_color" bindtap="">我要加入</button>
+    <button class="weui-btn orange_color" bindtap="toLinkRegister">我要加入</button>
   </view>
 </view>
