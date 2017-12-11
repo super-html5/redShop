@@ -7,7 +7,11 @@ Page({
   data: {
 
   },
-
+  toLinkAut:function(){
+    wx.navigateTo({
+      url: '../../login/authentication/authentication',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

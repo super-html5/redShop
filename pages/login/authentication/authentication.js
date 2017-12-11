@@ -7,7 +7,11 @@ Page({
   data: {
   
   },
-
+  toLinkAutOk: function () {
+    wx.navigateTo({
+      url: '../../login/AuthenticationOk/AuthenticationOk',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,24 +1,19 @@
 {
   "pages": [
+    "pages/login/index",
+    "pages/index/index",
     "pages/index/confirm/confirm",
     "pages/index/details/details",
-    
     "pages/user/order/order",
-    
-    
     "pages/shoppingCar/index",
     "pages/user/share/share",
     "pages/login/register/register",
     "pages/login/authentication/authentication",
     "pages/login/AuthenticationOk/AuthenticationOk",
-    "pages/login/index",
     "pages/user/index",
-    
     "pages/user/address/address",
     "pages/user/addAddress/addAddress",
     "pages/user/coupon/coupon"
-    
-    
   ],
   "window": {
     "backgroundTextStyle": "light",
