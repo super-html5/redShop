@@ -1,26 +1,57 @@
-//index.js
+const getShoppingListUrl = require('../../config').getShoppingList
+const getIndexTopimagesUrl = require('../../config').getIndexTopimages
+
 //获取应用实例
 const app = getApp()
 
 Page({
   data: {
-    imgUrls: [],
+    imgDataList: [],
     swiperData: {},
     defUrl: '../../img/def.png',
     defUrl_small: '../../img/def-small.png',
     defUrl_big: '../../img/def-big.png',
     activeIndex: 1,
     isSecondClick: false,
-    isThirdClick: false
+    isThirdClick: false,
+    shopListInfo: [],
   },
   onLoad: function () {
     this.setImageData();
     this.setSwiperData();
+    this.getShoppingList('createTime', 'asc');
   },
 
-  linkDetails: function () {
+  /**
+   * 获取商品列表
+   */
+  getShoppingList: function (orderBy, sortOrder) {
+    wx.showLoading();
+    var that = this;
+    wx.request({
+      url: getShoppingListUrl + '?pageNumber=1&pageSize=50&orderBy=' + orderBy + '&sortOrder=' + sortOrder,
+      method: 'GET',
+      header: {
+        'content-type': 'application/json',
+        'token_id': 'e875b7487251426dbb665d4cbdd7a375'
+      },
+      success: function (res) {
+        that.setData({
+          shopListInfo: res.data.content,
+        });
+      },
+      fail: function (error) {
+        console.log(error)
+      },
+      complete: function () {
+        wx.hideLoading()
+      }
+    })
+  },
+  linkDetails: function (e) {
+    let _id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/pages/index/details/details',
+      url: '/pages/index/details/details?id=' + _id,
     });
   },
 
@@ -41,30 +72,56 @@ Page({
   },
 
   setImageData: function () {
-    let _imgUrls = [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ];
-    this.setData({
-      imgUrls: _imgUrls
-    });
+    wx.showLoading();
+    var that = this;
+    wx.request({
+      url: getIndexTopimagesUrl,
+      method: 'GET',
+      header: {
+        'content-type': 'application/json',
+        'token_id': 'e875b7487251426dbb665d4cbdd7a375'
+      },
+      success: function (res) {
+        console.log(res);
+        that.setData({
+          imgDataList: res.data
+        });
+      },
+      fail: function (error) {
+        console.log(error)
+      },
+      complete: function () {
+        wx.hideLoading()
+      }
+    })
+    
   },
 
   tabClick: function (e) {
     if (e.currentTarget.id == 2) {
+      if (this.data.isSecondClick) {
+        this.getShoppingList('saleCount', 'asc');
+      } else {
+        this.getShoppingList('saleCount', 'desc');
+      }
       this.setData({
         activeIndex: e.currentTarget.id,
         isSecondClick: !this.data.isSecondClick,
         isThirdClick: false
       });
     } else if (e.currentTarget.id == 3) {
+      if (this.data.isThirdClick) {
+        this.getShoppingList('price', 'asc');
+      } else {
+        this.getShoppingList('price', 'desc');
+      }
       this.setData({
         activeIndex: e.currentTarget.id,
         isThirdClick: !this.data.isThirdClick,
         isSecondClick: false
       });
     } else {
+      this.getShoppingList('createTime', 'asc');
       this.setData({
         activeIndex: e.currentTarget.id,
         isSecondClick: false,

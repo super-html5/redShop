@@ -18,11 +18,11 @@
     <!--shop info -->
     <view class='details__shop__content'>
       <view>
-        <text>「商品名称」</text>
+        <text>{{shopDetails.title}}</text>
       </view>
       <view class='details__shop__price__content'>
-        <text class='details__shop__price'>¥<text>26</text></text>
-        <text class='details__shop__wholesale__price'>批发价 : <text>26</text>元</text>
+        <text class='details__shop__price'>¥{{shopDetails.price}}</text>
+        <text class='details__shop__wholesale__price'>批发价 : {{shopDetails.tradePrice}}元</text>
         <text> ( <text>5</text>瓶起 )</text>
       </view>
     </view>
@@ -34,7 +34,7 @@
       <view class="weui-flex__item">
         <view class="placeholder">
           <text>月销 </text>
-          <text>999</text>
+          <text>{{shopDetails.saleCount}}</text>
         </view>
       </view>
       <view class="weui-flex__item">
@@ -65,8 +65,16 @@
           </view>
         </view>
         <view class="weui-tab__panel">
-          <view class="weui-tab__content" hidden="{{activeIndex != 1}}">选项一的内容</view>
-          <view class="weui-tab__content" hidden="{{activeIndex != 2}}">选项二的内容</view>
+          <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+            <block wx:for="{{shopDetails.detailsImg}}" wx:key="*this">
+              <image src="{{item}}" class="details__shop__image" />
+            </block>
+          </view>
+          <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+            <block wx:for="{{shopDetails.specImg}}" wx:key="*this">
+              <image src="{{item}}" class="details__shop__image" />
+            </block>
+          </view>
         </view>
       </view>
     </view>
