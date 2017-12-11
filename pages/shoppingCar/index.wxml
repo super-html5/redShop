@@ -59,8 +59,8 @@
         </navigator>
 
         <view class="bottom_way">
-          <view class="float_left text_right fl_left">合计：
-            <text>￥50.00</text>
+          <view class="float_left text_right fl_left">合计￥：
+            <text class="sumPrice">50.00</text>
           </view>
           <view class="float_left fl_right">结算</view>
         </view>

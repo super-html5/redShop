@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/index/confirm/confirm",
-    "pages/shoppingCar/firmOrder/firmOrder",
     "pages/shoppingCar/index",
     "pages/user/share/share",
     "pages/login/register/register",
