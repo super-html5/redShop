@@ -18,8 +18,8 @@
     <!--shop info -->
     <view class='details__shop__content'>
       <view>
-        「
-        <text>商品名称</text>」
+
+        <text>「商品名称」</text>
       </view>
       <view class='details__shop__price__content'>
         <text class='details__shop__price'>¥<text>26</text></text>
@@ -81,6 +81,7 @@
       </view>
       <view class='details__bottom__bar__share__shop'>
         <image class='details__bottom__bar__image' src='../../../img/shop.png' />
+        <view class="weui-badge icon__num">8</view>
       </view>
       <view class='details__bottom__bar__addShop'>
         <text>加入购物车</text>
@@ -102,12 +103,12 @@
       <view class='details__bottom__buyCard__num'>
         <text class='details__bottom__buyCard__text'>购买数量</text>
         <view class='details__bottom__buyCard__jz'>
-          <text style='color:rgb(246, 76, 22)'>-</text>
-          <text style='color:rgb(135, 135, 135)'>1</text>
-          <text style='color:rgb(246, 76, 22); padding-right:50rpx;'>+</text>
+          <text data-status='subtraction' style='color:rgb(246, 76, 22)' bindtap='jzNum'>-</text>
+          <text style='color:rgb(135, 135, 135)'>{{shoppingNumber}}</text>
+          <text data-status='addition' style='color:rgb(246, 76, 22); padding-right:50rpx;' bindtap='jzNum'>+</text>
         </view>
       </view>
-      <view class='details__bottom__buyCard__btn'>
+      <view class='details__bottom__buyCard__btn' bindtap='linkConfirmPage'>
         <text>确定</text>
       </view>
     </view>

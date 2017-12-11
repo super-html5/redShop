@@ -8,7 +8,8 @@ Page({
   data: {
     tabs: ["图文详情", "产品参数"],
     activeIndex: 1,
-    isBuyCard: false
+    isBuyCard: false,
+    shoppingNumber: 1
   },
 
   /**
@@ -72,6 +73,32 @@ Page({
   isHidden: function () {
     this.setData({
       isBuyCard: false
+    })
+  },
+  /**
+   * 加减方法
+   */
+  jzNum: function (e) {
+    console.log(e.currentTarget.dataset.status);
+    if (e.currentTarget.dataset.status == 'subtraction') {
+      if (this.data.shoppingNumber == 1) {
+        return;
+      }
+      this.setData({
+        shoppingNumber: this.data.shoppingNumber - 1
+      });
+    } else if (e.currentTarget.dataset.status == 'addition') {
+      this.setData({
+        shoppingNumber: this.data.shoppingNumber + 1
+      });
+    }
+  },
+  /**
+   * 订单确认页面
+   */
+  linkConfirmPage: function () {
+    wx.navigateTo({
+      url: '/pages/index/confirm/confirm',
     })
   }
 })

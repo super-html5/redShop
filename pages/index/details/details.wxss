@@ -210,3 +210,9 @@ swiper {
   opacity: 0.7;
   z-index: 100;
 }
+
+.icon__num{
+  position: absolute;
+  top: 20rpx;
+  left: 180rpx;
+}
