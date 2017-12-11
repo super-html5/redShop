@@ -8,7 +8,6 @@
   width: 100%;
   height: 100rpx;
   display: inline-block;
-  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   word-wrap: normal;
@@ -33,11 +32,11 @@
   width: 100%;
   height: 200rpx;
   display: inline-block;
-  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   word-wrap: normal;
   border-bottom: 1rpx solid #666;
+  overflow: hidden;
 }
 
 .confirm__address__info >text {
@@ -69,6 +68,8 @@
 .confirm__shop__image > image {
   width: 100%;
   height: 150rpx;
+  padding-top: 10rpx;
+  padding-left: 5rpx;
 }
 
 .confirm__shop__name {
@@ -87,7 +88,6 @@
   width: 100%;
   height: 100rpx;
   display: inline-block;
-  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   word-wrap: normal;
@@ -111,9 +111,8 @@
 
 .confirm__coupon {
   width: 100%;
-  height: 60rpx;
+  height: 100rpx;
   display: inline-block;
-  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   word-wrap: normal;
@@ -122,11 +121,13 @@
 .confirm__coupon__text {
   float: left;
   padding-left: 20rpx;
+  line-height: 3em;
 }
 
 .confirm__coupon__num {
   float: right;
   padding-right: 20rpx;
+  line-height: 3em;
 }
 
 .confirm__bottom {
@@ -136,26 +137,25 @@
   bottom: 0;
   background-color: rgb(246, 76, 22);
 }
+
 .confirm__bottom > view {
   text-align: center;
   height: 100rpx;
   display: inline-block;
-  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   word-wrap: normal;
   z-index: 0;
 }
 
-
 .confirm__bottom__left {
   width: 70%;
   background-color: white;
-  line-height: 2.4em;
+  line-height: 2.6em;
 }
+
 .confirm__bottom__right {
   width: 30%;
-  line-height: 2.4em;
+  line-height: 2.6em;
   color: white;
-  
 }

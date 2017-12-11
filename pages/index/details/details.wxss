@@ -84,12 +84,11 @@ swiper {
 .details__bottom__bar > view {
   text-align: center;
   height: 100rpx;
-  display: inline-block;
-  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   word-wrap: normal;
   z-index: 0;
+  float: left;
 }
 
 .details__bottom__bar__image {
@@ -112,9 +111,9 @@ swiper {
   background-color: rgb(247, 119, 28);
 }
 
-.details__bottom__bar__addShop > text {
+.details__bottom__bar__addShop >text {
   line-height: 2.5em;
-  padding: 20rpx;
+  padding: 20rpx 20rpx 20rpx 30rpx;
 }
 
 .details__bottom__bar__buy {
@@ -187,12 +186,12 @@ swiper {
 .details__bottom__buyCard__btn {
   height: 100rpx;
   background-color: rgb(246, 76, 22);
-  display: inline-block;
-  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   word-wrap: normal;
   text-align: center;
+  position: absolute;
+  bottom: 0;
 }
 
 .details__bottom__buyCard__btn >text {
@@ -200,7 +199,7 @@ swiper {
   line-height: 2.4em;
 }
 
-.body_bg{
+.body_bg {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -211,7 +210,7 @@ swiper {
   z-index: 100;
 }
 
-.icon__num{
+.icon__num {
   position: absolute;
   top: 20rpx;
   left: 180rpx;

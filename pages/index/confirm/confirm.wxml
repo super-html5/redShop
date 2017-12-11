@@ -18,7 +18,8 @@
     <!-- choose -->
     <view class='confirm__express__info'>
       <text>上门自提</text>
-      <image class='confirm__express__success' src='{{isSendUrl}}' bindtap='isSend'/>
+      <image wx:if='{{!isSendClick}}' class='confirm__express__success' src='../../../img/unsuccess.png' bindtap='isSend' />
+      <image wx:if='{{isSendClick}}' class='confirm__express__success' src='../../../img/success.png' bindtap='isSend' />
     </view>
     <!-- choose end -->
 

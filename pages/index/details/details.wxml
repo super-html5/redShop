@@ -18,7 +18,6 @@
     <!--shop info -->
     <view class='details__shop__content'>
       <view>
-
         <text>「商品名称」</text>
       </view>
       <view class='details__shop__price__content'>
