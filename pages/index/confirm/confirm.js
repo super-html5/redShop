@@ -39,12 +39,10 @@ Page({
   isSend: function () {
     if (this.data.isSendClick == false) {
       this.setData({
-        isSendUrl: '../../../img/success.png',
         isSendClick: true
       });
     }else{
       this.setData({
-        isSendUrl: '../../../img/unsuccess.png',
         isSendClick: false
       });
     }
