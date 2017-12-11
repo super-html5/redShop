@@ -1,25 +1,20 @@
 {
   "pages": [
-    "pages/user/addAddress/addAddress",
-    "pages/user/address/address",
-    "pages/user/order/order",
-    "pages/user/index",
-
-
-    "pages/user/coupon/coupon",
+    "pages/index/confirm/confirm",
+    "pages/shoppingCar/firmOrder/firmOrder",
+    "pages/shoppingCar/index",
     "pages/user/share/share",
-    "pages/login/AuthenticationOk/AuthenticationOk",
-    "pages/login/authentication/authentication",
-    "pages/login/index",
     "pages/login/register/register",
-
-
-
+    "pages/login/authentication/authentication",
+    "pages/login/AuthenticationOk/AuthenticationOk",
+    "pages/login/index",
+    "pages/user/index",
+    "pages/user/order/order",
+    "pages/user/address/address",
+    "pages/user/addAddress/addAddress",
+    "pages/user/coupon/coupon",
     "pages/index/index",
-    "pages/index/details/details",
-    "pages/shoppingCar/index"
-
-
+    "pages/index/details/details"
   ],
   "window": {
     "backgroundTextStyle": "light",
