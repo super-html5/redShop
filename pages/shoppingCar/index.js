@@ -6,7 +6,7 @@ Page({
    */
   data: {
     carts: [
-      { id: 1, title: '新鲜芹菜 半斤', image: '/image/s5.png', num: 4, price: 1.00, selected: true },
+      { id: 1, title: '新鲜芹菜 半斤', image: '/image/s5.png', num: 4, price: 8881.00, selected: true },
       { id: 2, title: '素米 500g', image: '/image/s6.png', num: 2, price: 3.00, selected: true },
       { id: 3, title: '猪肉 1500g', image: '/image/s6.png', num: 5, price: 13.00, selected: true }
     ],
@@ -82,6 +82,7 @@ Page({
   // 减少数量
   minusCount: function (e) {
     const index = e.currentTarget.dataset.index;
+    
     let carts = this.data.carts;
     let num = carts[index].num;
     if (num <= 1) {
