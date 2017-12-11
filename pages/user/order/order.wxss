@@ -12,7 +12,7 @@
   text-align: left;
   float: left;
   display: block;
-  width:400rpx;
+  width: 400rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -35,6 +35,13 @@
 }
 
 .button_view button {
-  margin: 6px 10px 0 0;
+  margin: 6px 10px 6px 0;
+  overflow: visible;
 }
 
+ /* .weui-panel {
+  margin-top: 10px;
+  position: relative;
+  margin-bottom: 10px;
+  overflow: visible;
+}  */
