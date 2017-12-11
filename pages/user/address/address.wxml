@@ -11,10 +11,10 @@
         <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
             <view class="weui-media-box__title">
-              <text>谁是大傻蛋</text>
+              <text class="weui-media-box__name">谁是大傻蛋谁是大傻蛋谁是大傻蛋谁是大傻蛋谁是大傻蛋谁是大傻蛋</text>
               <text class="float_right">15222222222</text> </view>
             <view class="weui-media-box__title">
-              <text>陕西省西安市碑林区XXXXXXXXXX</text>
+              <text>陕西省西安市碑林区XXXXXXXXXX陕西省西安市碑林区XXXXXXXXXX陕西省西安市碑林区XXXXXXXXXX</text>
             </view>
 
           </view>
@@ -35,7 +35,7 @@
         <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
             <view class="weui-media-box__title">
-              <text>谁是大傻蛋</text>
+              <text class="weui-media-box__name">谁是大傻蛋</text>
               <text class="float_right">15222222222</text> </view>
             <view class="weui-media-box__title">
               <text>陕西省西安市碑林区XXXXXXXXXX</text>
@@ -57,30 +57,7 @@
         <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
             <view class="weui-media-box__title">
-              <text>谁是大傻蛋</text>
-              <text class="float_right">15222222222</text> </view>
-            <view class="weui-media-box__title">
-              <text>陕西省西安市碑林区XXXXXXXXXX</text>
-            </view>
-
-          </view>
-        </navigator>
-        <view class="button_view clear">
-          <view class="isCheck float_left">
-            <!-- <image src="../../../img/success.png"></image> -->
-            <radio color="#FF6319" />设为默认地址
-          </view>
-          <button size="mini">编辑</button>
-          <button size="mini">删除</button>
-        </view>
-      </view>
-
-
-      <view class="weui-panel__bd">
-        <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-            <view class="weui-media-box__title">
-              <text>谁是大傻蛋</text>
+                <text class="weui-media-box__name">谁是大傻蛋谁是大傻蛋谁是大傻蛋谁是大傻蛋谁是大傻蛋谁是大傻蛋</text>
               <text class="float_right">15222222222</text> </view>
             <view class="weui-media-box__title">
               <text>陕西省西安市碑林区XXXXXXXXXX</text>
@@ -103,7 +80,7 @@
         <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
             <view class="weui-media-box__title">
-              <text>谁是大傻蛋</text>
+               <text class="weui-media-box__name">谁是大傻蛋谁是大傻蛋谁是大傻蛋谁是大傻蛋谁是大傻蛋谁是大傻蛋</text>
               <text class="float_right">15222222222</text> </view>
             <view class="weui-media-box__title">
               <text>陕西省西安市碑林区XXXXXXXXXX</text>
@@ -126,7 +103,30 @@
         <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
             <view class="weui-media-box__title">
-              <text>谁是大傻蛋</text>
+               <text class="weui-media-box__name">谁是大傻蛋谁是大傻蛋谁是大傻蛋谁是大傻蛋谁是大傻蛋谁是大傻蛋</text>
+              <text class="float_right">15222222222</text> </view>
+            <view class="weui-media-box__title">
+              <text>陕西省西安市碑林区XXXXXXXXXX</text>
+            </view>
+
+          </view>
+        </navigator>
+        <view class="button_view clear">
+          <view class="isCheck float_left">
+            <!-- <image src="../../../img/success.png"></image> -->
+            <radio color="#FF6319" />设为默认地址
+          </view>
+          <button size="mini">编辑</button>
+          <button size="mini">删除</button>
+        </view>
+      </view>
+
+
+      <view class="weui-panel__bd">
+        <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title">
+                <text class="weui-media-box__name">谁是大傻蛋谁是大傻蛋谁是大傻蛋谁是大傻蛋谁是大傻蛋谁是大傻蛋</text>
               <text class="float_right">15222222222</text> </view>
             <view class="weui-media-box__title">
               <text>陕西省西安市碑林区XXXXXXXXXX</text>
