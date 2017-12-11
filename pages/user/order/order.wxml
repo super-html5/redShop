@@ -4,44 +4,13 @@
   <view class="page__bd">
     <view class="weui-panel weui-panel_access">
       <!-- <view class="weui-panel__hd">图文组合列表</view> -->
-      <view class="weui-panel__bd">
+       <view class="weui-panel__bd">
         <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
 
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg text_ringht content">
             <view class="weui-media-box__title">等待买家付款</view>
-            <view class="weui-media-box__title">
-              <view class='weui-media-box__left'>
-                <text>品名称商品名称商品名</text>
-              </view>
-              <view class='weui-media-box__right'>
-                <text>¥ 1150.00</text>
-              </view>
-            </view>
-            <view class="weui-media-box__title">
-              <text class="weui-media-box__left">500ml/瓶</text>
-              <text class='weui-media-box__right'>*1</text> 
-              </view>
-            <view class="weui-media-box__title">共
-              <text>1</text>件商品
-              <text>合计：<text>￥50.00</text></text>
-            </view>
-          </view>
-        </navigator>
-        <view class="button_view clear">
-          <button size="mini">取消订单</button>
-          <button size="mini">付款</button>
-        </view>
-      </view>
-
-      <view class="weui-panel__bd">
-        <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-            <image class="weui-media-box__thumb" src="{{icon60}}" />
-          </view>
-          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg text_ringht content">
-            <view class="weui-media-box__title">等待卖家发货</view>
-            <view class="weui-media-box__title">
-              <text class="float_left">商品名称</text>
+           <view class="weui-media-box__title">
+              <text class="float_left">商品名称商品名称商品名称商品名称商品名称商品名称</text>
               <text>￥50.00</text> </view>
             <view class="weui-media-box__title">
               <text class="float_left">500ml/瓶</text>
@@ -53,15 +22,34 @@
           </view>
         </navigator>
         <view class="button_view clear">
+          <button size="mini">取消订单</button>
+          <button size="mini">付款</button>
+        </view>
+      </view> 
+
+      <view class="weui-panel__bd">
+        <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg text_ringht content">
+            <view class="weui-media-box__title">等待卖家发货</view>
+            <view class="weui-media-box__title">
+              <text class="float_left">商品名称商品名称商品名称商品名称商品名称商品名称</text>
+              <text>￥50000.00</text> </view>
+            <view class="weui-media-box__title">
+              <text class="float_left">500ml/瓶</text>
+              <text>*1</text> </view>
+            <view class="weui-media-box__title">共
+              <text>1</text>件商品
+              <text>合计：<text>￥50000.00</text></text>
+            </view>
+          </view>
+        </navigator>
+        <view class="button_view clear">
           <button size="mini">提醒发货</button>
         </view>
       </view>
 
       <view class="weui-panel__bd">
         <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-            <image class="weui-media-box__thumb" src="{{icon60}}" />
-          </view>
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg text_ringht content">
             <view class="weui-media-box__title">等待买家收货</view>
             <view class="weui-media-box__title">
@@ -85,9 +73,6 @@
 
       <view class="weui-panel__bd">
         <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-            <image class="weui-media-box__thumb" src="{{icon60}}" />
-          </view>
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg text_ringht content">
             <view class="weui-media-box__title">等待买家收货</view>
             <view class="weui-media-box__title">
@@ -111,9 +96,6 @@
 
       <view class="weui-panel__bd">
         <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-            <image class="weui-media-box__thumb" src="{{icon60}}" />
-          </view>
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg text_ringht content">
             <view class="weui-media-box__title">交易成功</view>
             <view class="weui-media-box__title">

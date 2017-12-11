@@ -1,7 +1,9 @@
 /* pages/user/address/address.wxss */
-.margin_bottom{
+
+.margin_bottom {
   margin-bottom: 50px;
 }
+
 .text_ringht {
   text-align: right;
 }
@@ -14,6 +16,16 @@
   float: right;
 }
 
+.weui-media-box__name {
+  display: block;
+  float: left;
+  width: 420rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
 .clear {
   clear: both;
 }
@@ -23,9 +35,11 @@
   height: 22px;
   margin: 9px 0 0 10px;
 }
-.isCheck radio{
+
+.isCheck radio {
   margin: 6px 5px 0 10px;
 }
+
 .button_view {
   text-align: right;
   border-radius: 0;
@@ -33,16 +47,18 @@
   border-bottom: 1px solid #e0e0e0;
 }
 
-.button_view button{
+.button_view button {
   margin: 6px 10px 0 0;
 }
-.reative_bottom{
+
+.reative_bottom {
   width: 100%;
   position: fixed;
   left: 0;
   bottom: 0;
 }
-.orange_color{
-  background: #FF6319;
+
+.orange_color {
+  background: #ff6319;
   color: #fff;
 }
