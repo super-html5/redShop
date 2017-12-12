@@ -39,7 +39,6 @@
   overflow: visible;
   border-radius: 0;
 }
-
 button::after {
   border-radius: 0;
 }
