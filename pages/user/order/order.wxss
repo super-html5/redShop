@@ -34,6 +34,7 @@
   border-bottom: 1px solid #e0e0e0;
 }
 
+
 .button_view button {
   margin: 6px 10px 6px 0;
   overflow: visible;
