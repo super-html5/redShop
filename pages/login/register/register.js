@@ -10,20 +10,51 @@ Page({
     inputVcode: ''
   },
   toLinkAut: function () {
-    wx.navigateTo({
-      url: '../../login/authentication/authentication',
+    var that=this;
+    wx.showLoading({
+      title: '加载中',
     })
+  
+    wx.request({
+      url: 'https://xiao2.dandaojiuye.com/mall-wine/api/v1/wine/userInfo/auth',
+      header: {
+        "content-type": "application/json",
+        "token_id": wx.getStorageSync('token_id')
+      },
+      method: "POST",
+      data: {
+        "mobile": that.data.inputPhone,
+        "idCard": "",
+        "realName": ""
+      },
+      success: function (res) {
+        console.log(res.data);
+        wx.hideLoading()
+        wx.navigateTo({
+          url: '../../login/authentication/authentication',
+        })
+
+      },
+      fail: function (res) {
+        console.log(res);
+        wx.hideLoading()
+      }
+
+    })
+
   },
   startCountdown: function () {
-   
-    if (!(/^1[34578]\d{9}$/.test(this.data.inputPhone))) {
-      wx.showLoading({
-        title: '手机号有误!',
-      })
 
-      setTimeout(function () {
-        wx.hideLoading()
-      }, 3000)
+    if (!(/^1[34578]\d{9}$/.test(this.data.inputPhone))) {
+      wx.showModal({
+        content: ' 手机号有误，请重新输入',
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      });
     } else {
       this.setData({
         second: 60
@@ -58,17 +89,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // wx.showModal({
-    //   title: '提示',
-    //   content: '这是一个模态弹窗',
-    //   success: function (res) {
-    //     if (res.confirm) {
-    //       console.log('用户点击确定')
-    //     } else if (res.cancel) {
-    //       console.log('用户点击取消')
-    //     }
-    //   }
-    // })
+
   },
 
   /**

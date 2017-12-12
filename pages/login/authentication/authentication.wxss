@@ -9,6 +9,10 @@
   padding: 0 30rpx;
 }
 
+.margin_top80 {
+  margin-top: 80rpx;
+}
+
 .margin_top40 {
   margin-top: 40rpx;
 }
@@ -19,9 +23,8 @@
   height: 80rpx;
   border: 1px solid #ff6319;
   border-radius: 10rpx;
-  padding:0 20rpx;
+  padding: 0 20rpx;
 }
-
 
 .vcode_input {
   width: 55%;

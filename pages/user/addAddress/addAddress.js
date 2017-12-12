@@ -9,7 +9,15 @@ Page({
   },
   formSubmit: function (e) {
     let address = e.detail.value;
-    address.status = 1;
+    let editAddress = this.data.editAddress;
+    if (!editAddress.status){
+      address.status = 1;
+    }else{
+      address.status = editAddress.status;
+      address.id = editAddress.id;
+    }
+  
+   
     wx.showLoading({
       title: '加载中',
     })
@@ -24,7 +32,10 @@ Page({
       data: address,
       success: function (res) {
         console.log(res);
-        wx.hideLoading()
+        wx.hideLoading();
+        wx.navigateTo({
+          url: '/pages/user/address/address',
+        })
       },
       fail: function (res) {
         console.log(res);
@@ -45,8 +56,9 @@ Page({
       })
       return;
     } else {
+     
       let editAddress = JSON.parse(options.editAddress);
-      console.log(editAddress);
+      console.log(editAddress)
       wx.setNavigationBarTitle({
         title: "修改收货地址"
       })

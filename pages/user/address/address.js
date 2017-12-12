@@ -15,36 +15,54 @@ Page({
   defaultAdr: function (e) {
     const index = e.currentTarget.dataset.index;
     let addressList = this.data.addressList;
-    addressList.forEach(function(val){
-      val.status=1;
+    addressList.forEach(function (val) {
+      val.status = 1;
     })
-    addressList[index].status = 2;
+    let address = addressList[index];
+    address.status = 2;
     this.setData({
       addressList: addressList
     });
+
+
+    this.updataAdr(address);
   },
-  cancelDefaultAdr: function (e) {
-    const index = e.currentTarget.dataset.index;
-    let addressList = this.data.addressList;
-    addressList[index].status = 1;
-    this.setData({
-      addressList: addressList
-    });
-  },
+  // cancelDefaultAdr: function (e) {
+  //   const index = e.currentTarget.dataset.index;
+  //   let addressList = this.data.addressList;
+  //   addressList[index].status = 1;
+  //   this.setData({
+  //     addressList: addressList
+  //   });
+  // },
   deleteAdr: function (e) {
     let that = this;
     const index = e.currentTarget.dataset.index;
     let address = this.data.addressList[index];
-    // address.status = 3;
+    address.status = 3;
+
+    this.updataAdr(address);
+
+  },
+  editAdr: function (e) {
+    let that = this;
+    const index = e.currentTarget.dataset.index;
+    let address = this.data.addressList[index];
     delete address.accountId;
     delete address.created;
-    delete address.id;
     delete address.updated;
-
+    wx.navigateTo({
+      url: '/pages/user/addAddress/addAddress?editAddress=' + JSON.stringify(address),
+    })
+  },
+  updataAdr: function (address) {
+    let that = this;
     wx.showLoading({
       title: '加载中',
     })
-
+    delete address.accountId;
+    delete address.created;
+    delete address.updated;
     wx.request({
       url: 'https://xiao2.dandaojiuye.com/mall-wine/api/v1/wine/address/update',
       header: {
@@ -54,8 +72,14 @@ Page({
       method: "POST",
       data: address,
       success: function (res) {
+        console.log(res);
         wx.hideLoading();
-        console.log(that.data.addressList);
+        if (res.data.status!=2){
+          that.loaddingAdr();
+          return;
+        }
+      
+       
       },
       fail: function (res) {
         console.log(res);
@@ -64,24 +88,8 @@ Page({
 
     })
   },
-  editAdr:function(e){
-    let that = this;
-    const index = e.currentTarget.dataset.index;
-    let address = this.data.addressList[index];
-    delete address.accountId;
-    delete address.created;
-    delete address.id;
-    delete address.updated;
-    wx.navigateTo({
-      url: '/pages/user/addAddress/addAddress?editAddress=' + JSON.stringify(address),
-    })
-  },
-  
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
 
+  loaddingAdr:function(){
     let that = this;
     wx.showLoading({
       title: '加载中',
@@ -107,6 +115,12 @@ Page({
       }
 
     })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.loaddingAdr();
   },
 
   /**
