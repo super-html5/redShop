@@ -1,5 +1,4 @@
-// pages/index/details/details.js
-var sliderWidth = 160;
+const getShoppingDetailsUrl = require('../../../config').getShoppingDetails
 Page({
 
   /**
@@ -9,15 +8,20 @@ Page({
     tabs: ["图文详情", "产品参数"],
     activeIndex: 1,
     isBuyCard: false,
-    shoppingNumber: 1
+    shoppingNumber: 1,
+    shopDetails: {},
+    imgUrls:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setImageData();
+    this.getShoppingDetails(options.id);
     this.setSwiperData();
+  },
+  onReady:function(){
+    
   },
   /**
    * 轮播图配置参数
@@ -38,19 +42,33 @@ Page({
     });
   },
   /**
-   * 轮播图,图片配置
+   * 获取商品详情
    */
-  setImageData: function () {
-    let _imgUrls = [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ];
-    this.setData({
-      imgUrls: _imgUrls
-    });
+  getShoppingDetails: function (id) {
+    wx.showLoading();
+    var that = this;
+    wx.request({
+      url: getShoppingDetailsUrl + '?id=' + id,
+      method: 'GET',
+      header: {
+        'content-type': 'application/json',
+        'token_id': 'e875b7487251426dbb665d4cbdd7a375'
+      },
+      success: function (res) {
+        console.log(res);
+        that.setData({
+          shopDetails : res.data,
+          imgUrls: res.data.galleryImg
+        });
+      },
+      fail: function (error) {
+        console.log(error)
+      },
+      complete: function () {
+        wx.hideLoading();
+      }
+    })
   },
-
   /**
    * 切换navbar
    */

@@ -215,3 +215,14 @@ swiper {
   top: 20rpx;
   left: 180rpx;
 }
+
+.details__shop__image{
+  width: 100%;
+}
+
+.weui-tab__content{
+  padding-top: 0;
+}
+.weui-tab__panel{
+  padding-top: 80rpx;
+}
