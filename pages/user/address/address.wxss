@@ -29,11 +29,20 @@
 .clear {
   clear: both;
 }
-
+.isCheck{
+  line-height: 36px;
+}
 .isCheck>image {
   width: 22px;
   height: 22px;
-  margin: 9px 0 0 10px;
+  vertical-align: middle;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.isCheck text {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .isCheck radio {
@@ -50,6 +59,13 @@
 .button_view button {
   margin: 6px 10px 6px 0;
   overflow: visible;
+}
+
+button{
+  border-radius: 0;
+}
+button::after {
+  border-radius: 0;
 }
 
 .reative_bottom {

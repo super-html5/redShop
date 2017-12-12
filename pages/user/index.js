@@ -28,14 +28,8 @@ Page({
     })
   },
   onLoad: function () {
-    wx.getUserInfo({
-        success: res => {
-          console.log(res.userInfo.nickName)
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
+    this.setData({
+      userInfo: app.globalData.userInfo
+    })
   }
 })
