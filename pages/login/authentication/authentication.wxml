@@ -12,7 +12,7 @@
   <view class="margin_top40">
     <view>身份证号</view>
     <view>
-      <input class="tel_input" placeholder="请输入身份证号" />
+      <input class="tel_input" type="idcard" maxlength="18" placeholder="请输入身份证号" />
     </view>
   </view>
 

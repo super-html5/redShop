@@ -19,13 +19,9 @@
   height: 80rpx;
   border: 1px solid #ff6319;
   border-radius: 10rpx;
-  padding-left: 20rpx;
-  /* text-indent: .6rem; */
+  padding:0 20rpx;
 }
 
-.tel_input {
-  width: 100%;
-}
 
 .vcode_input {
   width: 55%;
