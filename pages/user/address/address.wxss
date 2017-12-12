@@ -48,7 +48,8 @@
 }
 
 .button_view button {
-  margin: 6px 10px 0 0;
+  margin: 6px 10px 6px 0;
+  overflow: visible;
 }
 
 .reative_bottom {

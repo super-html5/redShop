@@ -38,10 +38,3 @@
   margin: 6px 10px 6px 0;
   overflow: visible;
 }
-
- /* .weui-panel {
-  margin-top: 10px;
-  position: relative;
-  margin-bottom: 10px;
-  overflow: visible;
-}  */
