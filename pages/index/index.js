@@ -33,7 +33,7 @@ Page({
       method: 'GET',
       header: {
         'content-type': 'application/json',
-        'token_id': 'cd1dc977c0f74ead9b0ca94c76866a23'
+        "token_id": wx.getStorageSync('token_id')
       },
       success: function (res) {
         utils.callBackHandler(res, that.shopListHandler);
@@ -79,7 +79,7 @@ Page({
       method: 'GET',
       header: {
         'content-type': 'application/json',
-        'token_id': 'cd1dc977c0f74ead9b0ca94c76866a23'
+        "token_id": wx.getStorageSync('token_id')
       },
       success: function (res) {
         utils.callBackHandler(res, that.lbHandler)
