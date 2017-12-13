@@ -1,8 +1,8 @@
 const getShoppingListUrl = require('../../config').getShoppingList
 const getIndexTopimagesUrl = require('../../config').getIndexTopimages
-
+const utils = require('../utils/utils');
 //获取应用实例
-const app = getApp()
+const app = getApp();
 
 Page({
   data: {
@@ -33,12 +33,10 @@ Page({
       method: 'GET',
       header: {
         'content-type': 'application/json',
-        'token_id': 'e875b7487251426dbb665d4cbdd7a375'
+        'token_id': 'cd1dc977c0f74ead9b0ca94c76866a23'
       },
       success: function (res) {
-        that.setData({
-          shopListInfo: res.data.content,
-        });
+        utils.callBackHandler(res, that.shopListHandler);
       },
       fail: function (error) {
         console.log(error)
@@ -70,7 +68,9 @@ Page({
       swiperData: _swiperData
     });
   },
-
+  /**
+   * 轮播图
+   */
   setImageData: function () {
     wx.showLoading();
     var that = this;
@@ -79,13 +79,10 @@ Page({
       method: 'GET',
       header: {
         'content-type': 'application/json',
-        'token_id': 'e875b7487251426dbb665d4cbdd7a375'
+        'token_id': 'cd1dc977c0f74ead9b0ca94c76866a23'
       },
       success: function (res) {
-        console.log(res);
-        that.setData({
-          imgDataList: res.data
-        });
+        utils.callBackHandler(res, that.lbHandler)
       },
       fail: function (error) {
         console.log(error)
@@ -128,5 +125,21 @@ Page({
         isThirdClick: false
       });
     }
+  },
+  /**
+   * 商品列表成功回调
+   */
+  shopListHandler:function(res){
+    this.setData({
+      shopListInfo: res.data.content,
+    });
+  },
+  /**
+   * 轮播图成功回调
+   */
+  lbHandler:function(res){
+    this.setData({
+      imgDataList: res.data
+    });
   }
 })
