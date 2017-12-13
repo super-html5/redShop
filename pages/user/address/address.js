@@ -1,4 +1,6 @@
 // pages/user/address/address.js
+const addressListUrl = require('../../../config').addressListUrl
+const addressUpdateUrl = require('../../../config').addressUpdateUrl
 Page({
 
   /**
@@ -64,7 +66,7 @@ Page({
     delete address.created;
     delete address.updated;
     wx.request({
-      url: 'https://xiao2.dandaojiuye.com/mall-wine/api/v1/wine/address/update',
+      url: addressUpdateUrl,
       header: {
         "content-type": "application/json",
         "token_id": wx.getStorageSync('token_id')
@@ -96,7 +98,7 @@ Page({
     })
 
     wx.request({
-      url: 'https://xiao2.dandaojiuye.com/mall-wine/api/v1/wine/address/list',
+      url: addressListUrl,
       header: {
         "content-type": "application/json",
         "token_id": wx.getStorageSync('token_id')

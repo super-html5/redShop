@@ -1,4 +1,5 @@
 // pages/login/authentication/authentication.js
+const saveUserInfo = require('../../../config').saveUserInfo
 Page({
 
   /**
@@ -42,7 +43,7 @@ Page({
         title: '加载中',
       })
       wx.request({
-        url: 'https://xiao2.dandaojiuye.com/mall-wine/api/v1/wine/userInfo/auth',
+        url: saveUserInfo,
         header: {
           "content-type": "application/json",
           "token_id": wx.getStorageSync('token_id')

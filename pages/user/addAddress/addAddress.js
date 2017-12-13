@@ -1,4 +1,6 @@
 // pages/user/addAddress/addAddress.js
+const addressUpdateUrl = require('../../../config').addressUpdateUrl
+
 Page({
 
   /**
@@ -23,7 +25,7 @@ Page({
     })
 
     wx.request({
-      url: 'https://xiao2.dandaojiuye.com/mall-wine/api/v1/wine/address/update',
+      url: addressUpdateUrl,
       header: {
         "content-type": "application/json",
         "token_id": wx.getStorageSync('token_id')
@@ -33,7 +35,7 @@ Page({
       success: function (res) {
         console.log(res);
         wx.hideLoading();
-        wx.navigateTo({
+        wx.redirectTo({
           url: '/pages/user/address/address',
         })
       },
