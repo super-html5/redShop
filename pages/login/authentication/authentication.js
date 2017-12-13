@@ -1,5 +1,7 @@
 // pages/login/authentication/authentication.js
-const saveUserInfo = require('../../../config').saveUserInfo
+const saveUserInfo = require('../../../config').saveUserInfo;
+const utils = require('../../utils/utils');
+
 Page({
 
   /**
@@ -8,13 +10,16 @@ Page({
   data: {
 
   },
+  /**
+   * 认证
+   */
   formSubmit: function (e) {
     let that = this;
     let data = e.detail.value;
     data.mobile = '';
     const reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+    // 正则验证姓名 和 身份证号
     if (!data.realName) {
-
       wx.showModal({
         content: '请输入姓名',
         showCancel: false,
@@ -24,7 +29,7 @@ Page({
           }
         }
       });
-      
+
     } else if (!reg.test(data.idCard)) {
 
       wx.showModal({
@@ -37,11 +42,14 @@ Page({
         }
       });
 
-    }else{
+    } else {
 
       wx.showLoading({
         title: '加载中',
       })
+      /**
+       * 更新&&认证 保存用户信息
+       */
       wx.request({
         url: saveUserInfo,
         header: {
@@ -51,15 +59,12 @@ Page({
         method: "POST",
         data: data,
         success: function (res) {
-          console.log(res.data);
-          wx.hideLoading()
-          wx.navigateTo({
-            url: '../../login/AuthenticationOk/AuthenticationOk',
-          })
-
+          utils.callBackHandler(res, that.saveUserInfoHandler);
         },
         fail: function (res) {
           console.log(res);
+        },
+        complete: function () {
           wx.hideLoading()
         }
 
@@ -67,8 +72,16 @@ Page({
 
 
     }
-   
 
+
+  },
+  /**
+   * 更新&&认证 保存用户信息 成功回调
+   */
+  saveUserInfoHandler: function () {
+    wx.navigateTo({
+      url: '../../login/AuthenticationOk/AuthenticationOk',
+    })
   },
   /**
    * 生命周期函数--监听页面加载

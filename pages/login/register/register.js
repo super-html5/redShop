@@ -1,5 +1,7 @@
 // pages/login/register/register.js
-const saveUserInfo = require('../../../config').saveUserInfo
+const saveUserInfo = require('../../../config').saveUserInfo;
+const utils = require('../../utils/utils');
+
 Page({
 
   /**
@@ -10,12 +12,18 @@ Page({
     inputPhone: '',
     inputVcode: ''
   },
+  /**
+   * 下一步
+   */
   toLinkAut: function () {
-    var that=this;
+    var that = this;
     wx.showLoading({
       title: '加载中',
     })
-  
+
+    /**
+     * 更新&&认证 保存用户信息
+     */
     wx.request({
       url: saveUserInfo,
       header: {
@@ -29,23 +37,24 @@ Page({
         "realName": ""
       },
       success: function (res) {
-        console.log(res.data);
-        wx.hideLoading()
-        wx.navigateTo({
-          url: '../../login/authentication/authentication',
-        })
-
+        utils.callBackHandler(res, that.saveUserInfoHandler);
       },
       fail: function (res) {
         console.log(res);
+      },
+      complete: function () {
         wx.hideLoading()
       }
 
     })
 
   },
+  /**
+   * 倒计时
+   */
   startCountdown: function () {
 
+    //验证手机号
     if (!(/^1[34578]\d{9}$/.test(this.data.inputPhone))) {
       wx.showModal({
         content: ' 手机号有误，请重新输入',
@@ -57,6 +66,7 @@ Page({
         }
       });
     } else {
+      //显示倒计时
       this.setData({
         second: 60
       })
@@ -76,69 +86,28 @@ Page({
     }
 
   },
+  /**
+   * 更新&&认证 保存用户信息 成功回调
+   */
+  saveUserInfoHandler: function () {
+    wx.navigateTo({
+      url: '../../login/authentication/authentication',
+    })
+  },
+  /**
+   * 获取手机号
+   */
   bindKeyPhone: function (e) {
     this.setData({
       inputPhone: e.detail.value
     })
   },
+   /**
+   * 获取验证码
+   */
   bindKeyVcode: function (e) {
     this.setData({
       inputVcode: e.detail.value
     })
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })
