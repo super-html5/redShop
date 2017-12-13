@@ -1,5 +1,6 @@
 // pages/user/addAddress/addAddress.js
 const addressUpdateUrl = require('../../../config').addressUpdateUrl
+const utils = require('../../utils/utils');
 
 Page({
 
@@ -9,21 +10,29 @@ Page({
   data: {
     editAddress: {}
   },
+  /**
+   * 保存收货地址
+   */
   formSubmit: function (e) {
+    let that = this;
     let address = e.detail.value;
     let editAddress = this.data.editAddress;
-    if (!editAddress.status){
+
+    // 判断是新添加 还是 修改编辑的
+    if (!editAddress.status) {
       address.status = 1;
-    }else{
+    } else {
       address.status = editAddress.status;
       address.id = editAddress.id;
     }
-  
-   
+
     wx.showLoading({
       title: '加载中',
     })
 
+    /**
+     * 添加修改删除收货地址
+     */
     wx.request({
       url: addressUpdateUrl,
       header: {
@@ -33,32 +42,35 @@ Page({
       method: "POST",
       data: address,
       success: function (res) {
-        console.log(res);
-        wx.hideLoading();
-        wx.redirectTo({
-          url: '/pages/user/address/address',
-        })
+        utils.callBackHandler(res, that.updataAdrHandler);
+
       },
       fail: function (res) {
         console.log(res);
+      },
+      complete: function () {
         wx.hideLoading()
       }
 
     })
   },
-
+  updataAdrHandler: function (res) {
+    wx.redirectTo({
+      url: '/pages/user/address/address',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     let that = this;
+    //根据有没有跳转参数  判断是修改还是新增
     if (!options.editAddress) {
       wx.setNavigationBarTitle({
         title: "新增收货地址"
       })
       return;
     } else {
-     
       let editAddress = JSON.parse(options.editAddress);
       console.log(editAddress)
       wx.setNavigationBarTitle({
@@ -70,55 +82,6 @@ Page({
       return;
     }
 
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
   }
 })

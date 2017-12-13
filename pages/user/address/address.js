@@ -1,6 +1,7 @@
 // pages/user/address/address.js
-const addressListUrl = require('../../../config').addressListUrl
-const addressUpdateUrl = require('../../../config').addressUpdateUrl
+const addressListUrl = require('../../../config').addressListUrl;
+const addressUpdateUrl = require('../../../config').addressUpdateUrl;
+const utils = require('../../utils/utils');
 Page({
 
   /**
@@ -9,11 +10,17 @@ Page({
   data: {
     addressList: []
   },
+  /**
+   * 新增收货地址
+   */
   toLinkAddAddr: function () {
     wx.navigateTo({
       url: '../../user/addAddress/addAddress',
     })
   },
+  /**
+   * 修改为默认地址
+   */
   defaultAdr: function (e) {
     const index = e.currentTarget.dataset.index;
     let addressList = this.data.addressList;
@@ -27,7 +34,7 @@ Page({
     });
 
 
-    this.updataAdr(address);
+    this.updataAdr(address);  //调取 添加修改删除收货地址方法
   },
   // cancelDefaultAdr: function (e) {
   //   const index = e.currentTarget.dataset.index;
@@ -37,15 +44,21 @@ Page({
   //     addressList: addressList
   //   });
   // },
+  /**
+   * 删除收货地址
+   */
   deleteAdr: function (e) {
     let that = this;
     const index = e.currentTarget.dataset.index;
     let address = this.data.addressList[index];
     address.status = 3;
 
-    this.updataAdr(address);
+    this.updataAdr(address);  //调取 添加修改删除收货地址方法
 
   },
+  /**
+   * 编辑修改收货地址
+   */
   editAdr: function (e) {
     let that = this;
     const index = e.currentTarget.dataset.index;
@@ -57,6 +70,9 @@ Page({
       url: '/pages/user/addAddress/addAddress?editAddress=' + JSON.stringify(address),
     })
   },
+  /**
+   * 添加修改删除收货地址
+   */
   updataAdr: function (address) {
     let that = this;
     wx.showLoading({
@@ -74,24 +90,22 @@ Page({
       method: "POST",
       data: address,
       success: function (res) {
-        console.log(res);
-        wx.hideLoading();
-        if (res.data.status!=2){
-          that.loaddingAdr();
-          return;
-        }
-      
-       
+        utils.callBackHandler(res, that.updataAdrHandler);
       },
       fail: function (res) {
         console.log(res);
+      },
+      complete: function () {
         wx.hideLoading()
       }
 
     })
   },
 
-  loaddingAdr:function(){
+  /**
+   * 获取用户地址列表
+   */
+  loaddingAdr: function () {
     let that = this;
     wx.showLoading({
       title: '加载中',
@@ -105,17 +119,27 @@ Page({
       },
       method: "POST",
       success: function (res) {
-        wx.hideLoading();
-        that.setData({
-          addressList: res.data
-        })
-        console.log(that.data.addressList);
+        utils.callBackHandler(res, that.loaddingAdrHandler);
       },
       fail: function (res) {
         console.log(res);
+
+      },
+      complete: function () {
         wx.hideLoading()
       }
 
+    })
+  },
+  updataAdrHandler: function (res) {
+    if (res.data.status != 2) {
+      this.loaddingAdr();
+      return;
+    }
+  },
+  loaddingAdrHandler: function (res) {
+    this.setData({
+      addressList: res.data
     })
   },
   /**
@@ -123,54 +147,5 @@ Page({
    */
   onLoad: function (options) {
     this.loaddingAdr();
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })
