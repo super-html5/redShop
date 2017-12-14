@@ -40,3 +40,9 @@
 button::after {
   border-radius: 0;
 }
+.orange{
+  color:#FF6319;
+}
+button.orange::after {
+  border:1px solid #FF6319;
+}

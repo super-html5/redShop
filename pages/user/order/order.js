@@ -18,7 +18,7 @@ Page({
       url: ordersListUrl,
       header: {
         "content-type": "application/json",
-        "token_id": "64c9cec70b4d4b5ba32fa8ec685c88f1"
+        "token_id": wx.getStorageSync('token_id')
       },
       method: "Get",
       success: function (res) {
@@ -27,7 +27,7 @@ Page({
             ordersLists: res.data
           })
         }
-        console.log(res.data);
+
         if (res.statusCode == 404) {
           wx.showModal({
             content: '你还没有订单，请先购买添加',
