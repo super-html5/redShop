@@ -1,22 +1,19 @@
 /* pages/user/order/order.wxss */
 
-.content {
-  padding-left: 50rpx;
+.weui-media-box::before {
+  border-top: 0;
+}
+
+.small_title {
+  font-size: 15px;
+}
+
+.margin_right {
+  margin-right: 10px;
 }
 
 .text_ringht {
   text-align: right;
-}
-
-.float_left {
-  text-align: left;
-  float: left;
-  display: block;
-  width: 400rpx;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  word-wrap: normal;
 }
 
 .float_right {
@@ -39,18 +36,7 @@
   overflow: visible;
   border-radius: 0;
 }
+
 button::after {
   border-radius: 0;
-}
-
-
-
-.weui-media-box::before {
-  border-top: 0;
-}
-.small_title{
-  font-size: 15px;
-}
-.margin_right{
-  margin-right: 10px;
 }
