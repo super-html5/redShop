@@ -90,7 +90,18 @@ Page({
       method: "POST",
       data: address,
       success: function (res) {
-        utils.callBackHandler(res, that.updataAdrHandler);
+        if (res.data.status != 2) {
+          this.loaddingAdr();
+        }
+        if (res.statusCode == 404) {
+            wx.showLoading({
+                title: '没有地址了，请重新添加',
+            });
+
+            setTimeout(function(){
+                wx.hideLoading()
+            },2000)
+        }
       },
       fail: function (res) {
         console.log(res);
@@ -131,12 +142,7 @@ Page({
 
     })
   },
-  updataAdrHandler: function (res) {
-    if (res.data.status != 2) {
-      this.loaddingAdr();
-      return;
-    }
-  },
+
   loaddingAdrHandler: function (res) {
     this.setData({
       addressList: res.data
