@@ -94,6 +94,7 @@ Page({
           that.loaddingAdr();
         }
 
+
         if (res.statusCode == 404) {
           wx.showModal({
             content: '没有地址了，请重新添加',
