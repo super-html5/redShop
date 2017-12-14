@@ -4,22 +4,31 @@
   <view class="page__bd">
     <view class="weui-panel weui-panel_access">
       <!-- <view class="weui-panel__hd">图文组合列表</view> -->
+
+
       <view class="weui-panel__bd" wx:for="{{ordersLists}}" wx:for-item="ordersLists">
-        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg text_ringht content">
-          <view class="weui-media-box__title">等待买家付款</view>
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg ">
+          <view class="weui-media-box__title text_ringht margin_right">等待买家付款</view>
+
           <block wx:for="{{ordersLists.orderGoods}}" wx:for-item="orderGoods">
-            <view bindtap="toLinkDetails">
-              <view class="weui-media-box__title">
-                <text class="float_left">{{orderGoods.goodsTitle}}</text>
-                <text>￥{{orderGoods.goodsNum}}</text>
+            <navigator url="/pages/index/details/details?id={{orderGoods.goodsId}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+              <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                <image class="weui-media-box__thumb" src="{{orderGoods.goodsImgUrl}}" />
               </view>
-              <view class="weui-media-box__title">
-                <text class="float_left">200ml/瓶</text>
-                <text>*{{orderGoods.goodsNum}}</text>
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title small_title">
+                  <text>{{orderGoods.goodsTitle}}</text>
+                  <text class="float_right">￥{{orderGoods.goodsNum}}</text>
+                </view>
+                <view class="weui-media-box__title small_title">
+                  <text>200ml/瓶</text>
+                  <text class="float_right">*{{orderGoods.goodsNum}}</text>
+                </view>
               </view>
-            </view>
+            </navigator>
           </block>
-          <view class="weui-media-box__title">共
+
+          <view class="weui-media-box__title float_right margin_right">共
             <text>{{ordersLists.number}}</text>件商品
             <text>合计：<text>￥{{ordersLists.price}}</text></text>
           </view>
@@ -29,6 +38,7 @@
           <button size="mini">付款</button>
         </view>
       </view>
+
 
     </view>
   </view>
