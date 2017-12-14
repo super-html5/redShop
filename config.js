@@ -7,6 +7,7 @@ var config = {
   getShoppingList: `${host}/api/v1/wine/goods/list`,//获取商品列表
   getShoppingDetails: `${host}/api/v1/wine/goods/findById`,//根据id查询商品详情
   getIndexTopimages: `${host}/api/v1/wine/slide/list`,//获取首页轮播图
+  getDefAddress: `${host}/api/v1/wine/address/get`,//获取用户默认地址
 
   getUserInfoUrl: `${host}/api/v1/wine/userInfo/getUserInfo`,//获取用户信息
   addressListUrl: `${host}/api/v1/wine/address/list`,//获取用户地址列表

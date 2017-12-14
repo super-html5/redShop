@@ -70,6 +70,7 @@ Page({
      * 获取详情成功回调
      */
     detailsSuccess: function (res) {
+      console.log(res);
         this.setData({
             shopDetails: res.data,
             imgUrls: res.data.galleryImg
@@ -120,7 +121,8 @@ Page({
     /**
      * 订单确认页面
      */
-    linkConfirmPage: function () {
+    linkConfirmPage: function (e) {
+      console.log(e.currentTarget.dataset.number);
         wx.navigateTo({
             url: '/pages/index/confirm/confirm',
         })

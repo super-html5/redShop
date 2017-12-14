@@ -104,8 +104,8 @@
     <!-- buy card -->
     <view class='details__bottom__buyCard' hidden="{{isBuyCard == false}}">
       <view class='details__bottom__buyCard__shop'>
-        <image src='../../../img/listDef.png' />
-        <text>¥ 26.00</text>
+        <image src='{{shopDetails.imgUrl}}' />
+        <text>¥ {{shoppingNumber< 5 ? shopDetails.price*shoppingNumber : shopDetails.tradePrice*shoppingNumber}}</text>
       </view>
       <view class='details__bottom__buyCard__num'>
         <text class='details__bottom__buyCard__text'>购买数量</text>
@@ -115,7 +115,7 @@
           <text data-status='addition' style='color:rgb(246, 76, 22); padding-right:50rpx;' bindtap='jzNum'>+</text>
         </view>
       </view>
-      <view class='details__bottom__buyCard__btn' bindtap='linkConfirmPage'>
+      <view data-price='{{shoppingNumber< 5 ? shopDetails.price*shoppingNumber : shopDetails.tradePrice*shoppingNumber}}' data-number='{{shoppingNumber}}' class='details__bottom__buyCard__btn' bindtap='linkConfirmPage'>
         <text>确定</text>
       </view>
     </view>

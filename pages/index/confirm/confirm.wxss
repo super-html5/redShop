@@ -56,7 +56,6 @@
   width: 100%;
   height: 200rpx;
   font-size: 35rpx;
-  border-bottom: 1rpx solid #ccc;
 }
 
 .confirm__shop__image {
@@ -116,6 +115,8 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   word-wrap: normal;
+  border-top: 1rpx solid #ccc;
+  margin-bottom: 100rpx;
 }
 
 .confirm__coupon__text {
