@@ -91,16 +91,19 @@ Page({
       data: address,
       success: function (res) {
         if (res.data.status != 2) {
-          this.loaddingAdr();
+          that.loaddingAdr();
         }
-        if (res.statusCode == 404) {
-            wx.showLoading({
-                title: '没有地址了，请重新添加',
-            });
 
-            setTimeout(function(){
-                wx.hideLoading()
-            },2000)
+        if (res.statusCode == 404) {
+          wx.showModal({
+            content: '没有地址了，请重新添加',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              }
+            }
+          });
         }
       },
       fail: function (res) {
@@ -130,7 +133,23 @@ Page({
       },
       method: "POST",
       success: function (res) {
-        utils.callBackHandler(res, that.loaddingAdrHandler);
+        if (res.statusCode == 200) {
+          that.setData({
+            addressList: res.data
+          })
+        }
+        console.log(res.statusCode == 404);
+        if (res.statusCode == 404) {
+          wx.showModal({
+            content: '没有地址了，请重新添加',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              }
+            }
+          });
+        }
       },
       fail: function (res) {
         console.log(res);
@@ -140,12 +159,6 @@ Page({
         wx.hideLoading()
       }
 
-    })
-  },
-
-  loaddingAdrHandler: function (res) {
-    this.setData({
-      addressList: res.data
     })
   },
   /**
