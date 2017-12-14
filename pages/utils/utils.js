@@ -1,5 +1,4 @@
 function callBackHandler(res, successFun) {
-  console.log(res);
   if (res.statusCode == 200) {
     if (typeof successFun == 'function') {
       successFun(res);

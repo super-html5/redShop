@@ -23,7 +23,7 @@
       <view class='details__shop__price__content'>
         <text class='details__shop__price'>¥{{shopDetails.price}}</text>
         <text class='details__shop__wholesale__price'>批发价 : {{shopDetails.tradePrice}}元</text>
-        <text> ( <text>5</text>瓶起 )</text>
+        <text> ( {{shopDetails.discountNumber}}瓶起 )</text>
       </view>
     </view>
     <!--shop info end -->
@@ -88,9 +88,9 @@
       </view>
       <view class='details__bottom__bar__share__shop'>
         <image class='details__bottom__bar__image' src='../../../img/shop.png' />
-        <view class="weui-badge icon__num">8</view>
+        <view class="weui-badge icon__num">{{shoppingCarListNum}}</view>
       </view>
-      <view class='details__bottom__bar__addShop'>
+      <view class='details__bottom__bar__addShop' bindtap='addShoppingCar'>
         <text>加入购物车</text>
       </view>
       <view class='details__bottom__bar__buy' bindtap='justBuy'>
@@ -105,7 +105,7 @@
     <view class='details__bottom__buyCard' hidden="{{isBuyCard == false}}">
       <view class='details__bottom__buyCard__shop'>
         <image src='{{shopDetails.imgUrl}}' />
-        <text>¥ {{shoppingNumber< 5 ? shopDetails.price*shoppingNumber : shopDetails.tradePrice*shoppingNumber}}</text>
+        <text>¥ {{shoppingNumber< shopDetails.discountNumber ? shopDetails.price*shoppingNumber : shopDetails.tradePrice*shoppingNumber}}</text>
       </view>
       <view class='details__bottom__buyCard__num'>
         <text class='details__bottom__buyCard__text'>购买数量</text>
@@ -115,7 +115,7 @@
           <text data-status='addition' style='color:rgb(246, 76, 22); padding-right:50rpx;' bindtap='jzNum'>+</text>
         </view>
       </view>
-      <view data-price='{{shoppingNumber< 5 ? shopDetails.price*shoppingNumber : shopDetails.tradePrice*shoppingNumber}}' data-number='{{shoppingNumber}}' class='details__bottom__buyCard__btn' bindtap='linkConfirmPage'>
+      <view data-price='{{shoppingNumber< shopDetails.discountNumber ? shopDetails.price*shoppingNumber : shopDetails.tradePrice*shoppingNumber}}' data-number='{{shoppingNumber}}' class='details__bottom__buyCard__btn' bindtap='linkConfirmPage'>
         <text>确定</text>
       </view>
     </view>

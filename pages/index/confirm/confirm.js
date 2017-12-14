@@ -1,4 +1,5 @@
 const getDefAddressUrl = require('../../../config').getDefAddress
+const addOrderUrl = require('../../../config').addOrder
 const utils = require('../../utils/utils');
 Page({
   /**
@@ -7,14 +8,29 @@ Page({
   data: {
     shoppingNumber: 1,
     isSendUrl: '../../../img/unsuccess.png',
-    isSendClick: false,
-    defAddressInfo: {}
+    isSendClick: 1,
+    defAddressInfo: {},
+    shoppingInfo: {}
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.getDefAddress();
+    this.getShoppingInfo();
+  },
+
+  getShoppingInfo: function () {
+    var that = this;
+    wx: wx.getStorage({
+      key: 'shoppingInfo',
+      success: function (res) {
+        that.setData({
+          shoppingInfo: res.data,
+          shoppingNumber: res.data.number
+        });
+      }
+    })
   },
   /**
    * 加减方法
@@ -39,13 +55,13 @@ Page({
    * 是否自提
    */
   isSend: function () {
-    if (this.data.isSendClick == false) {
+    if (this.data.isSendClick == 1) {
       this.setData({
-        isSendClick: true
+        isSendClick: 2
       });
     } else {
       this.setData({
-        isSendClick: false
+        isSendClick: 1
       });
     }
   },
@@ -76,6 +92,46 @@ Page({
   getDefAddressSuccess: function (res) {
     this.setData({
       defAddressInfo: res.data
+    })
+  },
+  /**
+   * 下订单
+   */
+  payment: function () {
+    wx.showLoading();
+    let _vo = {
+      "orders": {
+        "addressStr": this.data.defAddressInfo.location + this.data.defAddressInfo.street + this.data.defAddressInfo.detailedAddress,
+        "mobile": this.data.defAddressInfo.phone,
+        "isSelfRaised": this.data.isSendClick,
+        "useCoupon": 1,
+        "couponId": "couponId"
+      },
+      "ordersGoodsSet": [
+        {
+          "goodsId": this.data.shoppingInfo.dataInfo.id,
+          "goodsNum": this.data.shoppingNumber
+        }
+      ]
+    }
+    wx.request({
+      url: addOrderUrl,
+      header: {
+        "content-type": "application/json",
+        "token_id": wx.getStorageSync('token_id')
+      },
+      method: "POST",
+      data: _vo,
+      success: function (res) {
+        console.log(res);
+      },
+      fail: function (res) {
+        console.log(res);
+      },
+      complete: function () {
+        wx.hideLoading()
+      }
+
     })
   }
 })
