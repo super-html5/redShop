@@ -12,5 +12,6 @@ var config = {
   getUserInfoUrl: `${host}/api/v1/wine/userInfo/getUserInfo`,//获取用户信息
   addressListUrl: `${host}/api/v1/wine/address/list`,//获取用户地址列表
   addressUpdateUrl: `${host}/api/v1/wine/address/update`,//添加修改删除收货地址
+  ordersListUrl: `${host}/api/v1/wine/orders/list`,//订单查询
 };
 module.exports = config 
