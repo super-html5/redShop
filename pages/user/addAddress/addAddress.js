@@ -1,7 +1,5 @@
 // pages/user/addAddress/addAddress.js
 const addressUpdateUrl = require('../../../config').addressUpdateUrl
-const utils = require('../../utils/utils');
-
 Page({
 
   /**
@@ -42,8 +40,9 @@ Page({
       method: "POST",
       data: address,
       success: function (res) {
-        utils.callBackHandler(res, that.updataAdrHandler);
-
+        wx.redirectTo({
+          url: '/pages/user/address/address',
+        })
       },
       fail: function (res) {
         console.log(res);
@@ -54,11 +53,7 @@ Page({
 
     })
   },
-  updataAdrHandler: function (res) {
-    wx.redirectTo({
-      url: '/pages/user/address/address',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

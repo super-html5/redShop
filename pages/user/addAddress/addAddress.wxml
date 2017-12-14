@@ -32,7 +32,7 @@
             <view class="_weui-label">省、市、区</view>
           </view>
           <view class="weui-cell__bd">
-            <input class="weui-input" placeholder="" />
+            <input name="location" value='{{editAddress.location}}' class="weui-input" placeholder="" />
           </view>
         </view>
       </view>
@@ -43,7 +43,7 @@
             <view class="_weui-label">街道</view>
           </view>
           <view class="weui-cell__bd">
-            <input name="location" value='{{editAddress.location}}' class="weui-input" placeholder="" />
+            <input name="street" value='{{editAddress.street}}'  class="weui-input" placeholder="" />
           </view>
         </view>
       </view>
@@ -54,7 +54,7 @@
             <view class="_weui-label">邮政编码</view>
           </view>
           <view class="weui-cell__bd">
-            <input class="weui-input" placeholder="" />
+            <input name="areaCode" value='{{editAddress.areaCode}}' class="weui-input" placeholder="" />
           </view>
         </view>
       </view>

@@ -14,7 +14,7 @@
               <text class="weui-media-box__name">{{item.consignee}}</text>
               <text class="float_right">{{item.phone}}</text> </view>
             <view class="weui-media-box__title">
-              <text>{{item.location}} {{item.detailedAddress}}</text>
+              <text>{{item.location}} {{item.street}} {{item.detailedAddress}}</text>
             </view>
           </view>
         </view>

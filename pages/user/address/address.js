@@ -1,7 +1,6 @@
 // pages/user/address/address.js
 const addressListUrl = require('../../../config').addressListUrl;
 const addressUpdateUrl = require('../../../config').addressUpdateUrl;
-const utils = require('../../utils/utils');
 Page({
 
   /**
@@ -14,7 +13,7 @@ Page({
    * 新增收货地址
    */
   toLinkAddAddr: function () {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../../user/addAddress/addAddress',
     })
   },
@@ -66,7 +65,7 @@ Page({
     delete address.accountId;
     delete address.created;
     delete address.updated;
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/user/addAddress/addAddress?editAddress=' + JSON.stringify(address),
     })
   },
