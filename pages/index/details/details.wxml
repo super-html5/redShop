@@ -86,7 +86,7 @@
       <view class='details__bottom__bar__share__shop'>
         <image class='details__bottom__bar__image' src='../../../img/share.png' />
       </view>
-      <view class='details__bottom__bar__share__shop'>
+      <view class='details__bottom__bar__share__shop' bindtap='linkShoppingCar'>
         <image class='details__bottom__bar__image' src='../../../img/shop.png' />
         <view class="weui-badge icon__num">{{shoppingCarListNum}}</view>
       </view>

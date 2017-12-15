@@ -164,7 +164,7 @@ Page({
         if (res.statusCode == 200) {
           for (let i = 0; i < _data.length; i++) {
             _num += _data[i].number;
-            _voo = { 'number': _data[i].number, 'goodsId': _data[i].goodsId }
+            _voo = { 'number': _data[i].number, 'goodsId': _data[i].goodsId, 'id': _data[i].id }
             _vo.push(_voo);
           }
           that.setData({
@@ -172,6 +172,7 @@ Page({
             shoppingCarList: _data,
             vo: _vo
           })
+          console.log(that.data.vo);
         }
       },
       fail: function (error) {
@@ -200,9 +201,10 @@ Page({
       _vo.push(_voo);
     }
     this.setData({
-      shoppingCarListNum: this.data.shoppingCarListNum + 1
+      shoppingCarListNum: this.data.shoppingCarListNum + 1,
+      vo: _vo
     })
-
+    console.log(_vo);
     wx.request({
       url: addShoppingCarUrl,
       header: {
@@ -228,6 +230,14 @@ Page({
         wx.hideLoading()
       }
 
+    })
+  },
+  /**
+   * 跳转购物车
+   */
+  linkShoppingCar: function () {
+    wx.navigateTo({
+      url: '/pages/shoppingCar/index',
     })
   }
 })
