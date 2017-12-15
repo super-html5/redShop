@@ -38,8 +38,8 @@
           </view>
         </view>
         <view class="button_view clear" wx:if="{{ordersLists.status==1}}">
-          <button size="mini">取消订单</button>
-          <button size="mini" class="orange">付款</button>
+          <button size="mini" data-index="{{index}}" bindtap="cancelOrder">取消订单</button>
+          <button size="mini" class="orange" data-index="{{index}}">付款</button>
         </view>
         <view class="button_view clear" wx:if="{{ordersLists.status==2}}">
           <button size="mini" class="orange">提醒发货</button>
@@ -55,7 +55,7 @@
           <button size="mini">删除订单</button>
         </view>
         <view class="button_view clear" wx:if="{{ordersLists.status==6}}">
-          <button size="mini">删除订单</button>
+          <button size="mini" bindtap="delOrder">删除订单</button>
         </view>
 
       </view>

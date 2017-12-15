@@ -15,6 +15,9 @@ Page({
     shoppingNumber: 1,
     editOrComplete: "编辑"
   },
+  /**
+   * 点击编辑或者完成
+   */
   changeEditOrComplete: function () {
     let editOrComplete = this.data.editOrComplete;
     if (editOrComplete == "编辑") {
@@ -28,7 +31,9 @@ Page({
     }
 
   },
-
+  /**
+   * 全选按钮
+   */
   selectAll: function (e) {
     let selectAllStatus = this.data.selectAllStatus;    // 是否全选状态
     selectAllStatus = !selectAllStatus;
@@ -43,6 +48,9 @@ Page({
     });
     this.getTotalPrice();                               // 重新获取总价
   },
+  /**
+   * 点击单个 单选按钮
+   */
   selectList: function (e) {
     const index = e.currentTarget.dataset.index;    // 获取data- 传进来的index
     let carLists = this.data.carLists;                    // 获取购物车列表
@@ -66,8 +74,10 @@ Page({
     });
     this.getTotalPrice();                           // 重新获取总价
   },
-  // 增加数量
-  addCount: function(e) {
+  /**
+   * 增加数量
+   */
+  addCount: function (e) {
     const index = e.currentTarget.dataset.index;
     let carLists = this.data.carLists;
     let num = carLists[index].number;
@@ -79,7 +89,9 @@ Page({
     this.getTotalPrice();
   },
 
-  // 减少数量
+  /**
+   * 减少数量
+   */
   minusCount: function (e) {
     const index = e.currentTarget.dataset.index;
     let carLists = this.data.carLists;
@@ -92,15 +104,31 @@ Page({
     this.setData({
       carLists: carLists
     });
-    console.log(carLists);
     this.getTotalPrice();
   },
+  /**
+   * 计算价格
+   */
   getTotalPrice: function () {
-    let carLists = this.data.carLists;                  // 获取购物车列表
+    let that = this;
+    let carLists = that.data.carLists;                  // 获取购物车列表
     let total = 0;
     for (let i = 0; i < carLists.length; i++) {         // 循环列表得到每个数据
-      if (carLists[i].selected) {                   // 判断选中才会计算价格
-        total += carLists[i].number * carLists[i].goods.price;     // 所有价格加起来
+      if (carLists[i].selected) {                       // 判断选中才会计算价格
+        let discountNumber = carLists[i].goods.discountNumber;
+        if (carLists[i].number < discountNumber) {
+          total += carLists[i].number * carLists[i].goods.price;     // 正常价格加起来
+          carLists[i].priceTotal = carLists[i].number * carLists[i].goods.price;
+          that.setData({
+            carLists: carLists
+          });
+        } else if (carLists[i].number >= discountNumber) {
+          total += carLists[i].number * carLists[i].goods.tradePrice;  //折扣价格加起来
+          carLists[i].priceTotal = carLists[i].number * carLists[i].goods.tradePrice;
+          that.setData({
+            carLists: carLists
+          });
+        }
       }
     }
     this.setData({                                // 最后赋值到data中渲染到页面
@@ -108,6 +136,9 @@ Page({
       totalPrice: total.toFixed(2)
     });
   },
+  /**
+   * 点击删除
+   */
   toDelCount: function () {
     let that = this;
     let carLists = this.data.carLists;                      // 获取购物车列表
@@ -121,18 +152,23 @@ Page({
     }
     that.delCars(idArray);
   },
+  /**
+   * 点击结算
+   */
   toLinkDetails: function () {
     let carLists = this.data.carLists;                    // 获取购物车列表
-    wx.setStorage({
-      key: "shoppingInfo",
-      data: JSON.stringify(carLists)
-    })
-    wx: wx.navigateTo({
-      url: '/pages/index/confirm/confirm'
-    })
+    // wx.setStorage({
+    //   key: "shoppingInfo",
+    //   data: JSON.stringify(carLists)
+    // })
+    // wx: wx.navigateTo({
+    //   url: '/pages/index/confirm/confirm'
+    // })
 
   },
-
+  /**
+   * 购物车列表
+   */
   cartList: function () {
     let that = this;
     wx.showLoading({
@@ -171,6 +207,9 @@ Page({
 
     })
   },
+  /**
+   * 删除接口
+   */
   delCars: function (id) {
     let that = this;
     wx.showLoading({
@@ -186,7 +225,7 @@ Page({
       method: "POST",
       data: id,
       success: function (res) {
-         console.log(res);
+        console.log(res);
         if (res.statusCode == 200) {
           that.cartList();
         }
