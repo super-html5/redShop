@@ -2,13 +2,13 @@
 <view class="body_bg"></view>
 <!-- 购物车为空 -->
 
- <view wx:if="{{!hasList}}" class="page page_padding font_size">
+<view wx:if="{{!hasList}}" class="page page_padding font_size">
   <view class="page_header">
     <image src="../../img/shoppingCarK.png"></image>
     <view>购物车还是空的</view>
     <view>去挑选几件中意的商品吧</view>
   </view>
-</view> 
+</view>
 
 
 <!-- 购物车结算 -->
@@ -38,17 +38,17 @@
               </view>
             </navigator>
             <view wx:if="{{editOrComplete==='编辑'}}" class="weui-media-box__title">
-               <text class="float_left">500ml/瓶</text> 
+              <text class="float_left">500ml/瓶</text>
               <text>*{{item.num}}</text>
             </view>
 
-             <view wx:if="{{editOrComplete==='完成'}}" class='weui-media-box__title'>
+            <view wx:if="{{editOrComplete==='完成'}}" class='weui-media-box__title'>
               <view class='details__bottom__buyCard__jz'>
-                <text style='color:rgb(246, 76, 22)'  bindtap="minusCount" data-index="{{index}}">-</text>
+                <text style='color:rgb(246, 76, 22)' bindtap="minusCount" data-index="{{index}}">-</text>
                 <text style='color:rgb(135, 135, 135)'>{{item.num}}</text>
                 <text style='color:rgb(246, 76, 22); padding-right:50rpx;' bindtap="addCount" data-index="{{index}}">+</text>
               </view>
-            </view> 
+            </view>
 
           </view>
         </view>

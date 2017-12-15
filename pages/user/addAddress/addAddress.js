@@ -40,8 +40,8 @@ Page({
       method: "POST",
       data: address,
       success: function (res) {
-        wx.redirectTo({
-          url: '/pages/user/address/address',
+        wx.navigateBack({
+          delta: 1,
         })
       },
       fail: function (res) {

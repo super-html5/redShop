@@ -1,4 +1,7 @@
 // pages/shoppingcar/index.js
+const cartListUrl = require('../../config').cartListUrl;
+const cartClearUrl = require('../../config').cartClearUrl;
+
 Page({
 
   /**
@@ -82,7 +85,7 @@ Page({
   // 减少数量
   minusCount: function (e) {
     const index = e.currentTarget.dataset.index;
-    
+
     let carts = this.data.carts;
     let num = carts[index].num;
     if (num <= 1) {
@@ -112,7 +115,7 @@ Page({
     let carts = this.data.carts;                      // 获取购物车列表
     for (let i = 0; i < carts.length; i++) {          // 循环列表得到每个数据
       if (carts[i].selected === true) {                 // 将选中的下标放到指定的数组
-        carts.splice(i, 1); 
+        carts.splice(i, 1);
         i--;
       }
     }
@@ -127,16 +130,61 @@ Page({
       this.getTotalPrice();           // 重新计算总价格
     }
   },
-  toLinkDetails:function(){
-    wx:wx.navigateTo({
+  toLinkDetails: function () {
+    wx: wx.navigateTo({
       url: '/pages/index/confirm/confirm'
     })
   },
+
+  cartList: function () {
+    let that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+
+    wx.request({
+      url: cartListUrl,
+      header: {
+        "content-type": "application/json",
+        "token_id": "64c9cec70b4d4b5ba32fa8ec685c88f1"
+      },
+      method: "Get",
+      success: function (res) {
+        if (res.statusCode == 200) {
+          that.setData({
+            ordersLists: res.data
+          })
+        }
+        console.log(res);
+        if (res.statusCode == 404) {
+          wx.showModal({
+            content: '购物车暂时没有东西，请先添加',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              }
+            }
+          });
+        }
+      },
+      fail: function (res) {
+        console.log(res);
+
+      },
+      complete: function () {
+        wx.hideLoading()
+      }
+
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.getTotalPrice();
+    this.cartList();
   },
 
   /**
