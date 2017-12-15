@@ -7,7 +7,7 @@
 
 
       <!-- <view class="weui-panel__hd">图文组合列表</view> -->
-      <view class="weui-panel__bd" wx:for="{{addressList}}">
+      <view class="weui-panel__bd" wx:for="{{addressList}}" wx:key="*this">
         <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" data-index="{{index}}" bindtap="editAdr">
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
             <view class="weui-media-box__title">

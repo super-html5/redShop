@@ -18,5 +18,6 @@ var config = {
   ordersListUrl: `${host}/api/v1/wine/orders/list`,//订单查询
   cartListUrl: `${host}/api/v1/wine/cart/list`,//购物车查询
   cartClearUrl:`${host}/api/v1/wine/cart/clear`,//购物车清空
+  cartDeleteUrl: `${host}/api/v1/wine/cart/delete`,//购物车删除
 };
 module.exports = config 

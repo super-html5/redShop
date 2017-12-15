@@ -22,6 +22,7 @@ Page({
       },
       method: "Get",
       success: function (res) {
+        console.log(res);
         if (res.statusCode == 200) {
           that.setData({
             ordersLists: res.data
@@ -34,7 +35,9 @@ Page({
             showCancel: false,
             success: function (res) {
               if (res.confirm) {
-                console.log('用户点击确定')
+                wx.navigateTo({
+                  url: '/pages/index/index',
+                })
               }
             }
           });
