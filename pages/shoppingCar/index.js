@@ -8,11 +8,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    carts: [
-      { id: 1, title: '新鲜芹菜 半斤', image: '/image/s5.png', num: 4, price: 8881.00, selected: true },
-      { id: 2, title: '素米 500g', image: '/image/s6.png', num: 2, price: 3.00, selected: true },
-      { id: 3, title: '猪肉 1500g', image: '/image/s6.png', num: 5, price: 13.00, selected: true }
-    ],
     carLists: [],
     hasList: true,          // 列表是否有数据
     totalPrice: 0,           // 总价，初始为0
@@ -126,9 +121,15 @@ Page({
     that.delCars(idArray);
   },
   toLinkDetails: function () {
+    let carLists = this.data.carLists;                    // 获取购物车列表
+    wx.setStorage({
+      key: "shoppingInfo",
+      data: JSON.stringify(carLists)
+    })
     wx: wx.navigateTo({
       url: '/pages/index/confirm/confirm'
     })
+
   },
 
   cartList: function () {
@@ -153,19 +154,11 @@ Page({
             carLists: res.data
           })
         }
-        console.log(that.data.carLists);
+        console.log(that.data);
         if (res.statusCode == 404) {
-          wx.showModal({
-            content: '购物车暂时没有东西，请先添加',
-            showCancel: false,
-            success: function (res) {
-              if (res.confirm) {
-                wx.navigateTo({
-                  url: '/pages/index/index',
-                })
-              }
-            }
-          });
+          that.setData({
+            hasList: false    
+          })
         }
       },
       fail: function (res) {
