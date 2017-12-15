@@ -2,13 +2,13 @@
 <view class="body_bg"></view>
 <!-- 购物车为空 -->
 
- <view wx:if="{{!hasList}}" class="page page_padding font_size">
+<view wx:if="{{!hasList}}" class="page page_padding font_size">
   <view class="page_header">
     <image src="../../img/shoppingCarK.png"></image>
     <view>购物车还是空的</view>
     <view>去挑选几件中意的商品吧</view>
   </view>
-</view> 
+</view>
 
 
 <!-- 购物车结算 -->
@@ -25,7 +25,7 @@
     <view class="weui-panel weui-panel_access">
       <view class="weui-panel__bd">
 
-        <view wx:for="{{carts}}" class="weui-media-box weui-media-box_appmsg margin_b">
+        <!-- <view wx:for="{{carts}}" class="weui-media-box weui-media-box_appmsg margin_b">
           <radio color="#FF6319" checked="{{item.selected}}" bindtap="selectList" data-index="{{index}}" />
           <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
             <image class="weui-media-box__thumb" src="../../img/listDef.png" />
@@ -38,20 +38,49 @@
               </view>
             </navigator>
             <view wx:if="{{editOrComplete==='编辑'}}" class="weui-media-box__title">
-               <text class="float_left">500ml/瓶</text> 
+              <text class="float_left">500ml/瓶</text>
               <text>*{{item.num}}</text>
             </view>
 
-             <view wx:if="{{editOrComplete==='完成'}}" class='weui-media-box__title'>
+            <view wx:if="{{editOrComplete==='完成'}}" class='weui-media-box__title'>
               <view class='details__bottom__buyCard__jz'>
-                <text style='color:rgb(246, 76, 22)'  bindtap="minusCount" data-index="{{index}}">-</text>
+                <text style='color:rgb(246, 76, 22)' bindtap="minusCount" data-index="{{index}}">-</text>
                 <text style='color:rgb(135, 135, 135)'>{{item.num}}</text>
                 <text style='color:rgb(246, 76, 22); padding-right:50rpx;' bindtap="addCount" data-index="{{index}}">+</text>
               </view>
-            </view> 
+            </view>
+
+          </view>
+        </view> -->
+
+        <view wx:for="{{carLists}}" wx:key="*this" class="weui-media-box weui-media-box_appmsg margin_b">
+           <radio color="#FF6319" checked="{{item.selected}}" bindtap="selectList" data-index="{{index}}" /> 
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="{{item.goods.imgUrl}}" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg text_right">
+            <navigator url="/pages/index/details/details?id={{item.id}}" hover-class="weui-cell_active">
+              <view class="weui-media-box__title">
+                <text class="float_left">{{item.goods.title}}</text>
+                <text class="float_right">￥{{item.goods.price}}</text>
+              </view>
+            </navigator>
+            <view wx:if="{{editOrComplete==='编辑'}}" class="weui-media-box__title">
+              <text class="float_left">{{item.goods.capacity}}</text>
+              <text>*{{item.number}}</text>
+            </view>
+
+            <view wx:if="{{editOrComplete==='完成'}}" class='weui-media-box__title'>
+              <view class='details__bottom__buyCard__jz'>
+                <text style='color:rgb(246, 76, 22)' bindtap="minusCount" data-index="{{index}}">-</text>
+                <text style='color:rgb(135, 135, 135)'>{{item.number}}</text>
+                <text style='color:rgb(246, 76, 22); padding-right:50rpx;' bindtap="addCount" data-index="{{index}}">+</text>
+              </view>
+            </view>
 
           </view>
         </view>
+
 
         <view class="bottom_way">
           <view class="text_right fl_left">合计￥：

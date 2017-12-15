@@ -6,7 +6,7 @@
       <!-- <view class="weui-panel__hd">图文组合列表</view> -->
 
 
-      <view class="weui-panel__bd" wx:for="{{ordersLists}}" wx:for-item="ordersLists">
+      <view class="weui-panel__bd" wx:for="{{ordersLists}}" wx:for-item="ordersLists" wx:key="*this">
         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg ">
           <view class="weui-media-box__title text_ringht margin_right" wx:if="{{ordersLists.status==1}}">等待买家付款</view>
           <view class="weui-media-box__title text_ringht margin_right" wx:if="{{ordersLists.status==2}}">等待卖家发货</view>
@@ -14,15 +14,15 @@
           <view class="weui-media-box__title text_ringht margin_right" wx:if="{{ordersLists.status==4}}">交易成功</view>
           <view class="weui-media-box__title text_ringht margin_right" wx:if="{{ordersLists.status==5}}">订单正在取消</view>
           <view class="weui-media-box__title text_ringht margin_right" wx:if="{{ordersLists.status==6}}">订单已取消</view>
-          <block wx:for="{{ordersLists.orderGoods}}" wx:for-item="orderGoods">
-            <navigator url="/pages/index/details/details?id={{orderGoods.goodsId}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <block wx:for="{{ordersLists.orderGoods}}" wx:for-item="orderGoods" wx:key="*this">
+            <navigator url="/pages/index/confirm/confirm?id={{orderGoods.goodsId}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
               <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
                 <image class="weui-media-box__thumb" src="{{orderGoods.goodsImgUrl}}" />
               </view>
               <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
                 <view class="weui-media-box__title small_title">
                   <text>{{orderGoods.goodsTitle}}</text>
-                  <text class="float_right">￥{{orderGoods.goodsNum}}</text>
+                  <text class="float_right">￥{{orderGoods.goodsPrice}}</text>
                 </view>
                 <view class="weui-media-box__title small_title">
                   <text>200ml/瓶</text>

@@ -65,7 +65,7 @@ Page({
     delete address.accountId;
     delete address.created;
     delete address.updated;
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/user/addAddress/addAddress?editAddress=' + JSON.stringify(address),
     })
   },
@@ -100,7 +100,9 @@ Page({
             showCancel: false,
             success: function (res) {
               if (res.confirm) {
-                console.log('用户点击确定')
+                wx.navigateTo({
+                  url: '/pages/user/addAddress/addAddress',
+                })
               }
             }
           });
@@ -165,6 +167,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+   
+  },
+  onShow: function () {
     this.loaddingAdr();
-  }
+  },
+
 })

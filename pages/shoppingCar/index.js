@@ -1,4 +1,7 @@
 // pages/shoppingcar/index.js
+const cartListUrl = require('../../config').cartListUrl;
+const cartDeleteUrl = require('../../config').cartDeleteUrl;
+
 Page({
 
   /**
@@ -10,9 +13,10 @@ Page({
       { id: 2, title: '素米 500g', image: '/image/s6.png', num: 2, price: 3.00, selected: true },
       { id: 3, title: '猪肉 1500g', image: '/image/s6.png', num: 5, price: 13.00, selected: true }
     ],
+    carLists: [],
     hasList: true,          // 列表是否有数据
     totalPrice: 0,           // 总价，初始为0
-    selectAllStatus: true,   // 全选状态，默认全选
+    selectAllStatus: false,   // 全选状态，默认全选
     shoppingNumber: 1,
     editOrComplete: "编辑"
   },
@@ -33,36 +37,36 @@ Page({
   selectAll: function (e) {
     let selectAllStatus = this.data.selectAllStatus;    // 是否全选状态
     selectAllStatus = !selectAllStatus;
-    let carts = this.data.carts;
+    let carLists = this.data.carLists;
 
-    for (let i = 0; i < carts.length; i++) {
-      carts[i].selected = selectAllStatus;            // 改变所有商品状态
+    for (let i = 0; i < carLists.length; i++) {
+      carLists[i].selected = selectAllStatus;            // 改变所有商品状态
     }
     this.setData({
       selectAllStatus: selectAllStatus,
-      carts: carts
+      carLists: carLists
     });
     this.getTotalPrice();                               // 重新获取总价
   },
   selectList: function (e) {
     const index = e.currentTarget.dataset.index;    // 获取data- 传进来的index
-    let carts = this.data.carts;                    // 获取购物车列表
+    let carLists = this.data.carLists;                    // 获取购物车列表
     let selectAllStatus = this.data.selectAllStatus;// 获取全选状态
-    const selected = carts[index].selected;         // 获取当前商品的选中状态
-    carts[index].selected = !selected;              // 改变状态
+    const selected = carLists[index].selected;         // 获取当前商品的选中状态
+    carLists[index].selected = !selected;              // 改变状态
     let selectNum = 0;
-    for (let i = 0; i < carts.length; i++) {
-      if (carts[i].selected == true) {
+    for (let i = 0; i < carLists.length; i++) {
+      if (carLists[i].selected == true) {
         selectNum++;
       }
     }
-    if (selectNum < carts.length) {
+    if (selectNum < carLists.length) {
       selectAllStatus = false;
     } else {
       selectAllStatus = true;
     }
     this.setData({
-      carts: carts,
+      carLists: carLists,
       selectAllStatus: selectAllStatus
     });
     this.getTotalPrice();                           // 重新获取总价
@@ -70,66 +74,146 @@ Page({
   // 增加数量
   addCount: function (e) {
     const index = e.currentTarget.dataset.index;
-    let carts = this.data.carts;
-    let num = carts[index].num;
+    let carLists = this.data.carLists;
+    let num = carLists[index].number;
     num = num + 1;
-    carts[index].num = num;
+    carLists[index].number = num;
     this.setData({
-      carts: carts
+      carLists: carLists
     });
     this.getTotalPrice();
   },
   // 减少数量
   minusCount: function (e) {
     const index = e.currentTarget.dataset.index;
-    
-    let carts = this.data.carts;
-    let num = carts[index].num;
+    let carLists = this.data.carLists;
+    let num = carLists[index].number;
     if (num <= 1) {
       return false;
     }
     num = num - 1;
-    carts[index].num = num;
+    carLists[index].number = num;
     this.setData({
-      carts: carts
+      carLists: carLists
     });
+    console.log(carLists);
     this.getTotalPrice();
   },
   getTotalPrice: function () {
-    let carts = this.data.carts;                  // 获取购物车列表
+    let carLists = this.data.carLists;                  // 获取购物车列表
     let total = 0;
-    for (let i = 0; i < carts.length; i++) {         // 循环列表得到每个数据
-      if (carts[i].selected) {                   // 判断选中才会计算价格
-        total += carts[i].num * carts[i].price;     // 所有价格加起来
+    for (let i = 0; i < carLists.length; i++) {         // 循环列表得到每个数据
+      if (carLists[i].selected) {                   // 判断选中才会计算价格
+        total += carLists[i].number * carLists[i].goods.price;     // 所有价格加起来
       }
     }
     this.setData({                                // 最后赋值到data中渲染到页面
-      carts: carts,
+      carLists: carLists,
       totalPrice: total.toFixed(2)
     });
   },
   toDelCount: function () {
-    let carts = this.data.carts;                      // 获取购物车列表
-    for (let i = 0; i < carts.length; i++) {          // 循环列表得到每个数据
-      if (carts[i].selected === true) {                 // 将选中的下标放到指定的数组
-        carts.splice(i, 1); 
-        i--;
+    let that = this;
+    let carLists = this.data.carLists;                      // 获取购物车列表
+    let idArray = [];
+    for (let i = 0; i < carLists.length; i++) {          // 循环列表得到每个数据
+      if (carLists[i].selected === true) {                 // 将选中的下标放到指定的数组
+        console.log(carLists[i].id);
+        idArray.push(carLists[i].id);
+
       }
     }
-    this.setData({
-      carts: carts
-    });
-    if (!this.data.carts.length) {                  // 如果购物车为空
-      this.setData({
-        hasList: false              // 修改标识为false，显示购物车为空页面
-      });
-    } else {                              // 如果不为空
-      this.getTotalPrice();           // 重新计算总价格
-    }
+    that.delCars(idArray);
   },
-  toLinkDetails:function(){
-    wx:wx.navigateTo({
+  toLinkDetails: function () {
+    wx: wx.navigateTo({
       url: '/pages/index/confirm/confirm'
+    })
+  },
+
+  cartList: function () {
+    let that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+
+    wx.request({
+      url: cartListUrl,
+      header: {
+        "content-type": "application/json",
+        "token_id": "64c9cec70b4d4b5ba32fa8ec685c88f1"
+      },
+      method: "Get",
+      success: function (res) {
+        if (res.statusCode == 200) {
+          res.data.forEach(function (value) {
+            value.selected = false;
+          });
+          that.setData({
+            carLists: res.data
+          })
+        }
+        console.log(that.data.carLists);
+        if (res.statusCode == 404) {
+          wx.showModal({
+            content: '购物车暂时没有东西，请先添加',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/index/index',
+                })
+              }
+            }
+          });
+        }
+      },
+      fail: function (res) {
+        console.log(res);
+
+      },
+      complete: function () {
+        wx.hideLoading()
+      }
+
+    })
+  },
+  delCars: function (id) {
+    let that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+
+    wx.request({
+      url: cartDeleteUrl,
+      header: {
+        "content-type": "application/json",
+        "token_id": "64c9cec70b4d4b5ba32fa8ec685c88f1"
+      },
+      method: "POST",
+      data: id,
+      success: function (res) {
+        if (res.statusCode == 200) {
+          that.setData({
+            carLists: res.data
+          })
+        }
+        if (!this.data.carLists.length) {      // 如果购物车为空
+          this.setData({
+            hasList: false                     // 修改标识为false，显示购物车为空页面
+          });
+        } else {                               // 如果不为空
+          this.getTotalPrice();                // 重新计算总价格
+        }
+      },
+      fail: function (res) {
+        console.log(res);
+
+      },
+      complete: function () {
+        wx.hideLoading()
+      }
+
     })
   },
   /**
@@ -137,6 +221,7 @@ Page({
    */
   onLoad: function (options) {
     this.getTotalPrice();
+    this.cartList();
   },
 
   /**

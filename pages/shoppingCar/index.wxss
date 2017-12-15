@@ -1,9 +1,4 @@
 /* pages/shoppingcar/index.wxss */
-
-.page_padding {
-  padding: 0 30rpx;
-}
-
 .page_header {
   text-align: center;
   margin-top: 240rpx;
@@ -30,7 +25,7 @@
 }
 
 .float_left {
-  display: block;
+  
   float: left;
   text-align: left;
   width: 300rpx;
@@ -42,7 +37,6 @@
 
 .float_right {
   float: right;
-  min-width: 100rpx;
 }
 
 .bottom_way {
