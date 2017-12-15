@@ -78,6 +78,7 @@ Page({
     });
     this.getTotalPrice();
   },
+
   // 减少数量
   minusCount: function (e) {
     const index = e.currentTarget.dataset.index;
