@@ -7,59 +7,60 @@
 
 
       <view class="weui-panel__bd" wx:for="{{ordersLists}}" wx:for-item="ordersLists" wx:key="*this">
-        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg ">
-          <view class="weui-media-box__title text_ringht margin_right" wx:if="{{ordersLists.status==1}}">等待买家付款</view>
-          <view class="weui-media-box__title text_ringht margin_right" wx:if="{{ordersLists.status==2}}">等待卖家发货</view>
-          <view class="weui-media-box__title text_ringht margin_right" wx:if="{{ordersLists.status==3}}">等待买家收货</view>
-          <view class="weui-media-box__title text_ringht margin_right" wx:if="{{ordersLists.status==4}}">交易成功</view>
-          <view class="weui-media-box__title text_ringht margin_right" wx:if="{{ordersLists.status==5}}">订单正在取消</view>
-          <view class="weui-media-box__title text_ringht margin_right" wx:if="{{ordersLists.status==6}}">订单已取消</view>
-          <block wx:for="{{ordersLists.orderGoods}}" wx:for-item="orderGoods" wx:key="*this">
-            <navigator url="/pages/index/confirm/confirm?id={{orderGoods.goodsId}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-              <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-                <image class="weui-media-box__thumb" src="{{orderGoods.goodsImgUrl}}" />
-              </view>
-              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                <view class="weui-media-box__title small_title">
-                  <text>{{orderGoods.goodsTitle}}</text>
-                  <text class="float_right">￥{{orderGoods.goodsPrice}}</text>
+        <view wx:if="{{ordersLists.status==1 || ordersLists.status==2 || ordersLists.status==3 || ordersLists.status==4}}">
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg ">
+            <view class="weui-media-box__title text_ringht margin_right" wx:if="{{ordersLists.status==1}}">等待买家付款</view>
+            <view class="weui-media-box__title text_ringht margin_right" wx:if="{{ordersLists.status==2}}">等待卖家发货</view>
+            <view class="weui-media-box__title text_ringht margin_right" wx:if="{{ordersLists.status==3}}">等待买家收货</view>
+            <view class="weui-media-box__title text_ringht margin_right" wx:if="{{ordersLists.status==4}}">交易成功</view>
+            <view class="weui-media-box__title text_ringht margin_right" wx:if="{{ordersLists.status==5}}">订单正在取消</view>
+            <view class="weui-media-box__title text_ringht margin_right" wx:if="{{ordersLists.status==6}}">订单已取消</view>
+            <block wx:for="{{ordersLists.orderGoods}}" wx:for-item="orderGoods" wx:key="*this">
+              <navigator url="/pages/index/orderConfirm/orderConfirm?id={{orderGoods.goodsId}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                  <image class="weui-media-box__thumb" src="{{orderGoods.goodsImgUrl}}" />
                 </view>
-                <view class="weui-media-box__title small_title">
-                  <text>200ml/瓶</text>
-                  <text class="float_right">*{{orderGoods.goodsNum}}</text>
+                <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                  <view class="weui-media-box__title small_title">
+                    <text>{{orderGoods.goodsTitle}}</text>
+                    <text class="float_right">￥{{orderGoods.goodsPrice}}</text>
+                  </view>
+                  <view class="weui-media-box__title small_title">
+                    <text>200ml/瓶</text>
+                    <text class="float_right">*{{orderGoods.goodsNum}}</text>
+                  </view>
                 </view>
-              </view>
-            </navigator>
-          </block>
+              </navigator>
+            </block>
 
-          <view class="weui-media-box__title float_right margin_right">共
-            <text>{{ordersLists.number}}</text>件商品
-            <text>合计：<text>￥{{ordersLists.price}}</text></text>
+            <view class="weui-media-box__title float_right margin_right">共
+              <text>{{ordersLists.number}}</text>件商品
+              <text>合计：<text>￥{{ordersLists.price}}</text></text>
+            </view>
           </view>
-        </view>
-        <view class="button_view clear" wx:if="{{ordersLists.status==1}}">
-          <button size="mini" data-index="{{index}}" bindtap="cancelOrder">取消订单</button>
-          <button size="mini" class="orange" data-index="{{index}}">付款</button>
-        </view>
-        <view class="button_view clear" wx:if="{{ordersLists.status==2}}">
-          <button size="mini" class="orange">提醒发货</button>
-        </view>
-        <view class="button_view clear" wx:if="{{ordersLists.status==3}}">
-          <button size="mini">查看物流</button>
-          <button size="mini" class="orange">确认收货</button>
-        </view>
-        <view class="button_view clear" wx:if="{{ordersLists.status==4}}">
-          <button size="mini">删除订单</button>
-        </view>
-        <view class="button_view clear" wx:if="{{ordersLists.status==5}}">
-          <button size="mini">删除订单</button>
-        </view>
-        <view class="button_view clear" wx:if="{{ordersLists.status==6}}">
-          <button size="mini" bindtap="delOrder">删除订单</button>
-        </view>
+          <view class="button_view clear" wx:if="{{ordersLists.status==1}}">
+            <button size="mini" data-index="{{index}}" bindtap="cancelOrder">取消订单</button>
+            <button size="mini" class="orange" data-index="{{index}}">付款</button>
+          </view>
+          <view class="button_view clear" wx:if="{{ordersLists.status==2}}">
+            <button size="mini" class="orange">提醒发货</button>
+          </view>
+          <view class="button_view clear" wx:if="{{ordersLists.status==3}}">
+            <button size="mini">查看物流</button>
+            <button size="mini" class="orange">确认收货</button>
+          </view>
+          <view class="button_view clear" wx:if="{{ordersLists.status==4}}">
+            <button size="mini">删除订单</button>
+          </view>
+          <view class="button_view clear" wx:if="{{ordersLists.status==5}}">
+            <button size="mini">删除订单</button>
+          </view>
+          <view class="button_view clear" wx:if="{{ordersLists.status==6}}">
+            <button size="mini" bindtap="delOrder">删除订单</button>
+          </view>
 
+        </view>
       </view>
-
 
     </view>
   </view>

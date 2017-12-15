@@ -29,6 +29,9 @@ Page({
       success: function (res) {
         console.log(res);
         if (res.statusCode == 200) {
+          // res.data.forEach(function (value, index){
+          //   value.status==
+          // });
           that.setData({
             ordersLists: res.data
           })
@@ -59,7 +62,7 @@ Page({
     })
   },
   /**
-   * 删除订单
+   *   取消  删除订单
    */
   cancelOrder: function (e) {
     let that = this;
@@ -83,19 +86,6 @@ Page({
         if (res.statusCode == 200) {
           that.ordersList();
         }
-        // if (res.statusCode == 404) {
-        //   wx.showModal({
-        //     content: '你还没有订单，请先购买添加',
-        //     showCancel: false,
-        //     success: function (res) {
-        //       if (res.confirm) {
-        //         wx.navigateTo({
-        //           url: '/pages/index/index',
-        //         })
-        //       }
-        //     }
-        //   });
-        // }
       },
       fail: function (res) {
         console.log(res);

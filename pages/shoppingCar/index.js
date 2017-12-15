@@ -157,13 +157,20 @@ Page({
    */
   toLinkDetails: function () {
     let carLists = this.data.carLists;                    // 获取购物车列表
-    // wx.setStorage({
-    //   key: "shoppingInfo",
-    //   data: JSON.stringify(carLists)
-    // })
-    // wx: wx.navigateTo({
-    //   url: '/pages/index/confirm/confirm'
-    // })
+    let selectCarLists=[];
+    for (let i = 0; i < carLists.length; i++) {           // 循环列表得到每个数据
+      if (carLists[i].selected === true) {                // 将选中的下标放到指定的数组
+        selectCarLists.push(carLists[i]);
+      }
+    };
+    console.log(selectCarLists);    
+    wx.setStorage({
+      key: "shoppingInfo",
+      data: JSON.stringify(selectCarLists)
+    })
+    wx: wx.navigateTo({
+      url: '/pages/index/carConfirm/carConfirm'
+    })
 
   },
   /**
