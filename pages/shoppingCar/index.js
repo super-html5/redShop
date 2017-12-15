@@ -67,7 +67,7 @@ Page({
     this.getTotalPrice();                           // 重新获取总价
   },
   // 增加数量
-  addCount: function (e) {
+  addCount: function(e) {
     const index = e.currentTarget.dataset.index;
     let carLists = this.data.carLists;
     let num = carLists[index].number;
@@ -143,7 +143,7 @@ Page({
       url: cartListUrl,
       header: {
         "content-type": "application/json",
-        "token_id": "64c9cec70b4d4b5ba32fa8ec685c88f1"
+        "token_id": wx.getStorageSync('token_id')
       },
       method: "Get",
       success: function (res) {
@@ -158,13 +158,12 @@ Page({
         console.log(that.data);
         if (res.statusCode == 404) {
           that.setData({
-            hasList: false    
+            hasList: false
           })
         }
       },
       fail: function (res) {
         console.log(res);
-
       },
       complete: function () {
         wx.hideLoading()
@@ -187,17 +186,17 @@ Page({
       method: "POST",
       data: id,
       success: function (res) {
+         console.log(res);
         if (res.statusCode == 200) {
-          that.setData({
-            carLists: res.data
-          })
+          that.cartList();
         }
-        if (!this.data.carLists.length) {      // 如果购物车为空
+        let carLists = that.data.carLists;
+        if (!carLists.length) {               // 如果购物车为空
           this.setData({
             hasList: false                     // 修改标识为false，显示购物车为空页面
           });
         } else {                               // 如果不为空
-          this.getTotalPrice();                // 重新计算总价格
+          that.getTotalPrice();                // 重新计算总价格
         }
       },
       fail: function (res) {
@@ -218,52 +217,4 @@ Page({
     this.cartList();
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })
