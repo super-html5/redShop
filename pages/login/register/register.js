@@ -1,5 +1,6 @@
 // pages/login/register/register.js
-const saveUserInfo = require('../../../config').saveUserInfo;
+const sendMsgUrl = require('../../../config').sendMsgUrl;
+const authMsgUrl = require('../../../config').authMsgUrl;
 const utils = require('../../utils/utils');
 
 Page({
@@ -10,44 +11,26 @@ Page({
   data: {
     second: '',
     inputPhone: '',
-    inputVcode: ''
+    inputVcode: '',
+    serial: ''
   },
   /**
    * 下一步
    */
   toLinkAut: function () {
-    var that = this;
-    wx.showLoading({
-      title: '加载中',
-    })
-
-    /**
-     * 更新&&认证 保存用户信息
-     */
-    wx.request({
-      url: saveUserInfo,
-      header: {
-        "content-type": "application/json",
-        "token_id": wx.getStorageSync('token_id')
-      },
-      method: "POST",
-      data: {
-        "mobile": that.data.inputPhone,
-        "idCard": "",
-        "realName": ""
-      },
-      success: function (res) {
-        utils.callBackHandler(res, that.saveUserInfoHandler);
-      },
-      fail: function (res) {
-        console.log(res);
-      },
-      complete: function () {
-        wx.hideLoading()
-      }
-
-    })
-
+    if (!this.data.inputPhone || !this.data.inputVcode) {
+      wx.showModal({
+        content: '请补全信息',
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      });
+    } else {
+      this.authMsg();
+    }
   },
   /**
    * 倒计时
@@ -66,6 +49,7 @@ Page({
         }
       });
     } else {
+      this.sendMsg();
       //显示倒计时
       this.setData({
         second: 60
@@ -87,11 +71,111 @@ Page({
 
   },
   /**
-   * 更新&&认证 保存用户信息 成功回调
+   * 发送验证码
    */
-  saveUserInfoHandler: function () {
-    wx.navigateTo({
-      url: '../../login/authentication/authentication',
+  sendMsg: function () {
+    let that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+
+    wx.request({
+      url: sendMsgUrl,
+      header: {
+        "content-type": "application/json",
+        "token_id": wx.getStorageSync('token_id')
+      },
+      method: "POST",
+      data: {
+        "mobile": that.data.inputPhone
+      },
+      success: function (res) {
+        console.log(res.data.result);
+        if (res.statusCode == 200) {
+          that.setData({
+            serial: res.data.result
+          });
+        } else {
+          wx.showModal({
+            content: '当前服务器繁忙，请稍后再试',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              }
+            }
+          });
+        }
+
+      },
+      fail: function (res) {
+        console.log(res);
+      },
+      complete: function () {
+        wx.hideLoading()
+      }
+
+    })
+  },
+  /**
+   * 验证验证码
+   */
+  authMsg: function () {
+    let that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+
+    wx.request({
+      url: authMsgUrl,
+      header: {
+        "content-type": "application/json",
+        "token_id": wx.getStorageSync('token_id')
+      },
+      method: "POST",
+      data: {
+        "mobile": that.data.inputPhone,
+        "serial": that.data.serial,
+        "verify": that.data.inputVcode
+      },
+      success: function (res) {
+        console.log(res);
+        if (res.statusCode == 200) {
+          wx.navigateTo({
+            url: '../../login/authentication/authentication?mobile=' + that.data.inputPhone,
+          })
+        } else if (res.statusCode == 400) {
+          wx.showModal({
+            content: '效验失败',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                that.setData({
+                  verify: ' '
+                });
+              }
+            }
+          });
+        } else {
+          wx.showModal({
+            content: '当前服务器繁忙，请稍后再试',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              }
+            }
+          });
+        }
+
+      },
+      fail: function (res) {
+        console.log(res);
+      },
+      complete: function () {
+        wx.hideLoading()
+      }
+
     })
   },
   /**
@@ -102,9 +186,9 @@ Page({
       inputPhone: e.detail.value
     })
   },
-   /**
-   * 获取验证码
-   */
+  /**
+  * 获取验证码
+  */
   bindKeyVcode: function (e) {
     this.setData({
       inputVcode: e.detail.value

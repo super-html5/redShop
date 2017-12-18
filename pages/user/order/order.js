@@ -29,15 +29,10 @@ Page({
       success: function (res) {
         console.log(res);
         if (res.statusCode == 200) {
-          // res.data.forEach(function (value, index){
-          //   value.status==
-          // });
           that.setData({
             ordersLists: res.data
           })
-        }
-
-        if (res.statusCode == 404) {
+        }else if (res.statusCode == 404) {
           wx.showModal({
             content: '你还没有订单，请先购买添加',
             showCancel: false,
@@ -46,6 +41,16 @@ Page({
                 wx.navigateTo({
                   url: '/pages/index/index',
                 })
+              }
+            }
+          });
+        }else{
+          wx.showModal({
+            content: '当前服务器繁忙，请稍后再试',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
               }
             }
           });
@@ -85,6 +90,16 @@ Page({
         console.log(res);
         if (res.statusCode == 200) {
           that.ordersList();
+        }else{
+          wx.showModal({
+            content: '当前服务器繁忙，请稍后再试',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              }
+            }
+          });
         }
       },
       fail: function (res) {

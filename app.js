@@ -16,14 +16,27 @@ App({
       },
       method: "GET",
       success: function (res) {
-        console.log(res );
-        if (!res.data.id || !res.data.idCard || !res.data.mobile) {
-          wx.redirectTo({
-            url: '/pages/login/index',
-          })
-        }else{
-          that.globalData.authUserInfo = true;
+        console.log(res);
+        if (res.statusCode == 200) {
+          if (!res.data.mobile) {
+            wx.redirectTo({
+              url: '/pages/login/index',
+            })
+          } else {
+            that.globalData.authUserInfo = true;
+          }
+        } else {
+          wx.showModal({
+            content: '当前服务器繁忙，请稍后再试',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              }
+            }
+          });
         }
+
 
 
       },
@@ -49,10 +62,20 @@ App({
           method: "POST",
           success: function (res) {
             console.log(res.data);
-            wx.setStorageSync('token_id', res.data.token);
-
-            that.getUserInfo();
-
+            if (res.statusCode == 200) {
+              wx.setStorageSync('token_id', res.data.token);
+              that.getUserInfo();
+            } else {
+              wx.showModal({
+                content: '当前服务器繁忙，请稍后再试',
+                showCancel: false,
+                success: function (res) {
+                  if (res.confirm) {
+                    console.log('用户点击确定')
+                  }
+                }
+              });
+            }
           },
           fail: function (res) {
             console.log(res);

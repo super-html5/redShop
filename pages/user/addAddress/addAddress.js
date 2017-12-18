@@ -40,9 +40,21 @@ Page({
       method: "POST",
       data: address,
       success: function (res) {
-        wx.navigateBack({
-          delta: 1,
-        })
+        if (res.statusCode == 200) {
+          wx.navigateBack({
+            delta: 1,
+          })
+        }else {
+          wx.showModal({
+            content: '当前服务器繁忙，请稍后再试',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              }
+            }
+          });
+        }
       },
       fail: function (res) {
         console.log(res);

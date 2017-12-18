@@ -106,6 +106,16 @@ Page({
               }
             }
           });
+        }else{
+          wx.showModal({
+            content: '当前服务器繁忙，请稍后再试',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              }
+            }
+          });
         }
       },
       fail: function (res) {
@@ -139,11 +149,19 @@ Page({
           that.setData({
             addressList: res.data
           })
-        }
-        console.log(res.statusCode == 404);
-        if (res.statusCode == 404) {
+        }else if (res.statusCode == 404) {
           wx.showModal({
             content: '没有地址了，请重新添加',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              }
+            }
+          });
+        }else{
+          wx.showModal({
+            content: '当前服务器繁忙，请稍后再试',
             showCancel: false,
             success: function (res) {
               if (res.confirm) {

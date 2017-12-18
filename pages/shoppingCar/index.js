@@ -197,12 +197,20 @@ Page({
           that.setData({
             carLists: res.data
           })
-        }
-        console.log(that.data);
-        if (res.statusCode == 404) {
+        }else if (res.statusCode == 404) {
           that.setData({
             hasList: false
           })
+        }else{
+          wx.showModal({
+            content: '当前服务器繁忙，请稍后再试',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              }
+            }
+          });
         }
       },
       fail: function (res) {
@@ -235,6 +243,16 @@ Page({
         console.log(res);
         if (res.statusCode == 200) {
           that.cartList();
+        }else{
+          wx.showModal({
+            content: '当前服务器繁忙，请稍后再试',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              }
+            }
+          });
         }
         let carLists = that.data.carLists;
         if (!carLists.length) {               // 如果购物车为空

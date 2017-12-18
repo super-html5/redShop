@@ -3,7 +3,7 @@ var host = 'https://xiao2.dandaojiuye.com/mall-wine'
 var config = {
   host,
   getTokenIdUrl: `${host}/api/v1/wine/userInfo/login`,//获取接口权限凭证
-  saveUserInfo: `${host}/api/v1/wine/userInfo/auth`, //保存用户信息
+  saveUserInfoUrl: `${host}/api/v1/wine/userInfo/auth`, //保存用户信息
   getShoppingList: `${host}/api/v1/wine/goods/list`,//获取商品列表
   getShoppingDetails: `${host}/api/v1/wine/goods/findById`,//根据id查询商品详情
   getIndexTopimages: `${host}/api/v1/wine/slide/list`,//获取首页轮播图
@@ -20,5 +20,7 @@ var config = {
   cartListUrl: `${host}/api/v1/wine/cart/list`,//购物车查询
   cartClearUrl:`${host}/api/v1/wine/cart/clear`,//购物车清空
   cartDeleteUrl: `${host}/api/v1/wine/cart/delete`,//购物车删除
+  sendMsgUrl:`${host}/api/v1/wine/common/sendMsg`,//发送验证码
+  authMsgUrl: `${host}/api/v1/wine/common/authMsg`,//验证验证码
 };
 module.exports = config 
