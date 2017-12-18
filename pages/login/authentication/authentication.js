@@ -53,6 +53,7 @@ Page({
      * 更新&&认证 保存用户信息
      */
   saveUserInfo: function (data) {
+    let that = this;
     wx.showLoading({
       title: '加载中',
     })
@@ -76,9 +77,7 @@ Page({
             showCancel: false,
             success: function (res) {
               if (res.confirm) {
-                that.setData({
-                  verify: ' '
-                });
+        
               }
             }
           });
