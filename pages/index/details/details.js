@@ -219,15 +219,14 @@ Page({
           wx.showToast({
             title: '添加购物车成功',
             icon: 'success',
-            duration: 1000
+            duration: 2000
           })
         }
       },
       fail: function (res) {
-        console.log(res);
+        wx.hideLoading();
       },
       complete: function () {
-        wx.hideLoading()
       }
 
     })
@@ -236,7 +235,7 @@ Page({
    * 跳转购物车
    */
   linkShoppingCar: function () {
-    wx.navigateTo({
+    wx.switchTab({
       url: '/pages/shoppingCar/index',
     })
   }
