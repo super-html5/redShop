@@ -165,7 +165,7 @@ Page({
     };
     console.log(selectCarLists);    
     wx.setStorage({
-      key: "shoppingInfo",
+      key: "carShoppingInfo",
       data: JSON.stringify(selectCarLists)
     })
     wx: wx.navigateTo({

@@ -22,7 +22,7 @@ Page({
 
   getShoppingInfo: function () {
     var that = this;
-    wx: wx.getStorage({
+    wx.getStorage({
       key: 'shoppingInfo',
       success: function (res) {
         that.setData({
@@ -132,6 +132,14 @@ Page({
         wx.hideLoading()
       }
 
+    })
+  },
+  /**
+   * 更换默认地址
+   */
+  linkAddress:function(){
+    wx.navigateTo({
+      url: '/pages/user/address/address?isBack=true',
     })
   }
 })

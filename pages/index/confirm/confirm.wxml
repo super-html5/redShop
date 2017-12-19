@@ -10,8 +10,18 @@
 
     <!-- address -->
     <view class='confirm__address__info'>
-      <text style='display:block'>收货人 : {{defAddressInfo.consignee}} <text class='confirm__address__tel'>{{defAddressInfo.phone}}</text></text>
-      <text>收货地址 : {{defAddressInfo.location}}{{defAddressInfo.street}}{{defAddressInfo.detailedAddress}}</text>
+      <view class='address__info__left'>
+        <text>收货人 : </text>
+        <text>{{defAddressInfo.consignee}}</text>
+        <text class='confirm__address__tel'>{{defAddressInfo.phone}}\n</text>
+        <text>收货地址 : </text>
+        <text>{{defAddressInfo.location}}{{defAddressInfo.street}}</text>
+        <text>{{defAddressInfo.detailedAddress}}</text>
+      </view>
+      <view  class='address__info__right' bindtap='linkAddress'>
+        <view class='confirm__address__info__right'></view>
+      </view>
+
     </view>
     <!-- address end -->
 
@@ -35,7 +45,7 @@
       </view>
       <view class='confirm__shop__num'>
         <view>¥ {{shoppingNumber
-          < shoppingInfo.dataInfo.discountNumber ? shoppingNumber*shoppingInfo.dataInfo.price : shoppingNumber*shoppingInfo.dataInfo.tradePrice}}.00</view>
+          < shoppingInfo.dataInfo.discountNumber ? shoppingInfo.dataInfo.price : shoppingInfo.dataInfo.tradePrice}}.00</view>
             <view style='color:rgb(135, 135, 135)'>x{{shoppingNumber}}</view>
         </view>
       </view>

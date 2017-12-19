@@ -88,7 +88,7 @@
       </view>
       <view class='details__bottom__bar__share__shop' bindtap='linkShoppingCar'>
         <image class='details__bottom__bar__image' src='../../../img/shop.png' />
-        <view class="weui-badge icon__num">{{shoppingCarListNum}}</view>
+        <view wx:if="{{shoppingCarListNum > 0}}" class="weui-badge icon__num">{{shoppingCarListNum}}</view>
       </view>
       <view class='details__bottom__bar__addShop' bindtap='addShoppingCar'>
         <text>加入购物车</text>
