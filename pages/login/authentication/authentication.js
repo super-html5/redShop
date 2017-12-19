@@ -71,17 +71,27 @@ Page({
           wx.navigateTo({
             url: '../../login/AuthenticationOk/AuthenticationOk',
           })
-        } else if (res.statusCode == 400) {
+        } else if (res.data.code == "notTrueInfo.auth.userInfo.NotRule ") {
           wx.showModal({
-            content: '效验失败',
+            content: '信息错误',
             showCancel: false,
             success: function (res) {
               if (res.confirm) {
-        
+
               }
             }
           });
-        } else {
+        } else if (res.data.code == "repeatedAuth.auth.userInfo.NotRule") {
+          wx.showModal({
+            content: '重复认证',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+
+              }
+            }
+          });
+        }else {
           wx.showModal({
             content: '当前服务器繁忙，请稍后再试',
             showCancel: false,
