@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    addressList: []
+    addressList: [],
+    isBack: false
   },
   /**
    * 新增收货地址
@@ -66,7 +67,7 @@ Page({
     delete address.created;
     delete address.updated;
     wx.navigateTo({
-      url: '/pages/user/addAddress/addAddress?editAddress=' + JSON.stringify(address),
+      url: '/pages/user/addAddress/addAddress?editAddress=' + JSON.stringify(address) + '&isBack='+that.data.isBack,
     })
   },
   /**
@@ -89,12 +90,17 @@ Page({
       method: "POST",
       data: address,
       success: function (res) {
-        if (res.data.status != 2) {
-          that.loaddingAdr();
-        }
 
-
-        if (res.statusCode == 404) {
+        if (res.statusCode == 200) {
+          if (res.data.status != 2) {
+            that.loaddingAdr();
+          }
+          if (that.data.isBack) {
+            wx.navigateBack({
+              url: '/pages/index/confirm/confirm',
+            })
+          }
+        } else if (res.statusCode == 404) {
           wx.showModal({
             content: '没有地址了，请重新添加',
             showCancel: false,
@@ -106,7 +112,7 @@ Page({
               }
             }
           });
-        }else{
+        } else {
           wx.showModal({
             content: '当前服务器繁忙，请稍后再试',
             showCancel: false,
@@ -149,7 +155,7 @@ Page({
           that.setData({
             addressList: res.data
           })
-        }else if (res.statusCode == 404) {
+        } else if (res.statusCode == 404) {
           wx.showModal({
             content: '没有地址了，请重新添加',
             showCancel: false,
@@ -159,7 +165,7 @@ Page({
               }
             }
           });
-        }else{
+        } else {
           wx.showModal({
             content: '当前服务器繁忙，请稍后再试',
             showCancel: false,
@@ -186,9 +192,9 @@ Page({
    */
   onLoad: function (options) {
     // 从订单页面过来
-    if (options.isBack){
-
-    }
+    this.setData({
+      isBack: options.isBack
+    });
   },
   onShow: function () {
     this.loaddingAdr();
