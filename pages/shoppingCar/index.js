@@ -245,6 +245,13 @@ Page({
       success: function (res) {
         console.log(res);
         if (res.statusCode == 200) {
+          setTimeout(function () {
+            wx.showToast({
+              title: '删除成功',
+              icon: 'success',
+              duration: 2000
+            })
+          }, 1000)
           that.cartList();
         } else {
           wx.showModal({
