@@ -19,9 +19,9 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#576A7C",
+    "navigationBarTitleText": "丹道小二",
+    "navigationBarTextStyle": "write"
   },
   "tabBar": {
     "selectedColor": "#FD8955",
