@@ -70,6 +70,7 @@ Page({
       url: '/pages/user/addAddress/addAddress?editAddress=' + JSON.stringify(address) + '&isBack='+that.data.isBack,
     })
   },
+
   /**
    * 添加修改删除收货地址
    */
