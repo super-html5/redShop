@@ -27,7 +27,7 @@
 
     <!-- choose -->
     <view class='confirm__express__info'>
-      <text>上门自提</text>
+      <text>上门自提</text>
       <image wx:if='{{isSendClick == 1}}' class='confirm__express__success' src='../../../img/unSuccess.png' bindtap='isSend' />
       <image wx:if='{{isSendClick == 2}}' class='confirm__express__success' src='../../../img/success.png' bindtap='isSend' />
     </view>
@@ -37,7 +37,7 @@
 
     <view class='confirm__shop__info'>
       <view class='confirm__shop__image'>
-        <image src='{{shoppingInfo.dataInfo.imgUrl}}' />
+        <image wx:if="{{shoppingInfo.dataInfo.imgUrl}}" src='{{shoppingInfo.dataInfo.imgUrl}}' />
       </view>
       <view class='confirm__shop__name'>
         <text>{{shoppingInfo.dataInfo.title}}</text>

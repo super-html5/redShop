@@ -6,8 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    editAddress: {},
-    isBack: false
+    editAddress: {}
   },
   /**
    * 保存收货地址
@@ -42,15 +41,9 @@ Page({
       data: address,
       success: function (res) {
         if (res.statusCode == 200) {
-          if (that.data.isBack){
-            wx.navigateBack({
-              delta: 2,
-            })
-          }else{
-            wx.navigateBack({
-              delta: 1,
-            })
-          }
+          wx.navigateBack({
+            delta: 1
+          })
         
         } else {
           wx.showModal({
@@ -87,14 +80,11 @@ Page({
       return;
     } else {
       let editAddress = JSON.parse(options.editAddress);
-      let isBack = options.isBack;
-      console.log(isBack)
       wx.setNavigationBarTitle({
         title: "修改收货地址"
       })
       that.setData({
-        editAddress: editAddress,
-        isBack: isBack
+        editAddress: editAddress
       });
       return;
     }

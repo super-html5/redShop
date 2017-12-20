@@ -14,7 +14,7 @@ Page({
    * 新增收货地址
    */
   toLinkAddAddr: function () {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../../user/addAddress/addAddress',
     })
   },
@@ -36,14 +36,22 @@ Page({
 
     this.updataAdr(address);  //调取 添加修改删除收货地址方法
   },
-  // cancelDefaultAdr: function (e) {
-  //   const index = e.currentTarget.dataset.index;
-  //   let addressList = this.data.addressList;
-  //   addressList[index].status = 1;
-  //   this.setData({
-  //     addressList: addressList
-  //   });
-  // },
+  /**
+   * 选中按钮
+   */
+  cancelDefaultAdr: function (e) {
+    // const index = e.currentTarget.dataset.index;
+    // let addressList = this.data.addressList;
+    // addressList[index].status = 1;
+    // this.setData({
+    //   addressList: addressList
+    // });
+    if (this.data.isBack) {
+      wx.navigateBack({
+        delta: 1
+      })
+    }
+  },
   /**
    * 删除收货地址
    */
@@ -67,7 +75,7 @@ Page({
     delete address.created;
     delete address.updated;
     wx.navigateTo({
-      url: '/pages/user/addAddress/addAddress?editAddress=' + JSON.stringify(address) + '&isBack='+that.data.isBack,
+      url: '/pages/user/addAddress/addAddress?editAddress=' + JSON.stringify(address)
     })
   },
 
@@ -95,10 +103,9 @@ Page({
         if (res.statusCode == 200) {
           if (res.data.status != 2) {
             that.loaddingAdr();
-          }
-          if (that.data.isBack) {
+          }else if (that.data.isBack) {
             wx.navigateBack({
-              url: '/pages/index/confirm/confirm',
+              delta: 1
             })
           }
         } else if (res.statusCode == 404) {
