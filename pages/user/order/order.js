@@ -32,7 +32,7 @@ Page({
           that.setData({
             ordersLists: res.data
           })
-        }else if (res.statusCode == 404) {
+        } else if (res.statusCode == 404) {
           wx.showModal({
             content: '你还没有订单，请先购买添加',
             showCancel: false,
@@ -44,7 +44,7 @@ Page({
               }
             }
           });
-        }else{
+        } else {
           wx.showModal({
             content: '当前服务器繁忙，请稍后再试',
             showCancel: false,
@@ -75,12 +75,11 @@ Page({
     let ordersLists = this.data.ordersLists;
     let id = ordersLists[index].id;
     console.log(index);
-    wx.showLoading({
-      title: '加载中',
-    })
+    wx.showLoading();
+
 
     wx.request({
-      url: cancelOrderUrl +"?ordersId="+id,
+      url: cancelOrderUrl + "?ordersId=" + id,
       header: {
         "content-type": "application/json",
         "token_id": wx.getStorageSync('token_id')
@@ -89,8 +88,15 @@ Page({
       success: function (res) {
         console.log(res);
         if (res.statusCode == 200) {
+          setTimeout(function () {
+            wx.showToast({
+              title: '取消订单成功',
+              icon: 'success',
+              duration: 2000
+            })
+          },1000)
           that.ordersList();
-        }else{
+        } else {
           wx.showModal({
             content: '当前服务器繁忙，请稍后再试',
             showCancel: false,
@@ -104,11 +110,11 @@ Page({
       },
       fail: function (res) {
         console.log(res);
-
+        wx.hideLoading()
       },
       complete: function () {
-        wx.hideLoading()
       }
+
 
     })
   },

@@ -157,13 +157,13 @@ Page({
    */
   toLinkDetails: function () {
     let carLists = this.data.carLists;                    // 获取购物车列表
-    let selectCarLists=[];
+    let selectCarLists = [];
     for (let i = 0; i < carLists.length; i++) {           // 循环列表得到每个数据
       if (carLists[i].selected === true) {                // 将选中的下标放到指定的数组
         selectCarLists.push(carLists[i]);
       }
     };
-    console.log(selectCarLists);    
+    console.log(selectCarLists);
     wx.setStorage({
       key: "carShoppingInfo",
       data: JSON.stringify(selectCarLists)
@@ -195,13 +195,16 @@ Page({
             value.selected = false;
           });
           that.setData({
-            carLists: res.data
+            carLists: res.data,
+            hasList: true,
+            selectAllStatus: false,
+            totalPrice: 0
           })
-        }else if (res.statusCode == 404) {
+        } else if (res.statusCode == 404) {
           that.setData({
             hasList: false
           })
-        }else{
+        } else {
           wx.showModal({
             content: '当前服务器繁忙，请稍后再试',
             showCancel: false,
@@ -243,7 +246,7 @@ Page({
         console.log(res);
         if (res.statusCode == 200) {
           that.cartList();
-        }else{
+        } else {
           wx.showModal({
             content: '当前服务器繁忙，请稍后再试',
             showCancel: false,
@@ -274,9 +277,9 @@ Page({
     })
   },
   /**
-   * 生命周期函数--监听页面加载
+   * 生命周期函数--监听页面显示
    */
-  onLoad: function (options) {
+  onShow: function () {
     this.getTotalPrice();
     this.cartList();
   },
