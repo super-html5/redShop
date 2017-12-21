@@ -1,2 +1,71 @@
-<!--pages/index/orderConfirm/orderConfirm.wxml-->
-<text>pages/index/orderConfirm/orderConfirm.wxml</text>
+<view class='container'>
+  <view class='page-body'>
+    <!-- express -->
+    <view class='confirm__express__info'>
+      <text>快递送货</text>
+      <image class='confirm__express__success' src='../../../img/success.png' />
+    </view>
+    <!-- express end -->
+
+
+    <!-- address -->
+    <view class='confirm__address__info'>
+      <view class='address__info__left'>
+        <text>收货人 : </text>
+        <text>{{defAddressInfo.consignee}}</text>
+        <text class='confirm__address__tel'>{{defAddressInfo.phone}}\n</text>
+        <text>收货地址 : </text>
+        <text>{{defAddressInfo.location}}{{defAddressInfo.street}}</text>
+        <text>{{defAddressInfo.detailedAddress}}</text>
+      </view>
+      <view class='address__info__right' bindtap='linkAddress'>
+        <view class='confirm__address__info__right'></view>
+      </view>
+
+    </view>
+    <!-- address end -->
+
+    <!-- choose -->
+    <view class='confirm__express__info'>
+      <text>上门自提</text>
+      <image wx:if='{{isSendClick == 1}}' class='confirm__express__success' src='../../../img/unSuccess.png' bindtap='isSend' />
+      <image wx:if='{{isSendClick == 2}}' class='confirm__express__success' src='../../../img/success.png' bindtap='isSend' />
+    </view>
+    <!-- choose end -->
+
+    <!-- shop info -->
+    <block wx:for="{{shoppingInfo}}" wx:key="*this">
+      <view class='confirm__shop__info'>
+        <view class='confirm__shop__image'>
+          <image src='{{item.goods.imgUrl}}' />
+        </view>
+        <view class='confirm__shop__name'>
+          <text>{{item.goods.title}}</text>
+          <text style='display:block'>{{item.goods.capacity}}</text>
+        </view>
+        <view class='confirm__shop__num'>
+          <view>¥{{item.priceTotal}}.00</view>
+          <view style='color:rgb(135, 135, 135)'>x{{item.number}}</view>
+        </view>
+      </view>
+    </block>
+    <!-- shop info end -->
+
+    <!-- coupon -->
+    <view class='confirm__coupon'>
+      <text class='confirm__coupon__text'>使用优惠券</text>
+      <text class='confirm__coupon__num'>-10.00</text>
+    </view>
+    <!-- coupon end -->
+    <view style='height:120rpx; width:100%; background-color:#e0e0e0'></view>
+    <view class='confirm__bottom'>
+      <view class='confirm__bottom__left'>
+        <text>共{{allNumber}}件 , 合计¥ : <text style='color:rgb(246, 76, 22)'>{{allPrice}}.00</text></text>
+      </view>
+      <view class='confirm__bottom__right' bindtap='payment'>
+        <text>提交订单</text>
+      </view>
+    </view>
+    <view class='body_bg'></view>
+  </view>
+</view>

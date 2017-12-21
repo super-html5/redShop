@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/login/index",
+    "pages/index/index",
+    
     "pages/index/confirm/confirm",
     "pages/index/details/details",
     "pages/user/order/order",
@@ -15,7 +16,8 @@
     "pages/user/addAddress/addAddress",
     "pages/user/coupon/coupon",
     "pages/index/carConfirm/carConfirm",
-    "pages/index/orderConfirm/orderConfirm"
+    "pages/index/orderConfirm/orderConfirm",
+    "pages/index/payment/payment"
   ],
   "window": {
     "backgroundTextStyle": "light",

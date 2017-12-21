@@ -22,5 +22,6 @@ var config = {
   cartDeleteUrl: `${host}/api/v1/wine/cart/delete`,//购物车删除
   sendMsgUrl:`${host}/api/v1/wine/common/sendMsg`,//发送验证码
   authMsgUrl: `${host}/api/v1/wine/common/authMsg`,//验证验证码
+  paymentUrl: `${host}/api/v1/wine/wxPay/pay`, //支付
 };
 module.exports = config 

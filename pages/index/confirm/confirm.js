@@ -124,7 +124,10 @@ Page({
             method: "POST",
             data: _vo,
             success: function (res) {
-                console.log(res);
+              console.log(res);
+              wx.reLaunch({
+                url: '/pages/index/payment/payment?id='+ res.data.id,
+              })
             },
             fail: function (res) {
                 console.log(res);
