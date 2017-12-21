@@ -1,4 +1,5 @@
 // pages/login/index.js
+const app = getApp()
 Page({
 
   /**
@@ -8,9 +9,17 @@ Page({
   
   },
   toLinkRegister:function(){
-    wx.navigateTo({
-      url: '../login/register/register',
-    })
+    console.log(app.globalData.authUserInfo)
+    if (!app.globalData.authUserInfo){
+      wx.navigateTo({
+        url: '/pages/login/register/register',
+      })
+    }else{
+      wx.switchTab({
+        url: '/pages/index/index'
+      })
+    }
+   
   },
   /**
    * 生命周期函数--监听页面加载

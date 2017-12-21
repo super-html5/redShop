@@ -2,6 +2,7 @@
 const sendMsgUrl = require('../../../config').sendMsgUrl;
 const authMsgUrl = require('../../../config').authMsgUrl;
 const utils = require('../../utils/utils');
+const app = getApp()
 
 Page({
 
@@ -141,9 +142,16 @@ Page({
       success: function (res) {
         console.log(res);
         if (res.statusCode == 200) {
-          wx.navigateTo({
-            url: '../../login/authentication/authentication?mobile=' + that.data.inputPhone,
-          })
+          if (!app.globalData.authUserInfo){
+            wx.navigateTo({
+              url: '/pages/login/authentication/authentication?mobile=' + that.data.inputPhone,
+            })
+          }else{
+            wx.navigateTo({
+              url: '/pages/index/index'
+            })
+          }
+        
         } else if (res.statusCode == 400) {
           wx.showModal({
             content: '效验失败',
