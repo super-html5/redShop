@@ -94,14 +94,13 @@ App({
       that.getTokenId();
 
     }
-    wx.getUserInfo({
-      success: res => {
-        that.globalData.userInfo = res.userInfo
-      }
-    })
-
-
-
+    if (!that.globalData.userInfo){
+      wx.getUserInfo({
+        success: res => {
+          that.globalData.userInfo = res.userInfo
+        }
+      })
+    }
   },
   globalData: {
     userInfo: null,
