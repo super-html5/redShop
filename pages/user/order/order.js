@@ -114,8 +114,18 @@ Page({
       },
       complete: function () {
       }
-
-
+    })
+  },
+  /**
+   * 付款
+   */
+  payOrder:function(e){
+    const index = e.currentTarget.dataset.index;
+    let ordersLists = this.data.ordersLists;
+    let id = ordersLists[index].id;
+    console.log(id);
+    wx.navigateTo({
+      url: '/pages/index/orderConfirm/orderConfirm?id=' + id,
     })
   },
   /**
