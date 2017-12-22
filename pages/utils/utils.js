@@ -5,7 +5,7 @@ function callBackHandler(res, successFun) {
     }
   } else if (res.statusCode == 401) {
     wx.redirectTo({
-      url: '/pages/login/register/register',
+      url: '/pages/login/index',
     });
   } else {
     wx.showModal({

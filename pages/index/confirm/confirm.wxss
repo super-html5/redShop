@@ -38,7 +38,6 @@
 
 .confirm__address__info >view {
   display: inline-block;
-  height: 180rpx;
 }
 .address__info__left{
   width: 650rpx;
@@ -47,10 +46,10 @@
   white-space: nowrap;
   word-wrap: normal;
   overflow: hidden;
-  line-height: 2.6em;
+  line-height: 2.4em;
 }
 .address__info__right{
-  line-height: 2.4em;
+  width:100rpx;
 }
 
 .confirm__address__tel {
@@ -58,13 +57,14 @@
 }
 
 .confirm__address__info__right {
+  position: absolute;
   border-right: 2px solid #000;
   border-bottom: 2px solid #000;
   width: 50rpx;
   height: 50rpx;
   color: #bbb;
   transform: rotate(-45deg);
-  margin-top: 60rpx;
+  top: 60rpx;
 }
 
 .weui-panel {
