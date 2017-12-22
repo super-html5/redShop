@@ -127,11 +127,13 @@ Page({
       },
       method: "POST",
       data: _vo,
-      success: function (res) {
+      success: function (_data) {
         wx.removeStorage({
           key: 'carShoppingInfo',
-          success: function (res) {
-
+          success: function () {
+              wx.reLaunch({
+                  url: '/pages/index/payment/payment?id=' + _data.data.id,
+              })
           }
         })
         console.log(res);

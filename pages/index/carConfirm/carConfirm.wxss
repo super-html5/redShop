@@ -61,7 +61,7 @@
   height: 50rpx;
   color: #bbb;
   transform: rotate(-45deg);
-  top: 60rpx;
+  margin-top: 60rpx;
 }
 
 .weui-panel {
