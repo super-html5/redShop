@@ -1,9 +1,12 @@
 const getDefAddressUrl = require('../../../config').getDefAddress
 const addOrderUrl = require('../../../config').addOrder
 const findOrderByIdUrl = require('../../../config').findOrderById
+const app = getApp()
 
 
 const utils = require('../../utils/utils');
+const app = getApp()
+
 Page({
   /**
    * 页面的初始数据
@@ -35,7 +38,7 @@ Page({
       method: 'GET',
       header: {
         'content-type': 'application/json',
-        "token_id": wx.getStorageSync('token_id')
+        "token_id": app.globalData.token_id
       },
       success: function (res) {
         console.log(res);

@@ -1,6 +1,8 @@
 const getDefAddressUrl = require('../../../config').getDefAddress
 const addOrderUrl = require('../../../config').addOrder
 const utils = require('../../utils/utils');
+const app = getApp()
+
 Page({
   /**
    * 页面的初始数据
@@ -77,7 +79,7 @@ Page({
       method: 'GET',
       header: {
         'content-type': 'application/json',
-        "token_id": wx.getStorageSync('token_id')
+        "token_id": app.globalData.token_id
       },
       success: function (res) {
         utils.callBackHandler(res, that.getDefAddressSuccess);
@@ -120,7 +122,7 @@ Page({
       url: addOrderUrl,
       header: {
         "content-type": "application/json",
-        "token_id": wx.getStorageSync('token_id')
+        "token_id": app.globalData.token_id
       },
       method: "POST",
       data: _vo,

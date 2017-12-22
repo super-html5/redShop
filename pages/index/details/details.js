@@ -2,6 +2,8 @@ const getShoppingDetailsUrl = require('../../../config').getShoppingDetails
 const getShoppingCarListUrl = require('../../../config').getShoppingCarList
 const addShoppingCarUrl = require('../../../config').addShoppingCar
 const utils = require('../../utils/utils');
+const app = getApp()
+
 Page({
 
     /**
@@ -59,7 +61,7 @@ Page({
             method: 'GET',
             header: {
                 'content-type': 'application/json',
-                "token_id": wx.getStorageSync('token_id')
+                "token_id": app.globalData.token_id
             },
             success: function (res) {
                 console.log(res);
@@ -154,7 +156,7 @@ Page({
             method: 'GET',
             header: {
                 'content-type': 'application/json',
-                "token_id": wx.getStorageSync('token_id')
+                "token_id": app.globalData.token_id
             },
             success: function (res) {
                 let _num = 0;
@@ -214,7 +216,7 @@ Page({
             url: addShoppingCarUrl,
             header: {
                 "content-type": "application/json",
-                "token_id": wx.getStorageSync('token_id')
+                "token_id": app.globalData.token_id
             },
             method: "POST",
             data: _vo,

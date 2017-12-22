@@ -33,7 +33,7 @@ Page({
       method: 'GET',
       header: {
         'content-type': 'application/json',
-        "token_id": wx.getStorageSync('token_id')
+        "token_id": app.globalData.token_id
       },
       success: function (res) {
         utils.callBackHandler(res, that.shopListHandler);
@@ -79,7 +79,7 @@ Page({
       method: 'GET',
       header: {
         'content-type': 'application/json',
-        "token_id": wx.getStorageSync('token_id')
+        "token_id": app.globalData.token_id
       },
       success: function (res) {
         utils.callBackHandler(res, that.lbHandler)

@@ -1,5 +1,6 @@
 // pages/index/payment/payment.js
 const paymentUrl = require('../../../config').paymentUrl
+const app = getApp()
 
 Page({
 
@@ -23,7 +24,7 @@ Page({
       },
       header: {
         'content-type': 'application/json',
-        "token_id": wx.getStorageSync('token_id')
+        "token_id": app.globalData.token_id
       },
       success: function (res) {
         wx.requestPayment({
