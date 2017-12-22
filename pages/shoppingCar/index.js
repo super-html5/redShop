@@ -169,9 +169,18 @@ Page({
       key: "carShoppingInfo",
       data: JSON.stringify(selectCarLists)
     })
-    wx: wx.navigateTo({
-      url: '/pages/index/carConfirm/carConfirm'
-    })
+    if (selectCarLists.length!==0){
+      wx: wx.navigateTo({
+        url: '/pages/index/carConfirm/carConfirm'
+      })
+    }else{
+      wx.showToast({
+        title: '请选择结算商品',
+        icon: 'loading',
+        duration: 1000
+      })
+    }
+   
 
   },
   /**

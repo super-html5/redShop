@@ -7,6 +7,9 @@ App({
    * 获取用户信息
    */
   getUserInfo: function () {
+    wx.showLoading({
+      title: '加载中',
+    })
     let that = this;
     wx.request({
       url: getUserInfoUrl,
@@ -42,6 +45,8 @@ App({
       },
       fail: function (res) {
         console.log(res);
+      },complete:function(){
+        wx.hideLoading()
       }
 
     })
@@ -50,6 +55,9 @@ App({
    * 获取接口权限凭证 token_id
    */
   getTokenId: function () {
+    wx.showLoading({
+      title: '加载中',
+    })
     let that = this;
     wx.login({
       success: function (res) {
@@ -80,6 +88,8 @@ App({
           },
           fail: function (res) {
             console.log(res);
+          }, complete: function () {
+            wx.hideLoading()
           }
         })
       },
