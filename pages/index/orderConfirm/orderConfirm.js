@@ -1,7 +1,6 @@
 const getDefAddressUrl = require('../../../config').getDefAddress
 const addOrderUrl = require('../../../config').addOrder
 const findOrderByIdUrl = require('../../../config').findOrderById
-const app = getApp()
 
 
 const utils = require('../../utils/utils');
