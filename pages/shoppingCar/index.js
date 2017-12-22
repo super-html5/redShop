@@ -1,6 +1,7 @@
 // pages/shoppingcar/index.js
 const cartListUrl = require('../../config').cartListUrl;
 const cartDeleteUrl = require('../../config').cartDeleteUrl;
+const app = getApp()
 
 Page({
 
@@ -186,7 +187,7 @@ Page({
       url: cartListUrl,
       header: {
         "content-type": "application/json",
-        "token_id": wx.getStorageSync('token_id')
+        "token_id": app.globalData.token_id
       },
       method: "Get",
       success: function (res) {
@@ -238,7 +239,7 @@ Page({
       url: cartDeleteUrl,
       header: {
         "content-type": "application/json",
-        "token_id": "64c9cec70b4d4b5ba32fa8ec685c88f1"
+        "token_id": app.globalData.token_id
       },
       method: "POST",
       data: id,

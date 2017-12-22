@@ -12,7 +12,7 @@ App({
       url: getUserInfoUrl,
       header: {
         "content-type": "application/json",
-        "token_id": wx.getStorageSync('token_id')
+        "token_id": that.globalData.token_id
       },
       method: "GET",
       success: function (res) {
@@ -63,7 +63,8 @@ App({
           success: function (res) {
             console.log(res.data);
             if (res.statusCode == 200) {
-              wx.setStorageSync('token_id', res.data.token);
+              // wx.setStorageSync('token_id', res.data.token);
+              that.globalData.token_id = res.data.token;
               that.getUserInfo();
             } else {
               wx.showModal({
@@ -90,11 +91,10 @@ App({
   onLaunch: function () {
     let that = this;
 
-    if (!wx.getStorageSync('token_id')) {
+    if (!that.globalData.token_id) {
       that.getTokenId();
-
     }
-    if (!that.globalData.userInfo){
+    if (!that.globalData.userInfo) {
       wx.getUserInfo({
         success: res => {
           that.globalData.userInfo = res.userInfo
@@ -103,6 +103,7 @@ App({
     }
   },
   globalData: {
+    token_id: null,
     userInfo: null,
     authUserInfo: false
   }

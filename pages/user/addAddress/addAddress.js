@@ -1,5 +1,7 @@
 // pages/user/addAddress/addAddress.js
 const addressUpdateUrl = require('../../../config').addressUpdateUrl
+const app = getApp()
+
 Page({
 
   /**
@@ -35,7 +37,7 @@ Page({
       url: addressUpdateUrl,
       header: {
         "content-type": "application/json",
-        "token_id": wx.getStorageSync('token_id')
+        "token_id": app.globalData.token_id
       },
       method: "POST",
       data: address,

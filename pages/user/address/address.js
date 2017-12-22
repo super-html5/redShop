@@ -1,6 +1,8 @@
 // pages/user/address/address.js
 const addressListUrl = require('../../../config').addressListUrl;
 const addressUpdateUrl = require('../../../config').addressUpdateUrl;
+const app = getApp()
+
 Page({
 
   /**
@@ -94,7 +96,7 @@ Page({
       url: addressUpdateUrl,
       header: {
         "content-type": "application/json",
-        "token_id": wx.getStorageSync('token_id')
+        "token_id": app.globalData.token_id
       },
       method: "POST",
       data: address,
@@ -155,7 +157,7 @@ Page({
       url: addressListUrl,
       header: {
         "content-type": "application/json",
-        "token_id": wx.getStorageSync('token_id')
+        "token_id": app.globalData.token_id
       },
       method: "POST",
       success: function (res) {

@@ -1,6 +1,7 @@
 // pages/user/order/order.js
 const ordersListUrl = require('../../../config').ordersListUrl;
 const cancelOrderUrl = require('../../../config').cancelOrderUrl;
+const app = getApp()
 
 Page({
 
@@ -23,7 +24,7 @@ Page({
       url: ordersListUrl,
       header: {
         "content-type": "application/json",
-        "token_id": wx.getStorageSync('token_id')
+        "token_id": app.globalData.token_id
       },
       method: "Get",
       success: function (res) {
@@ -82,7 +83,7 @@ Page({
       url: cancelOrderUrl + "?ordersId=" + id,
       header: {
         "content-type": "application/json",
-        "token_id": wx.getStorageSync('token_id')
+        "token_id": app.globalData.token_id
       },
       method: "POST",
       success: function (res) {

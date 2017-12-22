@@ -1,6 +1,7 @@
 // pages/login/authentication/authentication.js
 const saveUserInfoUrl = require('../../../config').saveUserInfoUrl;
 const utils = require('../../utils/utils');
+const app = getApp()
 
 Page({
 
@@ -62,7 +63,7 @@ Page({
       url: saveUserInfoUrl,
       header: {
         "content-type": "application/json",
-        "token_id": wx.getStorageSync('token_id')
+        "token_id": app.globalData.token_id
       },
       method: "POST",
       data: data,
