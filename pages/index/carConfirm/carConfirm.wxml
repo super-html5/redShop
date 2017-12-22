@@ -18,10 +18,7 @@
         <text>{{defAddressInfo.location}}{{defAddressInfo.street}}</text>
         <text>{{defAddressInfo.detailedAddress}}</text>
       </view>
-      <view class='address__info__right' bindtap='linkAddress'>
-        <view class='confirm__address__info__right'></view>
-      </view>
-
+      <view class='confirm__address__info__right' bindtap='linkAddress'></view>
     </view>
     <!-- address end -->
 
