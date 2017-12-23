@@ -105,23 +105,13 @@ Page({
         if (res.statusCode == 200) {
           if (res.data.status != 2) {
             that.loaddingAdr();
-          }else if (that.data.isBack) {
+          } else if (that.data.isBack) {
             wx.navigateBack({
               delta: 1
             })
           }
         } else if (res.statusCode == 404) {
-          wx.showModal({
-            content: '没有地址了，请重新添加',
-            showCancel: false,
-            success: function (res) {
-              if (res.confirm) {
-                wx.navigateTo({
-                  url: '/pages/user/addAddress/addAddress',
-                })
-              }
-            }
-          });
+          that.loaddingAdr();
         } else {
           wx.showModal({
             content: '当前服务器繁忙，请稍后再试',
@@ -166,8 +156,11 @@ Page({
             addressList: res.data
           })
         } else if (res.statusCode == 404) {
+          that.setData({
+            addressList: []
+          })
           wx.showModal({
-            content: '没有地址了，请重新添加',
+            content: '没有收货地址',
             showCancel: false,
             success: function (res) {
               if (res.confirm) {

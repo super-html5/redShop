@@ -8,7 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    editAddress: {}
+    editAddress: {},
+    isBack: false
   },
   /**
    * 保存收货地址
@@ -46,7 +47,6 @@ Page({
           wx.navigateBack({
             delta: 1
           })
-        
         } else {
           wx.showModal({
             content: '当前服务器繁忙，请稍后再试',

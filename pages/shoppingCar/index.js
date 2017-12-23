@@ -169,18 +169,18 @@ Page({
       key: "carShoppingInfo",
       data: JSON.stringify(selectCarLists)
     })
-    if (selectCarLists.length!==0){
+    if (selectCarLists.length !== 0) {
       wx: wx.navigateTo({
         url: '/pages/index/carConfirm/carConfirm'
       })
-    }else{
+    } else {
       wx.showToast({
         title: '请选择结算商品',
         icon: 'loading',
         duration: 1000
       })
     }
-   
+
 
   },
   /**
@@ -255,13 +255,11 @@ Page({
       success: function (res) {
         console.log(res);
         if (res.statusCode == 200) {
-          setTimeout(function () {
-            wx.showToast({
-              title: '删除成功',
-              icon: 'success',
-              duration: 2000
-            })
-          }, 1000)
+          wx.showToast({
+            title: '删除成功',
+            icon: 'success',
+            duration: 2000
+          })
           that.cartList();
         } else {
           wx.showModal({

@@ -9,7 +9,7 @@
 
 
     <!-- address -->
-    <view class='confirm__address__info'>
+    <view wx:if="{{defAddressInfo.consignee}}" class='confirm__address__info'>
       <view class='address__info__left'>
         <text>收货人 : </text>
         <text>{{defAddressInfo.consignee}}</text>
@@ -63,7 +63,7 @@
       <!-- coupon -->
       <view class='confirm__coupon'>
         <text class='confirm__coupon__text'>使用优惠券</text>
-        <text class='confirm__coupon__num'>-10.00</text>
+        <text data-price='1000' class='confirm__coupon__num' bindtap='getUserCanUseCoupon'>{{couponText}}</text>
       </view>
       <!-- coupon end -->
       <view style='height:120rpx; width:100%; background-color:#e0e0e0'></view>

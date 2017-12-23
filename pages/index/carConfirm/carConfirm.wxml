@@ -9,7 +9,7 @@
 
 
     <!-- address -->
-    <view class='confirm__address__info'>
+    <view wx:if="{{defAddressInfo.consignee}}" class='confirm__address__info'>
       <view class='address__info__left'>
         <text>收货人 : </text>
         <text>{{defAddressInfo.consignee}}</text>

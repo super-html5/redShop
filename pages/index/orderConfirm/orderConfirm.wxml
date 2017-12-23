@@ -57,8 +57,11 @@
       <view class='confirm__bottom__left'>
         <text>共{{shoppingInfo.number}}件 , 合计¥ : <text style='color:rgb(246, 76, 22)'>{{shoppingInfo.price}}.00</text></text>
       </view>
-      <view class='confirm__bottom__right' bindtap='payment'>
+      <view wx:if="{{orderStatus == 1}}" class='confirm__bottom__right' bindtap='payment'>
         <text>确认支付</text>
+      </view>
+      <view wx:if="{{orderStatus == 2}}" class='confirm__bottom__right' bindtap='linkIndex'>
+        <text>再次购买</text>
       </view>
     </view>
     <view class='body_bg'></view>

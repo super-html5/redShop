@@ -98,6 +98,22 @@ Page({
    * 下订单
    */
   payment: function () {
+    if (!this.data.defAddressInfo.consignee) {
+      wx.showModal({
+        title: '您还没有收货地址',
+        content: '去添加一个地址?',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/user/addAddress/addAddress?isBack=true',
+            })
+          } else if (res.cancel) {
+           
+          }
+        }
+      })
+      return;
+    }
     wx.showLoading();
     let _vo = {
       "orders": {
