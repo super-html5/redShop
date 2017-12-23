@@ -35,14 +35,14 @@ Page({
           'paySign': res.data.paySign,
           'success': function (res) {
             setTimeout(function () {
-              wx.reLaunch({
+              wx.redirectTo({
                 url: '/pages/user/order/order',
               })
             }, 1000)
           },
           'fail': function (res) {
             setTimeout(function () {
-              wx.reLaunch({
+              wx.redirectTo({
                 url: '/pages/user/order/order',
               })
             }, 1000)

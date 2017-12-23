@@ -1,5 +1,6 @@
 const getDefAddressUrl = require('../../../config').getDefAddress
 const addOrderUrl = require('../../../config').addOrder
+const getUserCanUseCouponUrl = require('../../../config').getUserCanUseCoupon
 const utils = require('../../utils/utils');
 const app = getApp()
 
@@ -14,7 +15,11 @@ Page({
     defAddressInfo: {},
     shoppingInfo: {},
     allPrice: 0,
-    allNumber: 0
+    allNumber: 0,
+    couponText: '未使用优惠券',
+    couponId: '',
+    useCoupon: 1,
+    couponNum:0
   },
   /**
    * 生命周期函数--监听页面加载
@@ -121,8 +126,9 @@ Page({
         "addressStr": this.data.defAddressInfo.location + this.data.defAddressInfo.street + this.data.defAddressInfo.detailedAddress,
         "mobile": this.data.defAddressInfo.phone,
         "isSelfRaised": this.data.isSendClick,
-        "useCoupon": 1,
-        "couponId": "couponId"
+        "useCoupon": this.data.useCoupon,
+        "couponId": this.data.couponId,
+        "fromUser": ""
       },
       "ordersGoodsSet": []
     }
@@ -152,7 +158,6 @@ Page({
               })
           }
         })
-        console.log(res);
       },
       fail: function (res) {
         console.log(res);
@@ -170,5 +175,75 @@ Page({
     wx.navigateTo({
       url: '/pages/user/address/address?isBack=true',
     })
-  }
+  },
+  /**
+     * 获取用户可用优惠券
+     */
+  getUserCanUseCoupon: function (e) {
+    var that = this;
+    wx.showLoading();
+    wx.request({
+      url: getUserCanUseCouponUrl + '?price=' + e.currentTarget.dataset.price,
+      method: 'GET',
+      header: {
+        'content-type': 'application/json',
+        "token_id": app.globalData.token_id
+      },
+      success: function (res) {
+        console.log(res);
+        if (res.statusCode == 404) {
+          that.setData({
+            couponList: []
+          })
+          wx.showToast({
+            title: '无可用优惠券',
+            icon: 'loading',
+            duration: 2000
+          })
+        } else if (res.statusCode == 200) {
+          wx.hideLoading();
+          that.setData({
+            couponList: res.data
+          })
+          let _couponList = [];
+          if (res.data.length > 6) {
+            res.data.length = 6
+          }
+          for (let i = 0; i < res.data.length; i++) {
+            _couponList.push(res.data[i].fee + '元');
+          }
+
+          wx.showActionSheet({
+            itemList: _couponList,
+            success: function (res) {
+              if (res.cancel) {
+                that.setData({
+                  couponText: '未使用优惠券',
+                  couponId: '',
+                  useCoupon: 1,
+                  couponNum: 0
+                })
+                return;
+              }
+              that.setData({
+                couponText: '-' + that.data.couponList[res.tapIndex].fee + '元',
+                couponId: that.data.couponList[res.tapIndex].id,
+                useCoupon: 2,
+                allPrice: (that.data.allPrice - that.data.couponList[res.tapIndex].fee).toFixed(2)
+              })
+            },
+            fail: function (res) {
+
+            }
+          })
+        }
+      },
+      fail: function (error) {
+        wx.hideLoading();
+      },
+      complete: function () {
+
+      }
+    })
+  },
 })

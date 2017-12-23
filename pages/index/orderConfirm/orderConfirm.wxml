@@ -32,14 +32,14 @@
     <block wx:for="{{shoppingInfo.orderGoods}}" wx:key="*this">
       <view class='confirm__shop__info'>
         <view class='confirm__shop__image'>
-          <image src='{{item.goodsImgUrl}}'/>
+          <image src='{{item.goodsImgUrl}}' />
         </view>
         <view class='confirm__shop__name'>
           <text>{{item.goodsTitle}}</text>
           <text style='display:block'>{{item.capacity}}</text>
         </view>
         <view class='confirm__shop__num'>
-          <view>¥{{item.goodsPrice}}.00</view>
+          <view>¥{{item.goodsPrice}}</view>
           <view style='color:rgb(135, 135, 135)'>x{{item.goodsNum}}</view>
         </view>
       </view>
@@ -49,13 +49,13 @@
     <!-- coupon -->
     <view class='confirm__coupon'>
       <text class='confirm__coupon__text'>使用优惠券</text>
-      <text class='confirm__coupon__num'>-10.00</text>
+      <text class='confirm__coupon__num'>{{shoppingInfo.couponFee? ("-" + shoppingInfo.couponFee):"未使用优惠券"}}</text>
     </view>
     <!-- coupon end -->
     <view style='height:120rpx; width:100%; background-color:#e0e0e0'></view>
     <view class='confirm__bottom'>
       <view class='confirm__bottom__left'>
-        <text>共{{shoppingInfo.number}}件 , 合计¥ : <text style='color:rgb(246, 76, 22)'>{{shoppingInfo.price}}.00</text></text>
+        <text>共{{shoppingInfo.number}}件 , 合计¥ : <text style='color:rgb(246, 76, 22)'>{{shoppingInfo.price}}</text></text>
       </view>
       <view wx:if="{{orderStatus == 1}}" class='confirm__bottom__right' bindtap='payment'>
         <text>确认支付</text>

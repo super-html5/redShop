@@ -16,6 +16,7 @@ Page({
     shoppingInfo: {},
     couponList: [],
     couponText: '未使用优惠券',
+    couponNum: 0,
     couponId: '',
     useCoupon: 1
   },
@@ -136,7 +137,7 @@ Page({
         "addressStr": this.data.defAddressInfo.location + this.data.defAddressInfo.street + this.data.defAddressInfo.detailedAddress,
         "mobile": this.data.defAddressInfo.phone,
         "isSelfRaised": this.data.isSendClick,
-        "useCoupon": 1,
+        "useCoupon": this.data.useCoupon,
         "couponId": this.data.couponId,
         "fromUser": ""
       },
@@ -218,14 +219,16 @@ Page({
                 that.setData({
                   couponText: '未使用优惠券',
                   couponId: '',
-                  useCoupon: 1
+                  useCoupon: 1,
+                  couponNum: 0
                 })
                 return;
               }
               that.setData({
                 couponText: '-' + that.data.couponList[res.tapIndex].fee + '元',
                 couponId: that.data.couponList[res.tapIndex].id,
-                useCoupon: 2
+                useCoupon: 2,
+                couponNum: (that.data.couponList[res.tapIndex].fee).toFixed(2)
               })
             },
             fail: function (res) {

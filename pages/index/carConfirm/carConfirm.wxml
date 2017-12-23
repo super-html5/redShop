@@ -41,7 +41,7 @@
           <text style='display:block'>{{item.goods.capacity}}</text>
         </view>
         <view class='confirm__shop__num'>
-          <view>¥{{item.priceTotal}}.00</view>
+          <view>¥{{item.priceTotal}}</view>
           <view style='color:rgb(135, 135, 135)'>x{{item.number}}</view>
         </view>
       </view>
@@ -51,13 +51,13 @@
     <!-- coupon -->
     <view class='confirm__coupon'>
       <text class='confirm__coupon__text'>使用优惠券</text>
-      <text class='confirm__coupon__num'>-10.00</text>
+      <text data-price='1000' class='confirm__coupon__num' bindtap='getUserCanUseCoupon'>{{couponText}}</text>
     </view>
     <!-- coupon end -->
     <view style='height:120rpx; width:100%; background-color:#e0e0e0'></view>
     <view class='confirm__bottom'>
       <view class='confirm__bottom__left'>
-        <text>共{{allNumber}}件 , 合计¥ : <text style='color:rgb(246, 76, 22)'>{{allPrice}}.00</text></text>
+        <text>共{{allNumber}}件 , 合计¥ : <text style='color:rgb(246, 76, 22)'>{{allPrice}}</text></text>
       </view>
       <view class='confirm__bottom__right' bindtap='payment'>
         <text>提交订单</text>
