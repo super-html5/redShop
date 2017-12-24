@@ -83,7 +83,7 @@
 
     <!-- bottomBar -->
     <view class='details__bottom__bar'>
-      <view class='details__bottom__bar__share__shop'>
+      <view class='details__bottom__bar__share__shop' bindtap="share">
         <image class='details__bottom__bar__image' src='../../../img/share.png' />
       </view>
       <view class='details__bottom__bar__share__shop' bindtap='linkShoppingCar'>

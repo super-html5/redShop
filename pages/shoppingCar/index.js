@@ -16,6 +16,9 @@ Page({
     shoppingNumber: 1,
     editOrComplete: "编辑"
   },
+  onLoad: function () {
+    app.isAuth();
+  },
   /**
    * 点击编辑或者完成
    */

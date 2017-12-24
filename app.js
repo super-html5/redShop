@@ -22,9 +22,7 @@ App({
         console.log(res);
         if (res.statusCode == 200) {
           if (!res.data.mobile) {
-            wx.redirectTo({
-              url: '/pages/login/index',
-            })
+
           } else {
             that.globalData.authUserInfo = true;
           }
@@ -45,7 +43,7 @@ App({
       },
       fail: function (res) {
         console.log(res);
-      },complete:function(){
+      }, complete: function () {
         wx.hideLoading()
       }
 
@@ -69,9 +67,8 @@ App({
           },
           method: "POST",
           success: function (res) {
-            console.log(res.data);
             if (res.statusCode == 200) {
-              // wx.setStorageSync('token_id', res.data.token);
+              that.globalData.openid = res.data.openid;
               that.globalData.token_id = res.data.token;
               that.getUserInfo();
             } else {
@@ -100,7 +97,6 @@ App({
   },
   onLaunch: function () {
     let that = this;
-
     if (!that.globalData.token_id) {
       that.getTokenId();
     }
@@ -113,8 +109,20 @@ App({
     }
   },
   globalData: {
+    openid: null,
     token_id: null,
     userInfo: null,
     authUserInfo: false
+  },
+
+  /**
+   * 验证是否认证
+   */
+  isAuth: function () {
+    if (!this.globalData.authUserInfo) {
+      wx.reLaunch({
+        url: '/pages/login/index',
+      })
+    }
   }
 })

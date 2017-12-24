@@ -17,6 +17,7 @@ Page({
     shopListInfo: [],
   },
   onLoad: function () {
+    app.isAuth();
     this.setImageData();
     this.setSwiperData();
     this.getShoppingList('createTime', 'asc');
@@ -141,5 +142,24 @@ Page({
     this.setData({
       imgDataList: res.data
     });
-  }
+  },
+  /**
+   * 分享
+   */
+  onShareAppMessage: function (res) {
+    return {
+      title: '丹道小二',
+      path: '/pages/login/index?openid=' + app.globalData.openid,
+      success: function (res) {
+        wx.showToast({
+          title: '分享成功',
+          icon: 'success',
+          duration: 2000
+        })
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
+  },
 })
