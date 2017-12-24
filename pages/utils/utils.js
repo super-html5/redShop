@@ -1,9 +1,11 @@
+const app = getApp()
 function callBackHandler(res, successFun) {
   if (res.statusCode == 200) {
     if (typeof successFun == 'function') {
       successFun(res);
     }
   } else if (res.statusCode == 401) {
+    app.getTokenId();
     wx.redirectTo({
       url: '/pages/login/index',
     });

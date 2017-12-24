@@ -252,12 +252,13 @@ Page({
     })
   },
   /**
-   * 分享
+   * 用户点击右上角分享
    */
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function () {
     return {
       title: '丹道小二',
       path: '/pages/login/index?openid=' + app.globalData.openid,
+      imageUrl: '../../../img/login.jpeg',
       success: function (res) {
         wx.showToast({
           title: '分享成功',

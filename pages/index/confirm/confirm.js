@@ -140,7 +140,7 @@ Page({
         "isSelfRaised": this.data.isSendClick,
         "useCoupon": this.data.useCoupon,
         "couponId": this.data.couponId,
-        "fromUser": ""
+        "fromUser": wx.getStorageSync('shareOpenid')
       },
       "ordersGoodsSet": [
         {
