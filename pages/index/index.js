@@ -153,7 +153,7 @@ Page({
     return {
       title: '丹道小二',
       path: '/pages/login/index?openid=' + app.globalData.openid,
-      imageUrl: '../../../img/login.jpeg',
+      imageUrl: '../../img/login.jpeg',
       success: function (res) {
         wx.showToast({
           title: '分享成功',
