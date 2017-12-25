@@ -1,5 +1,6 @@
 // pages/user/coupon/coupon.js
 const getUserCouponUrl = require('../../../config').getUserCoupon
+const utils = require('../../utils/utils.js')
 const app = getApp()
 Page({
 
@@ -32,6 +33,9 @@ Page({
       success: function (res) {
         console.log(res.data);
         if (res.statusCode == 200) {
+          res.data.forEach(function (value, index) {
+            value.expiredTime = utils.toDate(value.expiredTime);
+          });
           that.setData({
             userCoupon: res.data
           });

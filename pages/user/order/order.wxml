@@ -29,7 +29,7 @@
                   </view>
                   <view class="weui-media-box__title small_title">
                     <text>200ml/瓶</text>
-                    <text class="float_right">*{{orderGoods.goodsNum}}</text>
+                    <text class="float_right">x{{orderGoods.goodsNum}}</text>
                   </view>
                 </view>
               </navigator>

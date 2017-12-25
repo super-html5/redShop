@@ -38,7 +38,7 @@
             </navigator>
             <view wx:if="{{editOrComplete==='编辑'}}" class="weui-media-box__title">
               <text class="float_left">{{item.goods.capacity}}</text>
-              <text>*{{item.number}}</text>
+              <text>x{{item.number}}</text>
             </view>
 
             <view wx:if="{{editOrComplete==='完成'}}" class='weui-media-box__title'>

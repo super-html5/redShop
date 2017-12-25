@@ -5,9 +5,9 @@
     <block wx:for="{{userCoupon}}" wx:key="*this">
       <view class="couponBox" style='background: #fff;'>
         <view class="couponMon">代金券
-          <text>{{item.fee}}</text>元（满50元可用）</view>
+          <text>{{item.fee}}</text>元（满{{item.minConsume}}元可用）</view>
         <view class="couponTim">有效期至
-          <text>2017-12-19</text> </view>
+          <text>{{item.expiredTime}}</text> </view>
       </view>
     </block>
   </view>
