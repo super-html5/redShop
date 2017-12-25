@@ -173,7 +173,7 @@ Page({
       data: JSON.stringify(selectCarLists)
     })
     if (selectCarLists.length !== 0) {
-      wx: wx.navigateTo({
+       wx.navigateTo({
         url: '/pages/index/carConfirm/carConfirm'
       })
     } else {
