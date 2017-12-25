@@ -271,11 +271,11 @@ Page({
       }
     }
   },
-  share: function () {
-    wx.showToast({
-      title: '右上角分享哦',
-      icon: 'loading',
-      duration: 2000
-    })
-  }
+  // share: function () {
+  //   wx.showToast({
+  //     title: '右上角分享哦',
+  //     icon: 'loading',
+  //     duration: 2000
+  //   })
+  // }
 })

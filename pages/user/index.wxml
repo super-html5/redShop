@@ -19,9 +19,12 @@
         优惠券
         <view class="triangle-facing-right"></view>
       </view>
-      <view bindtap="linkShare">
+      <view>
         推荐给好友
-        <view class="triangle-facing-right"></view>
+        <button open-type='share' class='button_share'>
+          推荐给好友
+        </button>
+        <!-- <view class="triangle-facing-right"></view>  -->
       </view>
     </view>
   </view>

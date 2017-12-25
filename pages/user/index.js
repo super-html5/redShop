@@ -22,13 +22,13 @@ Page({
       url: '../user/coupon/coupon'
     })
   },
-  linkShare: function () {
-    wx.showToast({
-      title: '右上角分享哦',
-      icon: 'loading',
-      duration: 2000
-    })
-  },
+  // linkShare: function () {
+  //   wx.showToast({
+  //     title: '右上角分享哦',
+  //     icon: 'loading',
+  //     duration: 2000
+  //   })
+  // },
   onLoad: function () {
     wx.showShareMenu({
       withShareTicket: true

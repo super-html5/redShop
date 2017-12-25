@@ -47,6 +47,8 @@
 .userinfo>view {
   padding: 30rpx 40rpx 20rpx 30rpx;
   border-top: 1px solid #dedede;
+  font-size: 16px;
+  position: relative;
 }
 
 .userinfo>view:last-child {
@@ -69,4 +71,22 @@
   color: #bbb;
   transform: rotate(-45deg);
   margin-top: 0.36rem;
+}
+.button_share{
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  background: #ffffff;
+  border:none;
+  text-align: left;
+  font-size: 16px;
+  line-height: 1;
+  padding: 30rpx 40rpx 20rpx 30rpx;
+}
+.button_share::after{
+  border:none;
 }

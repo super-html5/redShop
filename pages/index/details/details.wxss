@@ -226,3 +226,13 @@ swiper {
 .weui-tab__panel{
   padding-top: 80rpx;
 }
+.button_share{
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  border:none;
+}
+
+.button_share::after{
+  border:none;
+}
