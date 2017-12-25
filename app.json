@@ -2,7 +2,6 @@
   "pages": [
     "pages/login/index",
     "pages/index/index",
-    
     "pages/index/confirm/confirm",
     "pages/index/details/details",
     "pages/user/order/order",

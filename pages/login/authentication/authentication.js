@@ -69,6 +69,7 @@ Page({
       data: data,
       success: function (res) {
         if (res.statusCode == 200) {
+          app.globalData.authUserInfo = true
           wx.navigateTo({
             url: '../../login/AuthenticationOk/AuthenticationOk',
           })
@@ -117,7 +118,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.isAuth();
     this.setData({
       mobile: options.mobile
     });

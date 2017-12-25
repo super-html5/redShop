@@ -15,6 +15,9 @@ Page({
     inputVcode: '',
     serial: ''
   },
+  onLoad: function () {
+
+  },
   /**
    * 下一步
    */
@@ -142,16 +145,16 @@ Page({
       success: function (res) {
         console.log(res);
         if (res.statusCode == 200) {
-          if (!app.globalData.authUserInfo){
+          if (!app.globalData.authUserInfo) {
             wx.navigateTo({
               url: '/pages/login/authentication/authentication?mobile=' + that.data.inputPhone,
             })
-          }else{
-            wx.navigateTo({
-              url: '/pages/index/index'
+          } else {
+            wx.switchTab({
+              url: '/pages/index/index',
             })
           }
-        
+
         } else if (res.statusCode == 400) {
           wx.showModal({
             content: '效验失败',
