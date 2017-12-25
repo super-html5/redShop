@@ -30,7 +30,6 @@ Page({
     } else {
       wx.setStorageSync('shareOpenid', '');
     }
-
   },
 
   /**

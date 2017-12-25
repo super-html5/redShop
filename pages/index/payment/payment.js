@@ -37,14 +37,14 @@ Page({
           'success': function (res) {
             setTimeout(function () {
               wx.redirectTo({
-                url: '/pages/user/order/order',
+                url: '/pages/index/index',
               })
             }, 1000)
           },
           'fail': function (res) {
             setTimeout(function () {
               wx.redirectTo({
-                url: '/pages/user/order/order',
+                url: '/pages/index/index',
               })
             }, 1000)
           }
