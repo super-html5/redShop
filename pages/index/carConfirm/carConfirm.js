@@ -19,7 +19,7 @@ Page({
     couponText: '未使用优惠券',
     couponId: '',
     useCoupon: 1,
-    couponNum:0
+    couponNum: 0
   },
   /**
    * 生命周期函数--监听页面加载
@@ -51,7 +51,7 @@ Page({
         }
         that.setData({
           shoppingInfo: _vo,
-          allPrice: _price,
+          allPrice: _price.toFixed(2),
           allNumber: _nums
         });
       }
@@ -114,7 +114,7 @@ Page({
               url: '/pages/user/addAddress/addAddress?isBack=true',
             })
           } else if (res.cancel) {
-           
+
           }
         }
       })
@@ -154,9 +154,9 @@ Page({
         wx.removeStorage({
           key: 'carShoppingInfo',
           success: function () {
-              wx.reLaunch({
-                  url: '/pages/index/payment/payment?id=' + _data.data.id,
-              })
+            wx.reLaunch({
+              url: '/pages/index/payment/payment?id=' + _data.data.id,
+            })
           }
         })
       },
@@ -218,12 +218,6 @@ Page({
             itemList: _couponList,
             success: function (res) {
               if (res.cancel) {
-                that.setData({
-                  couponText: '未使用优惠券',
-                  couponId: '',
-                  useCoupon: 1,
-                  couponNum: 0
-                })
                 return;
               }
               that.setData({
@@ -234,7 +228,12 @@ Page({
               })
             },
             fail: function (res) {
-
+              that.setData({
+                couponText: '未使用优惠券',
+                couponId: '',
+                useCoupon: 1,
+                couponNum: 0
+              })
             }
           })
         }

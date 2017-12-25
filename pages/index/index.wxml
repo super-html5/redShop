@@ -7,7 +7,7 @@
       <swiper indicator-dots="{{swiperData.indicatorDots}}" autoplay="{{swiperData.autoplay}}" interval="{{swiperData.interval}}" duration="{{swiperData.duration}}">
         <block wx:for="{{imgDataList}}" wx:key="*this">
           <swiper-item>
-            <image data-id='{{item.id}}' src="{{item.imgUrl}}" class="slide-image" bindtap='linkDetails'/>
+            <image data-id='{{item.url}}' src="{{item.imgUrl}}" class="slide-image" bindtap='linkDetails'/>
           </swiper-item>
         </block>
       </swiper>

@@ -18,7 +18,12 @@ Page({
     couponText: '未使用优惠券',
     couponNum: 0,
     couponId: '',
-    useCoupon: 1
+    useCoupon: 1,
+    allPrice: 0,
+    yPrice: 0,
+    zPrice: 0,
+    discountNumber: 0,
+    onePrice: 0,
   },
   /**
    * 生命周期函数--监听页面加载
@@ -35,12 +40,27 @@ Page({
     wx.getStorage({
       key: 'shoppingInfo',
       success: function (res) {
+        console.log(res);
+        if (res.data.number >= res.data.dataInfo.discountNumber) {
+          that.setData({
+            onePrice: (res.data.dataInfo.tradePrice).toFixed(2)
+          })
+        } else {
+          that.setData({
+            onePrice: (res.data.dataInfo.price).toFixed(2)
+          })
+        }
         that.setData({
+          zPrice: res.data.dataInfo.tradePrice,
+          yPrice: res.data.dataInfo.price,
+          allPrice: res.data.price,
+          discountNumber: res.data.dataInfo.discountNumber,
           shoppingInfo: res.data,
           shoppingNumber: res.data.number
         });
       }
     })
+
   },
   /**
    * 加减方法
@@ -52,12 +72,23 @@ Page({
         return;
       }
       this.setData({
-        shoppingNumber: this.data.shoppingNumber - 1
+        shoppingNumber: this.data.shoppingNumber - 1,
       });
     } else if (e.currentTarget.dataset.status == 'addition') {
       this.setData({
         shoppingNumber: this.data.shoppingNumber + 1
       });
+    }
+    if (this.data.shoppingNumber >= this.data.discountNumber) {
+      this.setData({
+        allPrice: ((this.data.zPrice * this.data.shoppingNumber) - this.data.couponNum).toFixed(2),
+        onePrice: (this.data.zPrice).toFixed(2)
+      })
+    } else {
+      this.setData({
+        allPrice: ((this.data.yPrice * this.data.shoppingNumber) - this.data.couponNum).toFixed(2),
+        onePrice: (this.data.yPrice).toFixed(2)
+      })
     }
   },
 
@@ -217,23 +248,24 @@ Page({
             itemList: _couponList,
             success: function (res) {
               if (res.cancel) {
-                that.setData({
-                  couponText: '未使用优惠券',
-                  couponId: '',
-                  useCoupon: 1,
-                  couponNum: 0
-                })
                 return;
               }
               that.setData({
                 couponText: '-' + that.data.couponList[res.tapIndex].fee + '元',
                 couponId: that.data.couponList[res.tapIndex].id,
                 useCoupon: 2,
-                couponNum: (that.data.couponList[res.tapIndex].fee).toFixed(2)
+                couponNum: (that.data.couponList[res.tapIndex].fee).toFixed(2),
+                allPrice: (that.data.allPrice - that.data.couponList[res.tapIndex].fee).toFixed(2),
               })
             },
             fail: function (res) {
-
+              that.setData({
+                couponText: '未使用优惠券',
+                couponId: '',
+                useCoupon: 1,
+                couponNum: 0,
+                allPrice: (that.data.onePrice * that.data.shoppingNumber).toFixed(2),
+              })
             }
           })
         }

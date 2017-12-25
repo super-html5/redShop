@@ -3,7 +3,8 @@
     <!-- express -->
     <view class='confirm__express__info'>
       <text>快递送货</text>
-      <image class='confirm__express__success' src='../../../img/success.png' />
+      <image wx:if='{{isSendClick == 1}}' class='confirm__express__success' src='../../../img/success.png' bindtap='isSend' />
+      <image wx:if='{{isSendClick == 2}}' class='confirm__express__success' src='../../../img/unSuccess.png' bindtap='isSend' />
     </view>
     <!-- express end -->
 
@@ -51,7 +52,7 @@
     <!-- coupon -->
     <view class='confirm__coupon'>
       <text class='confirm__coupon__text'>使用优惠券</text>
-      <text data-price='1000' class='confirm__coupon__num' bindtap='getUserCanUseCoupon'>{{couponText}}</text>
+      <text data-price='{{allPrice}}' class='confirm__coupon__num' bindtap='getUserCanUseCoupon'>{{couponText}}</text>
     </view>
     <!-- coupon end -->
     <view style='height:120rpx; width:100%; background-color:#e0e0e0'></view>

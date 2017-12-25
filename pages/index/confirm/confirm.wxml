@@ -3,7 +3,8 @@
     <!-- express -->
     <view class='confirm__express__info'>
       <text>快递送货</text>
-      <image class='confirm__express__success' src='../../../img/success.png' />
+      <image wx:if='{{isSendClick == 1}}' class='confirm__express__success' src='../../../img/success.png' bindtap='isSend' />
+      <image wx:if='{{isSendClick == 2}}' class='confirm__express__success' src='../../../img/unSuccess.png' bindtap='isSend' />
     </view>
     <!-- express end -->
 
@@ -41,40 +42,39 @@
         <text style='display:block'>{{shoppingInfo.dataInfo.capacity}}</text>
       </view>
       <view class='confirm__shop__num'>
-        <view>¥ {{shoppingNumber
-          < shoppingInfo.dataInfo.discountNumber ? shoppingInfo.dataInfo.price : shoppingInfo.dataInfo.tradePrice}}</view>
-            <view style='color:rgb(135, 135, 135)'>x{{shoppingNumber}}</view>
-        </view>
+        <view>¥ {{onePrice}}</view>
+        <view style='color:rgb(135, 135, 135)'>x{{shoppingNumber}}</view>
       </view>
-
-      <!-- shop info end -->
-
-      <!-- num -->
-      <view class='details__bottom__buyCard__num'>
-        <text class='details__bottom__buyCard__text'>购买数量</text>
-        <view class='details__bottom__buyCard__jz'>
-          <text data-status='subtraction' style='color:rgb(246, 76, 22)' bindtap='jzNum'>-</text>
-          <text style='color:rgb(135, 135, 135)'>{{shoppingNumber}}</text>
-          <text data-status='addition' style='color:rgb(246, 76, 22); padding-right:50rpx;' bindtap='jzNum'>+</text>
-        </view>
-      </view>
-      <!-- num end -->
-
-      <!-- coupon -->
-      <view class='confirm__coupon'>
-        <text class='confirm__coupon__text'>使用优惠券</text>
-        <text data-price='1000' class='confirm__coupon__num' bindtap='getUserCanUseCoupon'>{{couponText}}</text>
-      </view>
-      <!-- coupon end -->
-      <view style='height:120rpx; width:100%; background-color:#e0e0e0'></view>
-      <view class='confirm__bottom'>
-        <view class='confirm__bottom__left'>
-          <text>共{{shoppingNumber}}件 , 合计¥ : <text style='color:rgb(246, 76, 22)'>{{(shoppingNumber < shoppingInfo.dataInfo.discountNumber ? shoppingNumber*shoppingInfo.dataInfo.price : shoppingNumber*shoppingInfo.dataInfo.tradePrice) - couponNum}}</text></text>
-        </view>
-        <view class='confirm__bottom__right' bindtap='payment'>
-          <text>提交订单</text>
-        </view>
-      </view>
-      <view class='body_bg'></view>
     </view>
+
+    <!-- shop info end -->
+
+    <!-- num -->
+    <view class='details__bottom__buyCard__num'>
+      <text class='details__bottom__buyCard__text'>购买数量</text>
+      <view class='details__bottom__buyCard__jz'>
+        <text data-status='subtraction' style='color:rgb(246, 76, 22)' bindtap='jzNum'>-</text>
+        <text style='color:rgb(135, 135, 135)'>{{shoppingNumber}}</text>
+        <text data-status='addition' style='color:rgb(246, 76, 22); padding-right:50rpx;' bindtap='jzNum'>+</text>
+      </view>
+    </view>
+    <!-- num end -->
+
+    <!-- coupon -->
+    <view class='confirm__coupon'>
+      <text class='confirm__coupon__text'>使用优惠券</text>
+      <text data-price='{{allPrice}}' class='confirm__coupon__num' bindtap='getUserCanUseCoupon'>{{couponText}}</text>
+    </view>
+    <!-- coupon end -->
+    <view style='height:120rpx; width:100%; background-color:#e0e0e0'></view>
+    <view class='confirm__bottom'>
+      <view class='confirm__bottom__left'>
+        <text>共{{shoppingNumber}}件 , 合计¥ : <text style='color:rgb(246, 76, 22)'>{{allPrice}}</text></text>
+      </view>
+      <view class='confirm__bottom__right' bindtap='payment'>
+        <text>提交订单</text>
+      </view>
+    </view>
+    <view class='body_bg'></view>
   </view>
+</view>
