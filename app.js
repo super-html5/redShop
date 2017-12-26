@@ -23,10 +23,12 @@ App({
         if (res.statusCode == 200) {
           if (!res.data.mobile) {
 
-          } else {
+          }else {
             that.globalData.authUserInfo = true;
           }
-        } else {
+        }else if(res.statusCode == 404){
+
+        }  else {
           wx.showModal({
             content: '当前服务器繁忙，请稍后再试',
             showCancel: false,
@@ -37,9 +39,6 @@ App({
             }
           });
         }
-
-
-
       },
       fail: function (res) {
         console.log(res);
