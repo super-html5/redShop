@@ -3,7 +3,8 @@
     <!-- express -->
     <view class='confirm__express__info'>
       <text>快递送货</text>
-      <image class='confirm__express__success' src='../../../img/success.png' />
+      <image wx:if='{{shoppingInfo.isSelfRaised == 1}}' class='confirm__express__success' src='../../../img/success.png' bindtap='isSend' />
+      <image wx:if='{{shoppingInfo.isSelfRaised == 2}}' class='confirm__express__success' src='../../../img/unSuccess.png' bindtap='isSend' />
     </view>
     <!-- express end -->
 
