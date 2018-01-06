@@ -235,6 +235,7 @@ Page({
       },
       method: "GET",
       success: function (res) {
+        
         wx.hideLoading()
         if (res.statusCode == 200) {
           let _list = [];
@@ -246,7 +247,12 @@ Page({
           }
           wx.showActionSheet({
             itemList: _list,
-            success: function (res) { },
+            success: function (_res) { 
+              wx.setStorageSync('sinceAddressInfo', res.data[_res.tapIndex]);
+              wx.navigateTo({
+                url: '/pages/user/sinceAddress/sinceAddress',
+              })
+            },
             fail: function (res) { }
           })
         } else if (res.statusCode == 404) {

@@ -4,7 +4,6 @@
     "pages/index/index",
     "pages/index/confirm/confirm",
     "pages/index/details/details",
-    "pages/user/order/order",
     "pages/shoppingCar/index",
     "pages/user/share/share",
     "pages/login/register/register",
@@ -16,7 +15,9 @@
     "pages/user/coupon/coupon",
     "pages/index/carConfirm/carConfirm",
     "pages/index/orderConfirm/orderConfirm",
-    "pages/index/payment/payment"
+    "pages/index/payment/payment",
+    "pages/user/sinceAddress/sinceAddress",
+    "pages/user/order/order"
   ],
   "window": {
     "backgroundTextStyle": "light",
