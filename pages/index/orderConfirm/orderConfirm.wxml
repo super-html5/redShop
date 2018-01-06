@@ -61,7 +61,7 @@
       <view wx:if="{{orderStatus == 1}}" class='confirm__bottom__right' bindtap='payment'>
         <text>确认支付</text>
       </view>
-      <view wx:if="{{orderStatus == 2}}" class='confirm__bottom__right' bindtap='linkIndex'>
+      <view wx:if="{{orderStatus == 2}}" style='background-color:#fff' class='confirm__bottom__right' bindtap='linkIndex'>
         <text>再次购买</text>
       </view>
     </view>

@@ -227,6 +227,7 @@ Page({
    * 查看自提点
    */
   getIsSelfRaisedList: function () {
+    wx.showLoading()
     wx.request({
       url: selfRaiseStationUrl,
       header: {
@@ -235,7 +236,6 @@ Page({
       },
       method: "GET",
       success: function (res) {
-        
         wx.hideLoading()
         if (res.statusCode == 200) {
           let _list = [];
