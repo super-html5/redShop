@@ -85,7 +85,11 @@ Page({
         "token_id": app.globalData.token_id
       },
       success: function (res) {
-        utils.callBackHandler(res, that.getDefAddressSuccess);
+          if (res.statusCode == 200){
+              that.getDefAddressSuccess(res)
+          }else{
+              console.log('查询失败');
+          }
       },
       fail: function (error) {
         console.log(error)
