@@ -152,7 +152,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '丹道小二',
-      path: '/pages/login/index?openid=' + app.globalData.openid,
+      path: '/pages/login/startUp/startUp?openid=' + app.globalData.openid,
       imageUrl: '../../img/1501515639556_.pic_thumb.jpg',
       success: function (res) {
         wx.showToast({

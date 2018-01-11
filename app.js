@@ -75,17 +75,7 @@ App({
         })
     },
     onLaunch: function () {
-        // let that = this;
-        // if (!that.globalData.token_id) {
-        //   that.getTokenId();
-        // }
-        // if (!that.globalData.userInfo) {
-        //   wx.getUserInfo({
-        //     success: res => {
-        //       that.globalData.userInfo = res.userInfo
-        //     }
-        //   })
-        // }
+
     },
     globalData: {
         openid: null,
