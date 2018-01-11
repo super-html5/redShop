@@ -73,7 +73,7 @@ Page({
           wx.navigateTo({
             url: '../../login/AuthenticationOk/AuthenticationOk',
           })
-        } else if (res.data.code == "notTrueInfo.auth.userInfo.NotRule ") {
+        } else if (res.data.code == "notTrueInfo.auth.userInfo.NotRule") {
           wx.showModal({
             content: '信息错误',
             showCancel: false,
