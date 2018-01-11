@@ -30,13 +30,17 @@ Page({
   //   })
   // },
   onLoad: function () {
+        wx.getUserInfo({
+          success: res => {
+              this.setData({
+                  userInfo: res.userInfo
+              })
+          }
+        })
     wx.showShareMenu({
       withShareTicket: true
     });
     app.isAuth();
-    this.setData({
-      userInfo: app.globalData.userInfo
-    })
   },
   /**
    * 用户点击右上角分享

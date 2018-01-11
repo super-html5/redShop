@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/login/index",
     "pages/login/startUp/startUp",
+    "pages/login/index",
+
     "pages/index/index",
     "pages/index/confirm/confirm",
     "pages/index/details/details",
