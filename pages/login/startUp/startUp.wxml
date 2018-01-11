@@ -1,0 +1,4 @@
+<!--pages/login/startUp/startUp.wxml-->
+<view class="_start">
+  <image src='../../../img/startUp.png'></image>
+</view>
