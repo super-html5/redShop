@@ -258,7 +258,7 @@ Page({
     return {
       title: '丹道小二',
       path: '/pages/login/startUp/startUp?openid=' + app.globalData.openid,
-      imageUrl: '../../../img/1501515639556_.pic_thumb.jpg',
+      imageUrl: '../../../img/1501515639556_.pic_hd.jpg',
       success: function (res) {
         wx.showToast({
           title: '分享成功',
