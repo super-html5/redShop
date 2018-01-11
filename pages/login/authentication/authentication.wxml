@@ -6,7 +6,7 @@
     <view class="margin_top80">
       <view>姓名</view>
       <view>
-        <input name="realName" class="tel_input" placeholder="请输入姓名" />
+        <input name="realName"  type="text" class="tel_input" placeholder="请输入姓名" />
       </view>
     </view>
 

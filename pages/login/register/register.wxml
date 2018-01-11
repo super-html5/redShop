@@ -15,7 +15,7 @@
   <view class="margin_top40">
     <view class="weui-label">验证码</view>
     <view>
-      <input class="vcode_input" placeholder="请输入验证码" bindinput="bindKeyVcode" request/>
+      <input class="vcode_input" type='number' placeholder="请输入验证码" bindinput="bindKeyVcode" request/>
       <view wx:if="{{second>0}}" class="vcode-btn">重新发送（{{second}}）</view>
       <view wx:else class="vcode-btn" bindtap="startCountdown">获取验证码</view>
     </view>
