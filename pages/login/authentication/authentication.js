@@ -89,7 +89,10 @@ Page({
             showCancel: false,
             success: function (res) {
               if (res.confirm) {
-
+                  app.globalData.authUserInfo = true
+                  wx.navigateTo({
+                      url: '../../login/AuthenticationOk/AuthenticationOk',
+                  })
               }
             }
           });
