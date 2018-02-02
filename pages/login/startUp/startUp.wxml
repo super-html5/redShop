@@ -1,5 +1,5 @@
 <!--pages/login/startUp/startUp.wxml-->
 <view class="_start">
-  <image src='../../../img/startUp.png'></image>
+  <image src='{{imgUrl}}'></image>
   <button class="orange_color" disabled="{{isClick}}" bindtap="toEntert"> 立即进入</button>
 </view>

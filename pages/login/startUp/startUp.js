@@ -1,4 +1,6 @@
 // pages/login/startUp/startUp.js
+const coverImgUrl = require('../../../config').coverImgUrl;
+
 const app = getApp()
 Page({
 
@@ -7,7 +9,8 @@ Page({
      */
     data: {
         res: '',
-        isClick: true
+        isClick: true,
+        imgUrl:''
     },
 
     /**
@@ -20,6 +23,8 @@ Page({
             wx.setStorageSync('shareOpenid', '');
         }
         app.getTokenId(this.responseFun);
+        this.coverImg();
+
     },
 
     /**
@@ -35,6 +40,7 @@ Page({
     toEntert: function () {
         let that = this;
         let res = that.data.res;
+        console.log(res)
         if (res.statusCode == 200) {
             if (!res.data.mobile) {
                 wx.reLaunch({
@@ -62,47 +68,86 @@ Page({
             });
         }
     },
+    coverImg: function () {
+        let that = this;
+        wx.showLoading({
+            title: '加载中',
+        })
+
+        wx.request({
+            url: coverImgUrl,
+            header: {
+                "content-type": "application/json",
+            },
+            method: "get",
+            success: function (res) {
+                console.log(res.data);
+                if (res.statusCode == 200) {
+                    that.setData({
+                        imgUrl:res.data.configUrlValue
+                    })
+                } else {
+                    that.setData({
+                        imgUrl:'../../../img/startUp.png'
+                    })
+                }
+            },
+            fail: function (res) {
+                console.log(res);
+            },
+            complete: function () {
+                wx.hideLoading()
+            }
+
+        })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
 
-    },
+    }
+    ,
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
 
-    },
+    }
+    ,
 
     /**
      * 生命周期函数--监听页面隐藏
      */
     onHide: function () {
 
-    },
+    }
+    ,
 
     /**
      * 生命周期函数--监听页面卸载
      */
     onUnload: function () {
 
-    },
+    }
+    ,
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
 
-    },
+    }
+    ,
 
     /**
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
 
-    },
+    }
+    ,
 
     /**
      * 用户点击右上角分享
