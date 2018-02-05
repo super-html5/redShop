@@ -37,6 +37,7 @@
         </view>
         <view class='confirm__shop__name'>
           <text>{{item.goodsTitle}}</text>
+
           <text style='display:block'>{{item.capacity}}</text>
         </view>
         <view class='confirm__shop__num'>
