@@ -24,7 +24,7 @@
   <view class="readed">
     <image src="../../../img/success.png"></image>
     <view>已阅读并同意成为
-      <navigator>丹道·小二协议</navigator>, 接受免除或限制责任、诉讼管辖预定等条款 </view>
+      <navigator url="/pages/login/index">丹道·小二协议</navigator>, 接受免除或限制责任、诉讼管辖预定等条款 </view>
   </view>
 
   <view class="margin_top100">
