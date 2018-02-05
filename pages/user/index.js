@@ -4,7 +4,8 @@ const app = getApp()
 
 Page({
   data: {
-    userInfo: {}
+    userInfo: {},
+    myIncome:''
   },
   //事件处理函数
   linkOrder: function () {
@@ -33,7 +34,8 @@ Page({
         wx.getUserInfo({
           success: res => {
               this.setData({
-                  userInfo: res.userInfo
+                  userInfo: res.userInfo,
+                  myIncome: app.globalData.myIncome
               })
           }
         })

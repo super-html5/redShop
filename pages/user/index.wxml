@@ -4,7 +4,10 @@
   <view class="page__bd">
     <view class="userinfoImg" bindtap="bindViewTap">
       <image wx:if="{{userInfo.avatarUrl}}" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+      <view class="userinfo-nickname">
+        <view>{{userInfo.nickName}}</view>
+        <view class='smallFont'>我的收益：{{myIncome}}元</view>
+      </view>
     </view>
     <view class="userinfo">
       <view bindtap="linkOrder">

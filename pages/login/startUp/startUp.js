@@ -35,6 +35,7 @@ Page({
             res: res,
             isClick: false
         })
+        app.globalData.myIncome = res.data.myIncome
     },
 
     toEntert: function () {

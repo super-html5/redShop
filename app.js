@@ -80,7 +80,9 @@ App({
     globalData: {
         openid: null,
         token_id: null,
-        authUserInfo: false
+        authUserInfo: false,
+        myIncome:null
+
     },
 
     /**
