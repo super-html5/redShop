@@ -41,7 +41,6 @@ Page({
     toEntert: function () {
         let that = this;
         let res = that.data.res;
-        console.log(res)
         if (res.statusCode == 200) {
             if (!res.data.mobile) {
                 wx.reLaunch({
@@ -82,7 +81,6 @@ Page({
             },
             method: "get",
             success: function (res) {
-                console.log(res.data);
                 if (res.statusCode == 200) {
                     that.setData({
                         imgUrl:res.data.configUrlValue
