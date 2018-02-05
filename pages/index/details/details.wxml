@@ -67,12 +67,12 @@
         <view class="weui-tab__panel">
           <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
             <block wx:for="{{shopDetails.detailsImg}}" wx:key="*this">
-              <image src="{{item}}" class="details__shop__image" />
+              <image src="{{item}}" bindload="imageLoad" data-index="{{ index }}" style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;" />
             </block>
           </view>
           <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
             <block wx:for="{{shopDetails.specImg}}" wx:key="*this">
-              <image src="{{item}}" class="details__shop__image" />
+              <image src="{{item}}" bindload="imageLoad" data-index="{{ index }}" style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;" />
             </block>
           </view>
         </view>
