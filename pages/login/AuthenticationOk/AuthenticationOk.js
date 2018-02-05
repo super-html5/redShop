@@ -15,12 +15,13 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        app.getUserInfo(responseFun)
+        app.getUserInfo(this.responseFun)
     },
     /**
      * 回调
      */
-    responseFun: function () {
+    responseFun: function (res) {
+        console.log(res);
         app.globalData.myIncome = res.data.myIncome
     },
     /**
