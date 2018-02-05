@@ -34,8 +34,7 @@ Page({
         wx.getUserInfo({
             success: res => {
                 this.setData({
-                    userInfo: res.userInfo,
-                    myIncome: app.globalData.myIncome
+                    userInfo: res.userInfo
                 })
             }
         })
@@ -55,7 +54,6 @@ Page({
      */
     responseFun: function (res) {
         console.log(res);
-        app.globalData.myIncome = res.data.myIncome
         this.setData({
             myIncome: res.data.myIncome
         })

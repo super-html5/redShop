@@ -15,15 +15,8 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        app.getUserInfo(this.responseFun)
     },
-    /**
-     * 回调
-     */
-    responseFun: function (res) {
-        console.log(res);
-        app.globalData.myIncome = res.data.myIncome
-    },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
