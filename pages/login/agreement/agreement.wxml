@@ -1,0 +1,22 @@
+<!--pages/login/agreement/agreement.wxml-->
+<view class="body_bg"></view>
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-article">
+            <view class="weui-article__section">
+
+                <view class="weui-article__section">
+                    <block wx:for="{{configContent}}" wx:key="*this">
+                        <!--   <view class="float_left dot"></view>
+                                <view class="weui-article__h3">
+                             22222222222222
+                         </view>-->
+                        <view class="weui-article__p text_indent">
+                            丹道·小二是数以万计的快车、专车、出租车司机的继承,他们有很强的互联网思维，他们通过智慧的共享后备车厢,成为丹道酒业的流动小仓库,在空闲的时间跑单的时候,在线接单,在线卖酒的一群人。
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

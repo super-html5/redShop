@@ -2,7 +2,7 @@
   "pages": [
     "pages/login/startUp/startUp",
     "pages/login/index",
-
+    "pages/login/agreement/agreement",
     "pages/index/index",
     "pages/index/confirm/confirm",
     "pages/index/details/details",

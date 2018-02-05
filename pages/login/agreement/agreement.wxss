@@ -1,0 +1,33 @@
+/* pages/login/agreement/agreement.wxss */
+
+.weui-article__h3{
+    color: #ff6319;
+}
+.text_indent{
+    text-indent: 2em;
+}
+.dot {
+    background: #ff6319;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-right: 10rpx;
+    margin-top: 8px;
+}
+
+.float_left {
+    float: left;
+}
+
+.footer_img {
+    width: 33.3%;
+    height: 80rpx;
+}
+
+.float_text {
+    width: 33.3%;
+    line-height: 80rpx;
+    color: #ff6319;
+}
+
+
